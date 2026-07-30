@@ -401,63 +401,176 @@ footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,.06); p
 .footer-tagline { font-family: 'Fraunces', serif; font-size: .85rem; font-style: italic; color: var(--gold); }
 </style>
 
-<!-- ═══ MiTran Global · shared site navigation (added by build) ═══ -->
-<style id="mg-sitebar-css">
-  :root { --mg-bar-h: 40px; }
-  #mg-sitebar {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 3000;
-    height: var(--mg-bar-h);
-    background: #0b1730;
+<style id="mg-nav-css">
+  /* ===== MiTran Global · unified navigation (replaces the old double bar) ===== */
+  :root { --mg-h: 60px; }
+  /* hide each page's original top bar; our header is a <header>, so it stays */
+  body > nav, #navbar, #nav { display: none !important; }
+
+  #mg-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+    height: var(--mg-h); background: #0b1730;
     border-bottom: 1px solid rgba(255,255,255,.10);
-    display: flex; align-items: center;
-    padding: 0 14px; overflow-x: auto; overflow-y: hidden;
-    -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    box-shadow: 0 2px 18px rgba(0,0,0,.22);
     font-family: 'DM Sans','Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
-  #mg-sitebar::-webkit-scrollbar { display: none; }
-  #mg-sitebar .mg-home {
-    display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;
-    margin-right: 14px; padding-right: 14px;
-    border-right: 1px solid rgba(255,255,255,.14);
+  #mg-nav *, #mg-nav *::before, #mg-nav *::after { box-sizing: border-box; }
+  .mg-nav-inner {
+    max-width: 1200px; height: 100%; margin: 0 auto; padding: 0 22px;
+    display: flex; align-items: center; gap: 22px;
+  }
+  .mg-brand {
+    display: inline-flex; align-items: center; flex-shrink: 0;
     color: #f6f1e4; text-decoration: none;
+    font-size: 1.02rem; font-weight: 700; letter-spacing: .01em; white-space: nowrap;
+  }
+  .mg-brand b { color: #e8b84b; font-weight: 700; }
+  .mg-brand img { height: 30px; width: auto; max-width: 190px; display: block; }
+  @media (max-width: 860px) { .mg-brand img { height: 26px; } }
+
+  .mg-links { display: flex; align-items: center; gap: 4px; margin-left: 6px; }
+  .mg-links > a, .mg-drop-btn {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: none; border: 0; cursor: pointer; font: inherit;
+    color: #c6d3ea; text-decoration: none; white-space: nowrap;
+    font-size: .84rem; font-weight: 500; letter-spacing: .01em;
+    padding: 8px 12px; border-radius: 999px; transition: background .2s, color .2s;
+  }
+  .mg-links > a:hover, .mg-drop-btn:hover { background: rgba(255,255,255,.10); color: #fff; }
+  .mg-links > a.mg-active, .mg-drop.mg-active .mg-drop-btn {
+    background: #e8b84b; color: #0b1730; font-weight: 700;
+  }
+  .mg-caret { font-size: .7rem; transition: transform .2s; }
+  .mg-drop.open .mg-caret { transform: rotate(180deg); }
+
+  .mg-drop { position: relative; }
+  .mg-drop-menu {
+    position: absolute; top: calc(100% + 8px); left: 0; min-width: 216px;
+    background: #10203f; border: 1px solid rgba(255,255,255,.12); border-radius: 12px;
+    box-shadow: 0 14px 34px rgba(0,0,0,.36); padding: 6px;
+    display: none; flex-direction: column; gap: 2px;
+  }
+  .mg-drop.open .mg-drop-menu { display: flex; }
+  .mg-drop-menu a {
+    color: #c6d3ea; text-decoration: none; font-size: .84rem; font-weight: 500;
+    padding: 9px 12px; border-radius: 8px; white-space: nowrap; transition: background .2s, color .2s;
+  }
+  .mg-drop-menu a:hover { background: rgba(255,255,255,.10); color: #fff; }
+  .mg-drop-menu a.mg-active { color: #e8b84b; font-weight: 700; }
+
+  .mg-cta {
+    margin-left: auto; flex-shrink: 0;
+    background: #e8b84b; color: #0b1730; text-decoration: none;
     font-size: .82rem; font-weight: 700; letter-spacing: .01em; white-space: nowrap;
+    padding: 9px 18px; border-radius: 999px; transition: transform .15s, box-shadow .2s;
   }
-  #mg-sitebar .mg-home b { color: #e8b84b; font-weight: 700; }
-  #mg-sitebar .mg-links { display: flex; align-items: center; gap: 2px; list-style: none; margin: 0; padding: 0; }
-  #mg-sitebar .mg-links a {
-    display: block; color: #c6d3ea; text-decoration: none;
-    font-size: .78rem; font-weight: 500; letter-spacing: .01em;
-    padding: 7px 11px; border-radius: 999px; white-space: nowrap;
-    transition: background .2s, color .2s;
+  .mg-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(232,184,75,.34); }
+
+  .mg-burger {
+    display: none; margin-left: auto; flex-direction: column; gap: 5px;
+    background: none; border: 0; cursor: pointer; padding: 8px;
   }
-  #mg-sitebar .mg-links a:hover { background: rgba(255,255,255,.10); color: #fff; }
-  #mg-sitebar .mg-links a.mg-active { background: #e8b84b; color: #0b1730; font-weight: 700; }
-  /* push each page's own fixed nav below the shared bar */
-  nav { top: var(--mg-bar-h) !important; }
-  @media (max-width: 700px) {
-    #mg-sitebar { padding: 0 8px; }
-    #mg-sitebar .mg-home { margin-right: 10px; padding-right: 10px; font-size: .78rem; }
-    #mg-sitebar .mg-links a { padding: 6px 9px; font-size: .74rem; }
+  .mg-burger span { width: 22px; height: 2px; background: #f6f1e4; border-radius: 2px; transition: .3s; }
+  .mg-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .mg-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .mg-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mg-mobile {
+    display: none; flex-direction: column; padding: 8px 14px 16px;
+    background: #0b1730; border-bottom: 1px solid rgba(255,255,255,.10);
   }
-  @media print { #mg-sitebar { display: none; } nav { top: 0 !important; } }
-  \.hero { padding-top: 150px !important; }
+  .mg-mobile.open { display: flex; }
+  .mg-mobile a {
+    color: #c6d3ea; text-decoration: none; font-size: .95rem; font-weight: 500;
+    padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,.06);
+  }
+  .mg-mobile a.mg-sub { padding-left: 24px; font-size: .88rem; color: #9fb1cf; }
+  .mg-mobile a.mg-active { color: #e8b84b; font-weight: 700; }
+  .mg-mobile .mg-cta { margin: 14px 8px 0; text-align: center; }
+
+  @media (max-width: 860px) {
+    .mg-links, #mg-nav > .mg-nav-inner > .mg-cta { display: none; }
+    .mg-burger { display: flex; }
+  }
+  @media print { #mg-nav { display: none; } body > nav, #navbar, #nav { display: block !important; } }
 </style>
 </head>
 <body>
-<!-- ═══ MiTran Global · shared site navigation ═══ -->
-<div id="mg-sitebar" role="navigation" aria-label="MiTran Global site navigation">
-  <a class="mg-home" href="index.html">Mi<b>Tran</b> Global</a>
-  <ul class="mg-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="platinum.html">Platinum Hub</a></li>
-    <li><a href="i-love-exams.html">I Love Exams</a></li>
-    <li><a href="accelerated-learning.html">Accelerated Learning</a></li>
-    <li><a href="positive-mind-mastery.html">Positive Mind Mastery</a></li>
-    <li><a href="free-training.html" class="mg-active">Free Training</a></li>
-    <li><a href="quiz.html">Personality Quiz</a></li>
-  </ul>
-</div>
-
+<!-- ===== MiTran Global · unified navigation ===== -->
+<header id="mg-nav" role="navigation" aria-label="Main navigation">
+  <div class="mg-nav-inner">
+    <a class="mg-brand" href="index.html"><img src="https://res.cloudinary.com/twteccae/image/upload/logo_white_lp8cpl.png" alt="MiTran Global"></a>
+    <div class="mg-links">
+      <a href="index.html" data-mg="index">Home</a>
+      <a href="platinum.html" data-mg="platinum">Platinum Hub</a>
+      <div class="mg-drop" data-mg-group="courses">
+        <button type="button" class="mg-drop-btn" aria-haspopup="true" aria-expanded="false">Courses <span class="mg-caret">&#9662;</span></button>
+        <div class="mg-drop-menu">
+          <a href="i-love-exams.html" data-mg="i-love-exams">I Love Exams</a>
+          <a href="accelerated-learning.html" data-mg="accelerated-learning">Accelerated Learning</a>
+          <a href="positive-mind-mastery.html" data-mg="positive-mind-mastery">Positive Mind Mastery</a>
+        </div>
+      </div>
+      <a href="free-training.html" data-mg="free-training">Free Training</a>
+      <a href="quiz.html" data-mg="quiz">Personality Quiz</a>
+    </div>
+    <a class="mg-cta" href="https://hub.mitranglobal.com/web/login">Enroll</a>
+    <button type="button" class="mg-burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mg-mobile">
+    <a href="index.html" data-mg="index">Home</a>
+    <a href="platinum.html" data-mg="platinum">Platinum Hub</a>
+    <a class="mg-sub" href="i-love-exams.html" data-mg="i-love-exams">I Love Exams</a>
+    <a class="mg-sub" href="accelerated-learning.html" data-mg="accelerated-learning">Accelerated Learning</a>
+    <a class="mg-sub" href="positive-mind-mastery.html" data-mg="positive-mind-mastery">Positive Mind Mastery</a>
+    <a href="free-training.html" data-mg="free-training">Free Training</a>
+    <a href="quiz.html" data-mg="quiz">Personality Quiz</a>
+    <a class="mg-cta" href="https://hub.mitranglobal.com/web/login">Enroll</a>
+  </div>
+</header>
+<script>
+(function () {
+  var nav = document.getElementById('mg-nav');
+  if (!nav) return;
+  // active page from filename (index.html when at a directory root)
+  var path = location.pathname.split('/').pop() || 'index.html';
+  var key = path.replace(/\.html?$/i, '') || 'index';
+  nav.querySelectorAll('[data-mg]').forEach(function (a) {
+    if (a.getAttribute('data-mg') === key) {
+      a.classList.add('mg-active');
+      var grp = a.closest('.mg-drop');
+      if (grp) grp.classList.add('mg-active');
+    }
+  });
+  // desktop dropdown
+  var drop = nav.querySelector('.mg-drop');
+  var dropBtn = drop && drop.querySelector('.mg-drop-btn');
+  if (dropBtn) {
+    dropBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = drop.classList.toggle('open');
+      dropBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function () {
+      drop.classList.remove('open'); dropBtn.setAttribute('aria-expanded', 'false');
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { drop.classList.remove('open'); dropBtn.setAttribute('aria-expanded', 'false'); }
+    });
+  }
+  // mobile menu
+  var burger = nav.querySelector('.mg-burger');
+  var mobile = nav.querySelector('.mg-mobile');
+  if (burger && mobile) {
+    burger.addEventListener('click', function () {
+      var open = mobile.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+  }
+})();
+</script>
 
 <!-- CURZR -->
 <div class="curzr-arrow-pointer" hidden>
