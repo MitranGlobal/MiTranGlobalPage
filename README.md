@@ -1,66 +1,107 @@
-# MiTran Global — Website
+# MiTran Global — Website (v2)
 
-Static HTML site. No build step, no dependencies. Every page is self-contained
-(inline CSS + JS) and links to the others through a shared navigation bar.
+Full modern rebuild of [MiTranGlobalPage](https://github.com/MitranGlobal/MiTranGlobalPage). Static HTML files replaced with a proper Next.js 14 app.
 
-## Pages
+## Stack
 
-| File | Page | Was |
-|---|---|---|
-| `index.html` | Home — Positivity Framework™ | `mitran_global_main.html` |
-| `platinum.html` | Platinum Hub — 24-Session Journey | `mitran_platinum.html` |
-| `i-love-exams.html` | I Love Exams (course) | `iloveexams_course.html` |
-| `accelerated-learning.html` | Accelerated Learning Methodology (course) | `accelerated_learning_course.html` |
-| `positive-mind-mastery.html` | Positive Mind Mastery (course) | `positive_mind_mastery_course.html` |
-| `free-training.html` | Free Training (landing page) | `training_mitranglobal_course.html` |
-| `quiz.html` | Discover Your Personality Type | `mitran_quiz.html` |
+- **Next.js 14** — App Router, TypeScript
+- **Tailwind CSS v3** — design tokens in `tailwind.config.ts`
+- **Three.js + React Three Fiber + Drei** — hero background (floating orbs + sparkles)
+- **Framer Motion** — nav, mobile drawer, testimonials, lightbox, quiz transitions
+- **GSAP + ScrollTrigger** — scroll-reveal animations (`components/ui/Reveal.tsx`)
+- **Zustand** — lightbox state (`store/lightbox.ts`)
+- **Vercel** — deployment target
 
-`index.html` is the entry point, so the site works at a domain root or on GitHub Pages.
+No custom cursor. Native pointer only.
 
-## Shared navigation
+## Project layout
 
-Every page carries an identical block, injected in two places:
-
-1. `<style id="mg-sitebar-css">` — just before `</head>`
-2. `<div id="mg-sitebar">` — immediately after `<body>`
-
-It is a fixed dark strip across the top listing all seven pages, with the current
-page highlighted in gold. Each page's original nav is pushed down by 40px
-(`nav { top: var(--mg-bar-h) !important; }`) and the first section's top padding is
-increased by the same amount, so nothing overlaps.
-
-On narrow screens the strip scrolls horizontally — which matters, because the
-per-page hamburger menus collapse the original nav links below 900px.
-
-**To change the menu:** edit the `<div id="mg-sitebar">` block in all seven files
-(it is byte-identical apart from which link has `class="mg-active"`).
-
-**To change the strip's height:** edit `--mg-bar-h` in the style block, and adjust the
-matching `padding-top` overrides at the bottom of the same block.
-
-## Internal links
-
-Links that previously pointed at `https://mitranglobal.com/...` now point at the
-local files, so the whole set is navigable offline and on a staging URL.
-
-External links are untouched: `hub.mitranglobal.com` (enrolment/checkout),
-`lp.mitranglobal.com`, `positivity.mitranglobal.com`, Calendly, WhatsApp, Drive,
-Spotify, LinkedIn.
-
-If you deploy these pages at paths that differ from the filenames above
-(e.g. `/iloveexams` instead of `/i-love-exams.html`), update the `href`s in the
-`mg-sitebar` block and in the course cards on `index.html` to match.
-
-## Local preview
-
-```bash
-python3 -m http.server 8000
-# then open http://localhost:8000
+```
+app/
+  layout.tsx           Root layout, fonts, Nav, Footer, Lightbox
+  page.tsx             Home
+  platinum/            Platinum Hub (24-session flagship)
+  i-love-exams/
+  accelerated-learning/
+  positive-mind-mastery/
+  free-training/
+  quiz/                Interactive quiz
+components/
+  ui/                  Nav, Footer, Lightbox, Reveal, PageShell, FeatureGrid
+  three/HeroScene.tsx  R3F Canvas
+  sections/            Hero, Framework, Science, Platform, Courses,
+                       Testimonials, Coach, Challenge, PressMarquee, Cta, QuizFlow
+lib/
+  cn.ts                clsx + tailwind-merge helper
+  site.ts              All site content (nav, courses, pillars, testimonials, urls)
+store/
+  lightbox.ts          Zustand store
 ```
 
-Opening the files directly with `file://` works too, since there are no fetches.
+## Local development
 
-## Deploying with GitHub Pages
+```bash
+npm install
+npm run dev
+```
 
-Settings → Pages → Source: *Deploy from a branch* → `main` / `/ (root)`.
-The `.nojekyll` file is included so Jekyll doesn't reprocess anything.
+Open http://localhost:3000.
+
+## Build
+
+```bash
+npm run build
+npm start
+```
+
+## Deploy to Vercel
+
+1. Push this repo to GitHub (instructions below).
+2. Go to [vercel.com/new](https://vercel.com/new), import the repo.
+3. Framework preset: **Next.js** (auto-detected). No env vars needed.
+4. Click **Deploy**.
+
+Every push to `main` will redeploy automatically.
+
+## Push to git (replacing the old site)
+
+From inside this directory:
+
+```bash
+# 1. Initialise
+git init
+git add .
+git commit -m "chore: modern rebuild — Next.js 14, Tailwind v3, R3F, Framer Motion, GSAP, Zustand"
+
+# 2a. If you want to REPLACE the existing MiTranGlobalPage repo history:
+git branch -M main
+git remote add origin https://github.com/MitranGlobal/MiTranGlobalPage.git
+git push -f origin main
+
+# 2b. (Safer) push to a new branch first and open a PR:
+git checkout -b rebuild/nextjs
+git remote add origin https://github.com/MitranGlobal/MiTranGlobalPage.git
+git push -u origin rebuild/nextjs
+# then open a PR on GitHub and merge when ready
+
+# 2c. Or push to a brand new repo:
+gh repo create MitranGlobal/MiTranGlobalPage-v2 --public --source=. --remote=origin --push
+```
+
+### About the current Vercel project
+
+The existing Vercel project points at the old static site. When you push this rebuild, Vercel will detect Next.js on the next deploy — you don't need to reconfigure anything as long as the same repo/branch is connected. Confirm the project's **Framework Preset** is set to **Next.js** in Vercel settings after the first build.
+
+## Editing content
+
+All site copy, links, testimonials, pillars, and courses live in `lib/site.ts`. Edit there — pages automatically re-render.
+
+## Notes on the rebuild
+
+- All 7 legacy HTML files consolidated into 7 routes with a single shared layout, nav, and footer.
+- Duplicated nav strip removed — one `<Nav />` component with active-route highlighting via Framer Motion `layoutId`.
+- Custom cursor removed as requested.
+- Hero uses a Three.js scene (dynamic import, no SSR) with graceful `null` fallback and a gradient overlay so type stays readable.
+- Scroll reveals are declarative — wrap any block in `<Reveal>` and it fades in with GSAP ScrollTrigger.
+- Lightbox is globally mounted in `layout.tsx` and controlled from anywhere via `useLightbox()`.
+- Respects `prefers-reduced-motion`.
