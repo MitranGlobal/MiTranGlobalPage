@@ -7,6 +7,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { navLinks, site } from "@/lib/site";
 import { cn } from "@/lib/cn";
 
+const LOGO_WHITE =
+  "https://res.cloudinary.com/twteccae/image/upload/Logo_White_szjcqg.svg";
+
 export default function Nav() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
@@ -37,14 +40,13 @@ export default function Nav() {
         )}
       >
         <div className="container-x flex h-16 items-center justify-between md:h-20">
-          <Link
-            href="/"
-            className="flex items-center gap-2 text-sm font-semibold tracking-wide"
-          >
-            <span className="grid h-8 w-8 place-items-center rounded-lg bg-gold-gradient text-black">
-              M
-            </span>
-            <span className="hidden sm:inline">{site.name}</span>
+          <Link href="/" className="flex items-center" aria-label={site.name}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={LOGO_WHITE}
+              alt={site.name}
+              className="h-8 w-auto md:h-9"
+            />
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex">

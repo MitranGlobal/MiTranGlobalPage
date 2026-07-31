@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
 
+const LOGO_WHITE =
+  "https://res.cloudinary.com/twteccae/image/upload/Logo_White_szjcqg.svg";
+
 const cols = [
   {
     title: "Courses",
@@ -36,12 +39,13 @@ export default function Footer() {
     <footer className="relative border-t border-line bg-bg-soft/60">
       <div className="container-x grid gap-12 py-20 md:grid-cols-[1.4fr_repeat(3,1fr)]">
         <div>
-          <div className="flex items-center gap-2 text-lg font-semibold">
-            <span className="grid h-9 w-9 place-items-center rounded-lg bg-gold-gradient text-black">
-              M
-            </span>
-            {site.name}
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={LOGO_WHITE}
+            alt={site.name}
+            className="h-10 w-auto"
+            loading="lazy"
+          />
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-ink-muted">
             Consistently imparting positivity — building confident, resilient,
             and future-ready teenagers through science-backed learning.
