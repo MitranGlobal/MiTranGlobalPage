@@ -45,7 +45,7 @@ export default function Nav() {
             <img
               src={LOGO_WHITE}
               alt={site.name}
-              className="h-8 w-auto md:h-9"
+              className="h-16 w-auto md:h-20"
             />
           </Link>
 

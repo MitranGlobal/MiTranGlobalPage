@@ -43,7 +43,7 @@ export default function Footer() {
           <img
             src={LOGO_WHITE}
             alt={site.name}
-            className="h-10 w-auto"
+            className="h-20 w-auto"
             loading="lazy"
           />
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-ink-muted">
