@@ -18,17 +18,106 @@ export const site = {
       "https://www.linkedin.com/newsletters/mitran-global-positivity-hub-7040456016391507968/",
     hub: "https://hub.mitranglobal.com/",
     allCourses: "https://hub.mitranglobal.com/l/58c2bda165",
+    d2sSchools: "https://positivity.mitranglobal.com/d2s-home",
+    // TODO: swap for a dedicated contact page / mailto when one exists
+    contact:
+      "https://calendly.com/mitranglobal/one-to-one-session-on-facing-exams",
   },
 };
 
-export const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/platinum", label: "Platinum Hub" },
-  { href: "/i-love-exams", label: "I Love Exams" },
-  { href: "/accelerated-learning", label: "Accelerated Learning" },
-  { href: "/positive-mind-mastery", label: "Positive Mind Mastery" },
-  { href: "/free-training", label: "Free Training" },
-  { href: "/quiz", label: "Quiz" },
+export type ProgramItem = {
+  label: string;
+  href: string;
+  icon: string;
+  description: string;
+  flagship?: boolean;
+  external?: boolean;
+};
+
+export type ResourceItem = {
+  label: string;
+  href: string;
+  icon: string;
+  description: string;
+  external?: boolean;
+};
+
+export const programs: ProgramItem[] = [
+  {
+    label: "Positive Mind Mastery",
+    href: "/positive-mind-mastery",
+    icon: "🧠",
+    description: "Foundational positivity & mindset skills for teens.",
+  },
+  {
+    label: "Accelerated Learning",
+    href: "/accelerated-learning",
+    icon: "⚡",
+    description: "Learn 3× faster with proven memory techniques.",
+  },
+  {
+    label: "I Love Exams",
+    href: "/i-love-exams",
+    icon: "🎯",
+    description: "Transform exam fear into confidence and mastery.",
+  },
+  {
+    label: "Free Training",
+    href: "/free-training",
+    icon: "🎁",
+    description: "A no-cost introduction to the Positivity Framework™.",
+  },
+  {
+    label: "Platinum Hub",
+    href: "/platinum",
+    icon: "👑",
+    description: "The complete 24-session 1-on-1 mentorship journey.",
+    flagship: true,
+  },
+];
+
+export const resources: ResourceItem[] = [
+  {
+    label: "E-Book",
+    href: "https://drive.google.com/file/d/1RfUt1xS02z4r0y1InDi0jUbspDTEYd0X/view",
+    icon: "📖",
+    description: "The free positivity ebook by Vidyashankar Guru.",
+    external: true,
+  },
+  {
+    label: "Podcast",
+    href: "https://open.spotify.com/show/58xhAnoYMVgPTQK0Ea2jmD",
+    icon: "🎙️",
+    description: "Positivity conversations, on Spotify.",
+    external: true,
+  },
+  {
+    label: "WhatsApp Community",
+    href: "https://chat.whatsapp.com/JxY3FynELhu0oE8C2nHcP1",
+    icon: "💬",
+    description: "Join a community of like-minded parents.",
+    external: true,
+  },
+  {
+    label: "Newsletter",
+    href: "https://www.linkedin.com/newsletters/mitran-global-positivity-hub-7040456016391507968/",
+    icon: "📰",
+    description: "Weekly insights delivered on LinkedIn.",
+    external: true,
+  },
+];
+
+export type NavItem =
+  | { type: "link"; label: string; href: string; external?: boolean }
+  | { type: "dropdown"; label: string; group: "programs" | "resources" };
+
+export const navLinks: NavItem[] = [
+  { type: "link",     label: "Home",            href: "/" },
+  { type: "link",     label: "Framework",       href: "/#framework" },
+  { type: "dropdown", label: "Our Programs",    group: "programs" },
+  { type: "link",     label: "For Schools",     href: "https://positivity.mitranglobal.com/d2s-home", external: true },
+  { type: "dropdown", label: "Resources",       group: "resources" },
+  { type: "link",     label: "Success Stories", href: "/success-stories" },
 ];
 
 export const pillars = [
