@@ -18,6 +18,19 @@ import { cn } from "@/lib/cn";
 const LOGO_WHITE =
   "https://res.cloudinary.com/twteccae/image/upload/Logo_White_szjcqg.svg";
 
+/** Decide whether a nav link should render with an active pill. */
+function isActive(item: Extract<NavItem, { type: "link" }>, pathname: string) {
+  // External URLs never highlight
+  if (item.external) return false;
+  // Home is active only on the exact root path
+  if (item.href === "/") return pathname === "/";
+  // Anchor-only links (e.g. "/#framework") don't highlight from any page
+  if (item.href.startsWith("/#")) return false;
+  // Otherwise: exact match or a subroute of this link
+  const base = item.href.split("#")[0];
+  return pathname === base || pathname.startsWith(base + "/");
+}
+
 export default function Nav() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
@@ -57,12 +70,9 @@ export default function Nav() {
 
   return (
     <>
-      <motion.header
-        initial={{ y: -40, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      <header
         className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-all duration-500",
+          "fixed inset-x-0 top-0 z-50 transition-colors duration-500",
           scrolled
             ? "bg-bg/80 backdrop-blur-xl border-b border-line"
             : "bg-transparent"
@@ -86,11 +96,7 @@ export default function Nav() {
                 <DesktopLink
                   key={item.label}
                   item={item}
-                  active={
-                    item.href === "/"
-                      ? pathname === "/"
-                      : item.href !== "/" && pathname.startsWith(item.href.split("#")[0])
-                  }
+                  active={isActive(item, pathname)}
                 />
               ) : (
                 <DesktopDropdown
@@ -140,7 +146,7 @@ export default function Nav() {
             </button>
           </div>
         </div>
-      </motion.header>
+      </header>
 
       {/* Mobile menu */}
       <AnimatePresence>
@@ -162,7 +168,7 @@ export default function Nav() {
                     transition={{ delay: 0.05 + i * 0.04 }}
                   >
                     {item.type === "link" ? (
-                      <MobileLink item={item} active={item.href === pathname} />
+                      <MobileLink item={item} active={isActive(item, pathname)} />
                     ) : (
                       <MobileDropdown item={item} />
                     )}
