@@ -245,14 +245,15 @@ export default function PlatinumPage() {
           <div className="pl-marquee-track">
             {[0, 1].flatMap(k =>
               pressLogos.map((logo, i) => (
-                /* eslint-disable-next-line @next/next/no-img-element */
-                <img
-                  key={`${k}-${i}`}
-                  src={logo.src}
-                  alt={logo.name}
-                  className="pl-marquee-item"
-                  loading="lazy"
-                />
+                <div key={`${k}-${i}`} className="pl-marquee-slot">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={logo.src}
+                    alt={logo.name}
+                    className="pl-marquee-item"
+                    loading="lazy"
+                  />
+                </div>
               ))
             )}
           </div>
@@ -1131,15 +1132,24 @@ const PL_CSS = `
   will-change: transform;
 }
 .pl-marquee:hover .pl-marquee-track { animation-play-state: paused; }
+.pl-marquee-slot {
+  flex-shrink: 0;
+  width: 192px;
+  height: 112px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .pl-marquee-item {
-  height: 56px;
-  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
   opacity: 0.85;
   transition: opacity .3s;
 }
 .pl-marquee-item:hover { opacity: 1; }
 @media (min-width: 768px){
-  .pl-marquee-item { height: 64px; }
+  .pl-marquee-slot { width: 256px; height: 144px; }
 }
 @keyframes pl-marquee {
   0%   { transform: translateX(0); }

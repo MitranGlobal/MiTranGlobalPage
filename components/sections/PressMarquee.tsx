@@ -11,15 +11,19 @@ export default function PressMarquee() {
       <div className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-bg to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-bg to-transparent" />
-        <div className="flex w-max animate-marquee items-center gap-16 whitespace-nowrap">
+        <div className="flex w-max animate-marquee items-center gap-14 whitespace-nowrap">
           {items.map((logo, i) => (
-            <img
+            <div
               key={i}
-              src={logo.src}
-              alt={logo.name}
-              className="h-14 w-auto opacity-80 transition-opacity duration-300 hover:opacity-100 md:h-16"
-              loading="lazy"
-            />
+              className="flex h-28 w-48 shrink-0 items-center justify-center md:h-36 md:w-64"
+            >
+              <img
+                src={logo.src}
+                alt={logo.name}
+                className="max-h-full max-w-full object-contain opacity-80 transition-opacity duration-300 hover:opacity-100"
+                loading="lazy"
+              />
+            </div>
           ))}
         </div>
       </div>
