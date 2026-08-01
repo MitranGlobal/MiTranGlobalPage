@@ -17,20 +17,12 @@ export default function PressMarquee() {
               key={i}
               src={logo.src}
               alt={logo.name}
-              className="h-8 w-auto opacity-70 transition-opacity duration-300 hover:opacity-100 md:h-10 press-logo"
+              className="h-14 w-auto opacity-80 transition-opacity duration-300 hover:opacity-100 md:h-16"
               loading="lazy"
             />
           ))}
         </div>
       </div>
-
-      {/* Silhouette treatment so any brand-coloured SVG reads cleanly on the dark bg.
-          Remove if you want the logos in their native colours. */}
-      <style>{`
-        .press-logo {
-          filter: brightness(0) invert(1);
-        }
-      `}</style>
     </section>
   );
 }

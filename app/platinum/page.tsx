@@ -1132,16 +1132,14 @@ const PL_CSS = `
 }
 .pl-marquee:hover .pl-marquee-track { animation-play-state: paused; }
 .pl-marquee-item {
-  height: 32px;
+  height: 56px;
   width: auto;
-  opacity: 0.65;
+  opacity: 0.85;
   transition: opacity .3s;
-  /* Silhouette so any brand-coloured logo reads on the dark bg */
-  filter: brightness(0) invert(1);
 }
 .pl-marquee-item:hover { opacity: 1; }
 @media (min-width: 768px){
-  .pl-marquee-item { height: 40px; }
+  .pl-marquee-item { height: 64px; }
 }
 @keyframes pl-marquee {
   0%   { transform: translateX(0); }
