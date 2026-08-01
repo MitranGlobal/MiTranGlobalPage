@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { site } from "@/lib/site";
+import { pressLogos, site } from "@/lib/site";
 
 /* -------------------------------------------------------------------------- */
 /*  DATA                                                                       */
@@ -244,8 +244,15 @@ export default function PlatinumPage() {
         <div className="pl-marquee">
           <div className="pl-marquee-track">
             {[0, 1].flatMap(k =>
-              ["The Hindu", "Deccan Herald", "EdTech Review", "Hindustan Times", "Times of India", "YourStory", "The Economic Times"].map((n, i) => (
-                <span key={`${k}-${i}`} className="pl-marquee-item">{n}</span>
+              pressLogos.map((logo, i) => (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img
+                  key={`${k}-${i}`}
+                  src={logo.src}
+                  alt={logo.name}
+                  className="pl-marquee-item"
+                  loading="lazy"
+                />
               ))
             )}
           </div>
@@ -1125,10 +1132,16 @@ const PL_CSS = `
 }
 .pl-marquee:hover .pl-marquee-track { animation-play-state: paused; }
 .pl-marquee-item {
-  font-family: var(--font-display), Georgia, serif;
-  font-size: 22px;
-  color: rgba(245,244,239,0.5);
-  white-space: nowrap;
+  height: 32px;
+  width: auto;
+  opacity: 0.65;
+  transition: opacity .3s;
+  /* Silhouette so any brand-coloured logo reads on the dark bg */
+  filter: brightness(0) invert(1);
+}
+.pl-marquee-item:hover { opacity: 1; }
+@media (min-width: 768px){
+  .pl-marquee-item { height: 40px; }
 }
 @keyframes pl-marquee {
   0%   { transform: translateX(0); }

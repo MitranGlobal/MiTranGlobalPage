@@ -170,11 +170,12 @@ export const testimonials = [
   },
 ];
 
-export const pressLogos = [
-  "The Hindu",
-  "Deccan Herald",
-  "EdTech Review",
-  "Hindustan Times",
-  "Times of India",
-  "YourStory",
+export type PressLogo = { name: string; src: string };
+
+export const pressLogos: PressLogo[] = [
+  { name: "The Hindu",       src: "https://res.cloudinary.com/twteccae/image/upload/The_Hindu_kolitv.svg"          },
+  { name: "Deccan Herald",   src: "https://res.cloudinary.com/twteccae/image/upload/Deccan_Herald_besjd7.svg"      },
+  { name: "Hindustan Times", src: "https://res.cloudinary.com/twteccae/image/upload/Hindustan_Times_zxx8ri.svg"    },
+  { name: "Times of India",  src: "https://res.cloudinary.com/twteccae/image/upload/The_Times_Of_India_fnegdh.svg" },
+  { name: "YourStory",       src: "https://res.cloudinary.com/twteccae/image/upload/Your_Story_gmgfbd.svg"         },
 ];

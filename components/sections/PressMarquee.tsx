@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { pressLogos } from "@/lib/site";
 
 export default function PressMarquee() {
@@ -8,19 +9,28 @@ export default function PressMarquee() {
         As seen in
       </p>
       <div className="relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-bg to-transparent z-10" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-bg to-transparent z-10" />
-        <div className="flex w-max animate-marquee gap-16 whitespace-nowrap">
-          {items.map((name, i) => (
-            <span
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-bg to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-bg to-transparent" />
+        <div className="flex w-max animate-marquee items-center gap-16 whitespace-nowrap">
+          {items.map((logo, i) => (
+            <img
               key={i}
-              className="font-display text-xl text-ink-muted/60 tracking-wide"
-            >
-              {name}
-            </span>
+              src={logo.src}
+              alt={logo.name}
+              className="h-8 w-auto opacity-70 transition-opacity duration-300 hover:opacity-100 md:h-10 press-logo"
+              loading="lazy"
+            />
           ))}
         </div>
       </div>
+
+      {/* Silhouette treatment so any brand-coloured SVG reads cleanly on the dark bg.
+          Remove if you want the logos in their native colours. */}
+      <style>{`
+        .press-logo {
+          filter: brightness(0) invert(1);
+        }
+      `}</style>
     </section>
   );
 }
