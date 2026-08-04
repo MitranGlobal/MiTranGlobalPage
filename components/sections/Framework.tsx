@@ -3,7 +3,7 @@ import { pillars } from "@/lib/site";
 
 export default function Framework() {
   return (
-    <section id="framework" className="section border-t border-line">
+    <section id="pillars" className="section border-t border-line">
       <div className="container-x">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="eyebrow">Our Framework</p>

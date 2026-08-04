@@ -1,6 +1,7 @@
 import Hero from "@/components/sections/Hero";
 import PressMarquee from "@/components/sections/PressMarquee";
 import Challenge from "@/components/sections/Challenge";
+import SuccessFramework from "@/components/sections/SuccessFramework";
 import Framework from "@/components/sections/Framework";
 import Science from "@/components/sections/Science";
 import Platform from "@/components/sections/Platform";
@@ -15,6 +16,7 @@ export default function HomePage() {
       <Hero />
       <PressMarquee />
       <Challenge />
+      <SuccessFramework />
       <Framework />
       <Science />
       <Platform />
