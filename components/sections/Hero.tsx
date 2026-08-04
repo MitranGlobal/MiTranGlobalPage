@@ -22,13 +22,13 @@ export default function Hero() {
 
       <div className="container-x">
         {/* Left: text + CTA · Right: video (slightly wider than the text column) */}
-        <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.15fr] lg:gap-14">
+        <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.3fr] lg:gap-12">
           {/* LEFT — all hero content */}
           <motion.div
             variants={stagger}
             initial="hidden"
             animate="show"
-            className="max-w-xl text-left"
+            className="text-left"
           >
             <motion.p variants={item} className="eyebrow">
               <span className="h-1.5 w-1.5 rounded-full bg-gold" />
@@ -37,11 +37,10 @@ export default function Hero() {
 
             <motion.h1
               variants={item}
-              className="mt-6 text-display-1 font-display leading-[1.02]"
+              className="mt-6 font-display text-[clamp(2.5rem,4.6vw,4.25rem)] leading-[1.06] tracking-tight"
             >
-              A positive teen today,
-              <br />
-              a <span className="gold-text italic">confident leader</span> tomorrow.
+              A positive teen today, a{" "}
+              <span className="gold-text italic">confident leader</span> tomorrow.
             </motion.h1>
 
             <motion.p
