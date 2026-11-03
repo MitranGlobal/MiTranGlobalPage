@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { site } from "@/lib/site";
+import { pillars, site } from "@/lib/site";
 import LogoMarquee from "@/components/ui/LogoMarquee";
 import Coach from "@/components/sections/Coach";
 
@@ -334,32 +334,19 @@ export default function PlatinumPage() {
           </div>
 
           <div className="pl-3up">
+            {/* Titles, copy and bullets come from `pillars` in lib/site.ts
+                (shared with the home page); only the colours live here. */}
             {[
-              {
-                lbl: "PILLAR 01",
-                grad: "linear-gradient(160deg, #1e4a5a 0%, #0c1f28 100%)",
-                accent: "#5cc0d6",
-                h: "Life Skills",
-                p: "Emotional intelligence, decision-making, problem-solving, and time management — the resilient foundation every teenager needs.",
-                b: ["Emotional intelligence", "Decision-making", "Problem-solving", "Time & stress management"],
-              },
-              {
-                lbl: "PILLAR 02",
-                grad: "linear-gradient(160deg, #3d2a63 0%, #1c1330 100%)",
-                accent: "#b58cfa",
-                h: "Leadership Skills",
-                p: "Self-confidence, communication, teamwork, and purposeful decision-making. We nurture the leader within every child.",
-                b: ["Self-confidence to speak up", "Effective communication", "Teamwork & collaboration", "Clear, purposeful decisions"],
-              },
-              {
-                lbl: "PILLAR 03",
-                grad: "linear-gradient(160deg, #6a3f1c 0%, #2c1a0c 100%)",
-                accent: "#f0a465",
-                h: "Academic Performance",
-                p: "Focus, growth mindset, smart study techniques, and sustained motivation. When positivity meets learning, students excel.",
-                b: ["Focus & concentration", "Growth mindset", "Smart learning strategies", "Motivation & confidence"],
-              },
-            ].map(p => (
+              { grad: "linear-gradient(160deg, #1e4a5a 0%, #0c1f28 100%)", accent: "#5cc0d6" },
+              { grad: "linear-gradient(160deg, #3d2a63 0%, #1c1330 100%)", accent: "#b58cfa" },
+              { grad: "linear-gradient(160deg, #6a3f1c 0%, #2c1a0c 100%)", accent: "#f0a465" },
+            ].map((style, i) => ({
+              ...style,
+              lbl: `PILLAR ${pillars[i].n}`,
+              h: pillars[i].title,
+              p: pillars[i].body,
+              b: pillars[i].bullets,
+            })).map(p => (
               <div key={p.lbl} className="pl-pillar" style={{ background: p.grad }}>
                 <div className="pl-pillar-lbl" style={{ color: p.accent }}>{p.lbl}</div>
                 <h3 className="pl-pillar-h">{p.h}</h3>

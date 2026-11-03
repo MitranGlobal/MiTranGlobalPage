@@ -196,7 +196,7 @@ export const pillars = [
   {
     n: "03",
     icon: "📚",
-    title: "Academic Performance",
+    title: "Study Skills",
     body: "Focus, growth mindset, smart study techniques, and sustained motivation. When positivity meets learning, students excel.",
     bullets: [
       "Focus & concentration",
