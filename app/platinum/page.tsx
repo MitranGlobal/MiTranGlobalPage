@@ -169,11 +169,8 @@ export default function PlatinumPage() {
               </div>
 
               <div className="pl-cta-row">
-                <a href={site.urls.checkout} target="_blank" rel="noreferrer" className="pl-btn pl-btn-primary">
-                  Begin the journey →
-                </a>
-                <a href="#roadmap" className="pl-btn pl-btn-ghost">
-                  See the 24 sessions
+                <a href={site.urls.booking} target="_blank" rel="noreferrer" className="pl-btn pl-btn-primary">
+                  Book a call →
                 </a>
               </div>
 
@@ -592,8 +589,8 @@ export default function PlatinumPage() {
               a personal transformation report, and walks away with a lifelong
               toolkit for confidence, resilience and success.
             </p>
-            <a href={site.urls.checkout} target="_blank" rel="noreferrer" className="pl-btn pl-btn-primary">
-              Enrol in Platinum →
+            <a href={site.urls.booking} target="_blank" rel="noreferrer" className="pl-btn pl-btn-primary">
+              Book a call →
             </a>
           </div>
         </div>
@@ -713,7 +710,7 @@ export default function PlatinumPage() {
       {/* ================================================================== */}
       {/*  10b. MEET THE COACH (shared section, content from lib/site.ts)    */}
       {/* ================================================================== */}
-      <Coach />
+      <Coach ctaLabel="Book a call →" />
 
       {/* ================================================================== */}
       {/*  11. CTA BANNER                                                    */}
@@ -732,11 +729,8 @@ export default function PlatinumPage() {
                 measured by the Positivity Score, and built around your child.
               </p>
               <div className="pl-cta-row pl-cta-row-center">
-                <a href={site.urls.checkout} target="_blank" rel="noreferrer" className="pl-btn pl-btn-primary">
-                  Enrol in Platinum →
-                </a>
-                <a href={site.urls.booking} target="_blank" rel="noreferrer" className="pl-btn pl-btn-ghost">
-                  Book a discovery call
+                <a href={site.urls.booking} target="_blank" rel="noreferrer" className="pl-btn pl-btn-primary">
+                  Book a call →
                 </a>
               </div>
             </div>

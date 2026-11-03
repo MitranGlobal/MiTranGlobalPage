@@ -8,7 +8,13 @@ import { cn } from "@/lib/cn";
  * Success Stories. Course pages render the same `coach` data in their own
  * page styles. All content comes from `coach` in lib/site.ts.
  */
-export default function Coach({ className }: { className?: string }) {
+export default function Coach({
+  className,
+  ctaLabel = "Book a one-to-one session →",
+}: {
+  className?: string;
+  ctaLabel?: string;
+}) {
   const [first, ...rest] = coach.name.split(" ");
 
   return (
@@ -44,7 +50,7 @@ export default function Coach({ className }: { className?: string }) {
             rel="noreferrer"
             className="btn-primary mt-10 px-8 py-4 text-base"
           >
-            Book a one-to-one session →
+            {ctaLabel}
           </a>
         </Reveal>
 

@@ -54,6 +54,13 @@ export default function HeroVideo() {
     return () => observer.disconnect();
   }, []);
 
+  // Slow connection / autoplay blocked (e.g. iOS Low Power Mode): don't leave
+  // the hero area empty — fade in the poster frame after a short wait.
+  useEffect(() => {
+    const t = setTimeout(() => setIsReady(true), 1200);
+    return () => clearTimeout(t);
+  }, []);
+
   // When the source is first attached, force the element to pick it up and play.
   useEffect(() => {
     const video = videoRef.current;
@@ -83,6 +90,7 @@ export default function HeroVideo() {
         poster={POSTER_SRC}
         aria-hidden="true"
         onCanPlay={() => setIsReady(true)}
+        onLoadedData={() => setIsReady(true)}
         className="hero-video-mask block h-auto w-full"
       >
         {shouldLoad && <source src={VIDEO_SRC} type="video/mp4" />}
