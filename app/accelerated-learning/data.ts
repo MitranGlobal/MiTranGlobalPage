@@ -229,7 +229,7 @@ export const PLANS: Plan[] = [
     tier: "Silver",
     price: "499",
     fee: "One-time fee",
-    href: "https://hub.mitranglobal.com/l/a2c3dcc913",
+    href: "https://hub.mitranglobal.com/web/checkout/67a32a177470ec6f59c6b29a",
     feats: [
       { t: "I Love Exams eBook", on: true },
       { t: "Assessment", on: true },
@@ -242,7 +242,7 @@ export const PLANS: Plan[] = [
     tier: "Premium",
     price: "899",
     fee: "One-time fee",
-    href: "https://hub.mitranglobal.com/l/d17bb8d53b",
+    href: "https://hub.mitranglobal.com/web/checkout/67a3137cbb1099bd3da24774",
     feats: [
       { t: "Video Lectures", on: true },
       { t: "I Love Exams eBook", on: true },
@@ -257,7 +257,7 @@ export const PLANS: Plan[] = [
     tier: "Ultimate",
     price: "999",
     fee: "One-time fee · Best value",
-    href: ENROLL,
+    href: "https://hub.mitranglobal.com/web/checkout/6777a1de0912d5e961c43c72",
     featured: true,
     feats: [
       { t: "Video Lectures", on: true },

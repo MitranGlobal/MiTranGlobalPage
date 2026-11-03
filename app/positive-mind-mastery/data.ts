@@ -244,7 +244,7 @@ export const PLANS: Plan[] = [
     tier: "Silver",
     price: "499",
     fee: "One-time fee",
-    href: "https://hub.mitranglobal.com/l/45c7b3ba6f",
+    href: "https://hub.mitranglobal.com/web/checkout/67bc2f22cf228f97a7adbb96",
     feats: [
       { t: "Positive Mind Mastery eBook", on: true },
       { t: "Certificate of Completion", on: true },
@@ -257,7 +257,7 @@ export const PLANS: Plan[] = [
     tier: "Premium",
     price: "899",
     fee: "One-time fee",
-    href: "https://hub.mitranglobal.com/l/f4f80cf34d",
+    href: "https://hub.mitranglobal.com/web/checkout/67bc30f009a02faa202b3c66",
     feats: [
       { t: "Video Lessons", on: true },
       { t: "Positive Mind Mastery eBook", on: true },
@@ -272,7 +272,7 @@ export const PLANS: Plan[] = [
     tier: "Ultimate",
     price: "999",
     fee: "One-time fee · Best value",
-    href: ENROLL,
+    href: "https://hub.mitranglobal.com/web/checkout/67ac6015dfd30f5eccd41d5b",
     featured: true,
     feats: [
       { t: "Video Lessons", on: true },
