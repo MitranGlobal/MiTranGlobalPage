@@ -7,7 +7,7 @@ export const HERO_BADGES = [
   { icon: "⏱️", label: "2+ Hours Content", sub: "8 self-paced modules" },
   { icon: "🏅", label: "Certification", sub: "On completion" },
   { icon: "🛡️", label: "14-Day Refund", sub: "No questions asked" },
-  { icon: "🏕️", label: "2-Day Live Camp", sub: "With expert coaches" },
+  { icon: "🧪", label: "LBA Assessment", sub: "By a certified psychologist" },
 ];
 
 export const SKILLS = [
@@ -139,11 +139,11 @@ export const MODULES: Module[] = [
 
 export const INCLUSIONS = [
   { icon: "⏱️", tag: "2+ hrs", t: "2+ Hours of Course Content", b: "8 self-paced learning modules covering essential success principles, mindset shifts, and powerful techniques to help children excel in academics and life — designed for easy comprehension and practical application." },
-  { icon: "🏕️", tag: "2 days", t: "2-Day Live Camp with Certification", b: "Exclusive two-day live training with expert coaches. Deeper insights, real-world strategies, and personalised guidance to master accelerated learning techniques — plus a certification on completion." },
   { icon: "🧪", tag: "LBA", t: "Learning Behaviour Assessment", b: "A professional LBA conducted by a certified psychologist and transformation coach — identifying strengths, preferred learning styles, and areas for improvement for a more customised learning approach." },
   { icon: "📖", tag: "eBook", t: "Free eBook — I Love Exams", b: "A complimentary copy of the I Love Exams eBook by Vidyashankar Guru — proven strategies to overcome exam anxiety, boost confidence, and develop a success-driven mindset. Essential reading for every student." },
   { icon: "🌟", tag: "₹2,999 value", t: "Journey to Positivity — Bonus Course", b: "FREE access to Journey to Positivity — a 5-module course for both parents and children to build a positive mindset and lifelong success habits. Previously priced at ₹2,999, now included free!" },
-  { icon: "🔄", tag: "Risk-free", t: "Free Course Updates + 14-Day Refund", b: "Continuously refined and expanded content — you always have access to the latest strategies. Plus a full 14-day refund if the course isn't the right fit. No questions asked. 100% risk-free." },
+  { icon: "🔄", tag: "Free", t: "Free Course Updates", b: "Continuously refined and expanded content — you always have access to the latest strategies, at no extra cost." },
+  { icon: "🛡️", tag: "Risk-free", t: "14-Day Refund Policy", b: "A full 14-day refund if the course isn't the right fit. No questions asked. 100% risk-free." },
 ];
 
 export const TESTIMONIALS = [
@@ -207,14 +207,6 @@ export const BONUS_PAINS = [
   "Waste excessive time on digital devices?",
 ];
 
-export const CAMP_POINTS = [
-  { s: "Live Expert Training", r: "Engaging and interactive sessions with top coaches" },
-  { s: "Comprehensive Workbook", r: "Exercises, activities, and reflections to reinforce learning" },
-  { s: "Hands-on Experience", r: "Students apply what they learn in real-world scenarios" },
-  { s: "Personalised Guidance", r: "Individual attention from expert mentors" },
-  { s: "Official Certification", r: "A recognised certificate on completion" },
-];
-
 export const JTP_POINTS = [
   { s: "Multiple Interactive Modules", r: "Essential life skills & success mindset" },
   { s: "Exciting Challenges & Activities", r: "Making learning fun while reinforcing key lessons" },
@@ -243,7 +235,6 @@ export const PLANS: Plan[] = [
       { t: "Assessment", on: true },
       { t: "Course Certificate", on: true },
       { t: "Video Lectures", on: false },
-      { t: "Live Camp", on: false },
       { t: "LBA Assessment", on: false },
     ],
   },
@@ -258,7 +249,7 @@ export const PLANS: Plan[] = [
       { t: "Assessment", on: true },
       { t: "Course Certificate", on: true },
       { t: "Learning Behavioural Assessment (LBA)", on: true },
-      { t: "Live Camp & Coaching", on: false },
+      { t: "One-to-One Counselling", on: false },
       { t: "101 Parenting Lessons", on: false },
     ],
   },
@@ -277,16 +268,7 @@ export const PLANS: Plan[] = [
       { t: "8 Live Events", on: true, star: true },
       { t: "101 Parenting Audio Lessons", on: true, star: true },
       { t: "Bonus 1: I Love Exams eBook", on: true, star: true },
-      { t: "Bonus 2: Live Camp", on: true, star: true },
-      { t: "Bonus 3: Journey to Positivity", on: true, star: true },
+      { t: "Bonus 2: Journey to Positivity", on: true, star: true },
     ],
   },
 ];
-
-export const AWARDS = [
-  { y: "2011", t: "Indian Achievers Award for Industrial Excellence", s: "Indian Economic Development & Research Association" },
-  { y: "2012", t: "Edupreneur of the Year", s: "Times Group" },
-  { y: "★", t: "Lifetime Achievement Award", s: "Global Education Conclave" },
-];
-
-export const CREDS = ["NLP Practitioner", "Teen Psychology", "40+ Nationalities", "TedX Speaker", "5★ Rated"];

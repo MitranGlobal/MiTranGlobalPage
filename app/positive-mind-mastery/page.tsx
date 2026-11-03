@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
-import { site } from "@/lib/site";
+import { coach, site } from "@/lib/site";
 import {
-  AWARDS,
-  CREDS,
   ENROLL,
   HERO_BADGES,
   INCLUSIONS,
@@ -305,8 +303,8 @@ export default function PositiveMindMasteryPage() {
                 What your child gains <em className="pm-em">for life</em>
               </h2>
               <p className="pm-sub">
-                Every outcome is delivered through 9 powerful modules, a live
-                2-day camp, and the Positivity Score Assessment.
+                Every outcome is delivered through 9 powerful modules and the
+                Positivity Score Assessment.
               </p>
             </div>
             <ul className="pm-glow-list">
@@ -396,7 +394,7 @@ export default function PositiveMindMasteryPage() {
           <Reveal className="pm-head">
             <p className="pm-eyebrow">Exclusive bonuses</p>
             <h2 className="pm-h2">
-              Three gifts included <em className="pm-em">free</em>
+              Two gifts included <em className="pm-em">free</em>
             </h2>
           </Reveal>
           <BonusTabs />
@@ -467,43 +465,39 @@ export default function PositiveMindMasteryPage() {
           <Reveal className="pm-coach-photo-wrap">
             <div className="pm-coach-photo">
               <Image
-                src="/images/vidyashankar-guru.jpg"
-                alt="Vidyashankar Guru, Co-Founder & Chief Vision Officer, MiTran Global"
+                src={coach.photo}
+                alt={coach.photoAlt}
                 width={778}
                 height={778}
                 sizes="(min-width: 1024px) 38vw, (min-width: 640px) 26rem, 90vw"
                 className="pm-coach-img"
               />
               <div className="pm-coach-caption">
-                <strong>Vidyashankar Guru</strong>
-                <span>Co-Founder &amp; Chief Vision Officer</span>
+                <strong>{coach.name}</strong>
+                <span>{coach.designation}</span>
               </div>
             </div>
             <ul className="pm-creds">
-              {CREDS.map((c) => <li key={c}>{c}</li>)}
+              {coach.creds.map((c) => <li key={c}>{c}</li>)}
             </ul>
           </Reveal>
 
           <Reveal delay={0.1}>
             <p className="pm-eyebrow">Know your coach</p>
             <h2 className="pm-h2">
-              Two decades of transforming <em className="pm-em">young minds</em>
+              22+ years of transforming <em className="pm-em">young minds</em>
             </h2>
-            <p className="pm-sub">
-              Vidyashankar Guru has two decades of experience in training
-              students, teachers, and parents from 40 different nationalities.
-              He is the Co-Founder &amp; Chief Vision Officer of MiTran Global —
-              noted TedX speaker, and author of &ldquo;One Untold Secret of
-              Success&rdquo;, &ldquo;Sweep Through Your Interviews&rdquo;,
-              &ldquo;Be a Champ&rdquo;, and &ldquo;101 Secrets of Effective
-              Parenting&rdquo;. Previously he founded OnlySuccess Group of
-              Companies.
-            </p>
+            <p className="pm-coach-desig">{coach.designation}</p>
+            <ul className="pm-story">
+              {coach.story.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
             <ul className="pm-medals">
-              {AWARDS.map((a) => (
+              {coach.awards.map((a) => (
                 <li key={a.t} className="pm-medal">
                   <span className="pm-medal-i" aria-hidden>{a.icon}</span>
-                  <strong>{a.t}</strong>
+                  <strong>{a.t}{a.year !== "★" && ` ${a.year}`}</strong>
                   <small>{a.s}</small>
                 </li>
               ))}

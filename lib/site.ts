@@ -18,8 +18,48 @@ export const site = {
       "https://www.linkedin.com/newsletters/mitran-global-positivity-hub-7040456016391507968/",
     hub: "https://hub.mitranglobal.com/",
     allCourses: "https://hub.mitranglobal.com/l/58c2bda165",
-    yellowZoneSchools: "https://positivity.mitranglobal.com/d2s-home",
+    yellowZoneSchools: "https://join.yellowzone.mitranglobal.com/",
   },
+};
+
+/**
+ * Coach profile — the ONE source for every coach section on the site
+ * (home, course pages, Platinum, Free Training, Success Stories).
+ * Edit here and every page updates.
+ */
+export const coach = {
+  name: "Vidyashankar Guru",
+  designation: "Co-Founder and Chief Vision Officer at MiTran Global",
+  role: "Co-Founder & Chief Vision Officer",
+  tagline: "TEDx Speaker · Author of five books",
+  photo: "/images/vidyashankar-guru.jpg",
+  photoAlt:
+    "Vidyashankar Guru, Co-Founder and Chief Vision Officer at MiTran Global",
+  story: [
+    "Grew up in a small village in South India — no elite school, no big-city advantages. Struggled with confidence, self-doubt, and freezing under pressure as a teen.",
+    "Realised the hard truth: capability without emotional strength will not help to achieve anything in life.",
+    "Spent 22+ years studying what schools never teach students — mindset, discipline, and inner strength.",
+    "Trained over 25,000 teens and professionals across 40+ nationalities as a TEDx Speaker and Author of five books.",
+    "Today his only mission is giving every struggling teen the tools he wished he had at their age.",
+  ],
+  highlights: [
+    { value: "22+", label: "Years of study" },
+    { value: "25K+", label: "Teens & professionals" },
+    { value: "40+", label: "Nationalities" },
+    { value: "5", label: "Books authored" },
+  ],
+  creds: [
+    "TEDx Speaker",
+    "Author of 5 Books",
+    "NLP Practitioner",
+    "Teen Psychology",
+    "40+ Nationalities",
+  ],
+  awards: [
+    { icon: "🏆", year: "2011", t: "Indian Achievers Award for Industrial Excellence", s: "Indian Economic Development & Research Association" },
+    { icon: "🏅", year: "2012", t: "Edupreneur of the Year", s: "Times Group" },
+    { icon: "🌟", year: "★", t: "Lifetime Achievement Award", s: "Global Education Conclave" },
+  ],
 };
 
 export type MenuItem = {

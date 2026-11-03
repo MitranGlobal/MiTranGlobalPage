@@ -5,7 +5,7 @@ export const ENROLL = "https://hub.mitranglobal.com/l/be0616e4ae";
 
 export const HERO_BADGES = [
   { icon: "⏱️", label: "2+ Hours Content", sub: "10 self-paced modules" },
-  { icon: "🏕️", label: "2-Day Live Camp", sub: "With expert coaches" },
+  { icon: "📊", label: "Positivity Score", sub: "Research-backed assessment" },
   { icon: "🛡️", label: "14-Day Refund", sub: "No questions asked" },
   { icon: "🏅", label: "Certification", sub: "On completion" },
 ];
@@ -167,7 +167,6 @@ export const MODULES = [
 
 export const INCLUSIONS = [
   { icon: "⏱️", t: "2+ Hours of Course Content", b: "10 self-paced learning modules covering essential success principles, mindset shifts, and powerful techniques to help children excel in academics and life — designed for easy comprehension and practical application." },
-  { icon: "🏕️", t: "2-Day Live Camp with Certification", b: "Exclusive two-day live training with expert coaches. Deeper insights, real-world strategies, and personalised guidance. Upon completion, your child receives a certification recognising their commitment to growth." },
   { icon: "📊", t: "Know Your Positivity Score", b: "Your child takes the PST — a research-backed assessment measuring key life skills, study habits, and leadership qualities — providing a clear Positivity Score with personalised strategies for growth." },
   { icon: "📖", t: "Free eBook — 7 Ways to Empower Your Child", b: "A complimentary copy of \"7 Ways to Empower Your Child to Be a Super Achiever in School & Life\" by Vidyashankar Guru — packed with actionable insights to build confidence, resilience, and a success-oriented mindset." },
   { icon: "🔄", t: "Free Course Updates", b: "Continuously refined and expanded content — your child always has access to the most up-to-date strategies for positivity, confidence, and success. At no extra cost, ever." },
@@ -223,14 +222,6 @@ export const REASONS = [
   { t: "Turn Dreams into Achievement", d: "Apply proven formulas to succeed in academics, career, and life." },
 ];
 
-export const CAMP_POINTS = [
-  { s: "Live Expert Training", r: "Engaging sessions with top coaches to develop a success-driven mindset" },
-  { s: "Comprehensive Workbook", r: "Exercises, activities, and reflections to reinforce learning" },
-  { s: "Hands-on Experience", r: "Students apply what they learn in real-world scenarios" },
-  { s: "Personalised Guidance", r: "Individual attention from expert mentors" },
-  { s: "Official Certification", r: "A recognised certificate on completion" },
-];
-
 export const JTP_POINTS = [
   { s: "Multiple Interactive Modules", r: "Teaching essential life skills & success mindset" },
   { s: "Exciting Challenges & Activities", r: "Making learning fun while reinforcing key lessons" },
@@ -260,7 +251,6 @@ export const PLANS: Plan[] = [
       { t: "Video Lessons", on: false },
       { t: "Assessment", on: false },
       { t: "Positivity Score", on: false },
-      { t: "Live Camp", on: false },
     ],
   },
   {
@@ -275,7 +265,7 @@ export const PLANS: Plan[] = [
       { t: "Certificate of Completion", on: true },
       { t: "Know Your Positivity Score", on: true },
       { t: "One-to-One Coaching", on: false },
-      { t: "Live Camp & Bonuses", on: false },
+      { t: "Bonuses", on: false },
     ],
   },
   {
@@ -293,16 +283,7 @@ export const PLANS: Plan[] = [
       { t: "One-to-One Coaching", on: true, star: true },
       { t: "101 Parenting Audio Lessons", on: true, star: true },
       { t: "Bonus 1: Super Achiever eBook", on: true, star: true },
-      { t: "Bonus 2: Live Camp", on: true, star: true },
-      { t: "Bonus 3: Journey to Positivity", on: true, star: true },
+      { t: "Bonus 2: Journey to Positivity", on: true, star: true },
     ],
   },
 ];
-
-export const AWARDS = [
-  { icon: "🏆", t: "Indian Achievers Award for Industrial Excellence 2011", s: "Indian Economic Development & Research Association" },
-  { icon: "🏅", t: "Edupreneur of the Year 2012", s: "Times Group" },
-  { icon: "🌟", t: "Lifetime Achievement Award", s: "Global Education Conclave" },
-];
-
-export const CREDS = ["NLP Practitioner", "Teen Psychology", "40+ Nationalities", "TedX Speaker", "5★ Rated"];

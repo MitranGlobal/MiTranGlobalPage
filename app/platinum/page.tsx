@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { site } from "@/lib/site";
 import LogoMarquee from "@/components/ui/LogoMarquee";
+import Coach from "@/components/sections/Coach";
 
 /* -------------------------------------------------------------------------- */
 /*  DATA                                                                       */
@@ -721,6 +722,11 @@ export default function PlatinumPage() {
           </div>
         </div>
       </section>
+
+      {/* ================================================================== */}
+      {/*  10b. MEET THE COACH (shared section, content from lib/site.ts)    */}
+      {/* ================================================================== */}
+      <Coach />
 
       {/* ================================================================== */}
       {/*  11. CTA BANNER                                                    */}

@@ -876,7 +876,9 @@
    ===================================================================== */
 .al-gifts {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 980px;
+  margin: 0 auto;
   gap: 20px;
   align-items: stretch;
 }
@@ -1179,3 +1181,18 @@
   .al-gauge-needle { animation: none; transform: rotate(45deg); }
   .al-explorer-fade, .al-explorer-inline { animation: none; }
 }
+
+/* Coach bio — content comes from `coach` in lib/site.ts */
+.al-coach-desig {
+  margin: 14px 0 0;
+  font-family: var(--al-mono);
+  font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--al-gold);
+}
+.al-story { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 12px; }
+.al-story li {
+  position: relative; padding-left: 26px;
+  font-size: 16px; line-height: 1.65; color: var(--al-mute);
+}
+.al-story li::before { content: "✦"; position: absolute; left: 0; top: 0; color: var(--al-gold); }
+@media (min-width: 768px) { .al-story li { font-size: 17px; } }

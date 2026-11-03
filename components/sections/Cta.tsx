@@ -22,7 +22,9 @@ export default function Cta() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href="mailto:hello@mitranglobal.com"
+                href={site.urls.yellowZoneSchools}
+                target="_blank"
+                rel="noreferrer"
                 className="btn-primary"
               >
                 Partner with us →

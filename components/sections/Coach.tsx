@@ -1,35 +1,24 @@
 import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
-import { site } from "@/lib/site";
+import { coach, site } from "@/lib/site";
+import { cn } from "@/lib/cn";
 
-const coach = {
-  name: "Vidyashankar Guru",
-  designation: "Co-Founder and Chief Vision Officer at MiTran Global",
-  photo: "/images/vidyashankar-guru.jpg",
-  story: [
-    "Grew up in a small village in South India — no elite school, no big-city advantages. Struggled with confidence, self-doubt, and freezing under pressure as a teen.",
-    "Realised the hard truth: capability without emotional strength will not help to achieve anything in life.",
-    "Spent 22+ years studying what schools never teach students — mindset, discipline, and inner strength.",
-    "Trained over 25,000 teens and professionals across 40+ nationalities as a TEDx Speaker and Author of five books.",
-    "Today his only mission is giving every struggling teen the tools he wished he had at their age.",
-  ],
-  highlights: [
-    { value: "22+", label: "Years of study" },
-    { value: "25K+", label: "Teens & professionals" },
-    { value: "40+", label: "Nationalities" },
-    { value: "5", label: "Books authored" },
-  ],
-};
+/**
+ * Shared "Meet the Coach" section — used on Home, Platinum, Free Training and
+ * Success Stories. Course pages render the same `coach` data in their own
+ * page styles. All content comes from `coach` in lib/site.ts.
+ */
+export default function Coach({ className }: { className?: string }) {
+  const [first, ...rest] = coach.name.split(" ");
 
-export default function Coach() {
   return (
-    <section id="coach" className="section border-t border-line">
+    <section id="coach" className={cn("section border-t border-line", className)}>
       <div className="container-x grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-16">
         {/* Story */}
         <Reveal className="order-2 lg:order-1">
           <p className="eyebrow">Meet the Coach</p>
           <h2 className="mt-5 text-display-2 font-display">
-            Vidyashankar <span className="gold-text italic">Guru</span>
+            {first} <span className="gold-text italic">{rest.join(" ")}</span>
           </h2>
           <p className="mt-3 text-sm uppercase tracking-[0.16em] text-gold md:text-base">
             {coach.designation}
@@ -66,7 +55,7 @@ export default function Coach() {
             <div className="relative overflow-hidden rounded-3xl border border-line bg-black shadow-card">
               <Image
                 src={coach.photo}
-                alt={`${coach.name}, ${coach.designation}`}
+                alt={coach.photoAlt}
                 width={778}
                 height={778}
                 sizes="(min-width: 1024px) 40vw, (min-width: 640px) 28rem, 100vw"
@@ -74,9 +63,7 @@ export default function Coach() {
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/80 to-transparent px-6 pb-6 pt-16">
                 <p className="font-display text-2xl">{coach.name}</p>
-                <p className="mt-1 text-sm text-ink-muted">
-                  TEDx Speaker · Author of five books
-                </p>
+                <p className="mt-1 text-sm text-ink-muted">{coach.tagline}</p>
               </div>
             </div>
 
@@ -93,6 +80,24 @@ export default function Coach() {
                 </div>
               ))}
             </div>
+
+            <ul className="relative mt-4 grid gap-2">
+              {coach.awards.map((a) => (
+                <li
+                  key={a.t}
+                  className="flex items-start gap-3 rounded-2xl border border-line bg-white/[0.02] px-4 py-3"
+                >
+                  <span aria-hidden className="text-lg leading-6">{a.icon}</span>
+                  <span className="text-sm leading-6">
+                    <span className="text-ink">
+                      {a.t}
+                      {a.year !== "★" && ` ${a.year}`}
+                    </span>
+                    <span className="block text-xs text-ink-faint">{a.s}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
         </Reveal>
       </div>

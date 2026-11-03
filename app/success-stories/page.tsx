@@ -1,4 +1,5 @@
 import { site } from "@/lib/site";
+import Coach from "@/components/sections/Coach";
 
 /* -------------------------------------------------------------------------- */
 /*  DATA — placeholder success stories                                         */
@@ -190,6 +191,11 @@ export default function SuccessStoriesPage() {
           </div>
         </div>
       </section>
+
+      {/* ================================================================== */}
+      {/*  MEET THE COACH (shared section, content from lib/site.ts)          */}
+      {/* ================================================================== */}
+      <Coach />
 
       {/* ================================================================== */}
       {/*  CTA                                                                */}

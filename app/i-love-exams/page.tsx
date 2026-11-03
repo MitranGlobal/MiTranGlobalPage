@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { site } from "@/lib/site";
+import Image from "next/image";
+import { coach, site } from "@/lib/site";
 
 /* -------------------------------------------------------------------------- */
 /*  DATA                                                                       */
@@ -105,7 +106,6 @@ const MODULES = [
 
 const INCLUSIONS = [
   { icon: "🎬", t: "40+ Live Video Content", b: "Five high-impact, self-paced modules packed with powerful techniques that help students study smarter, not harder. Each module develops exam confidence, boosts retention, and improves focus.", featured: true },
-  { icon: "🏕️", t: "2-Day Live Camp",       b: "Exclusive two-day live training led by expert coaches. Deeper insights, real-world strategies, personalised guidance, and a certification on completion." },
   { icon: "📊", t: "Positivity Score (PST)", b: "A research-backed assessment measuring key life skills, study habits, and leadership qualities — with a personalised growth strategy." },
   { icon: "📖", t: "Free eBook",             b: "A complimentary copy of the I Love Exams eBook by Vidyashankar Guru — proven strategies to overcome anxiety and build a success mindset." },
   { icon: "🔄", t: "Free Course Updates",    b: "As we refine and expand content, you receive free updates automatically. Always the most up-to-date strategies." },
@@ -156,18 +156,6 @@ const BONUSES = [
   },
   {
     n: "Bonus 2",
-    t: "2-Day Live Camp with Certification",
-    lead: "Join an exclusive two-day live training led by expert coaches — hands-on learning, personalised guidance.",
-    body: "",
-    bullets: [
-      { s: "Live Expert Training",        r: "Engaging sessions with top coaches" },
-      { s: "Comprehensive Workbook",       r: "Exercises, activities, and reflections" },
-      { s: "Personalised Guidance",        r: "Individual attention from expert mentors" },
-      { s: "Official Certification",       r: "Recognised certificate on completion" },
-    ],
-  },
-  {
-    n: "Bonus 3",
     t: "Journey to Positivity — Full Course",
     lead: "FREE access to our Journey to Positivity course — a transformational programme for young minds. Valued at ₹2,990, included free.",
     body: "",
@@ -202,7 +190,6 @@ const PLANS: Plan[] = [
       { yes: true,  t: "Certificate of Completion" },
       { yes: false, t: "Video Lessons" },
       { yes: false, t: "Assessment" },
-      { yes: false, t: "Live Camp" },
       { yes: false, t: "One-to-One Coaching" },
     ],
     href: "https://hub.mitranglobal.com/l/8398ed5b9d",
@@ -224,8 +211,7 @@ const PLANS: Plan[] = [
       { yes: true,  t: "One-to-One Coaching", highlight: true },
       { yes: true,  t: "101 Parenting Audio Lessons", highlight: true },
       { yes: true,  t: "Bonus 1: I Love Exams Book", highlight: true },
-      { yes: true,  t: "Bonus 2: Live Camp", highlight: true },
-      { yes: true,  t: "Bonus 3: Journey to Positivity", highlight: true },
+      { yes: true,  t: "Bonus 2: Journey to Positivity", highlight: true },
     ],
     href: "https://hub.mitranglobal.com/l/3eabcdba43",
     btn: "Enroll @ ₹999",
@@ -242,7 +228,7 @@ const PLANS: Plan[] = [
       { yes: true,  t: "Certificate of Completion" },
       { yes: true,  t: "Positivity Score" },
       { yes: false, t: "One-to-One Coaching" },
-      { yes: false, t: "Bonuses & Live Camp" },
+      { yes: false, t: "Bonuses" },
     ],
     href: "https://hub.mitranglobal.com/l/53a0224711",
     btn: "Enroll @ ₹899",
@@ -305,7 +291,7 @@ export default function ILoveExamsPage() {
                   { i: "🎬", t: "40+ Live Videos",   s: "Self-paced modules" },
                   { i: "🏅", t: "Certification",     s: "On completion" },
                   { i: "🛡️", t: "14-Day Refund",     s: "No questions asked" },
-                  { i: "🏕️", t: "2-Day Live Camp",   s: "With expert coaches" },
+                  { i: "📊", t: "Positivity Score",  s: "Research-backed assessment" },
                 ].map(b => (
                   <div key={b.t} className="il-hero-badge">
                     <div className="il-hero-badge-icon">{b.i}</div>
@@ -753,7 +739,7 @@ export default function ILoveExamsPage() {
           <div className="il-head">
             <p className="il-eyebrow">Exclusive bonuses</p>
             <h2 className="il-h2">
-              Three gifts,{" "}
+              Two gifts,{" "}
               <em className="il-gold">included free</em>
             </h2>
           </div>
@@ -844,29 +830,23 @@ export default function ILoveExamsPage() {
           <div>
             <p className="il-eyebrow">Know your coach</p>
             <h2 className="il-h2">
-              Two decades of transforming{" "}
+              22+ years of transforming{" "}
               <em className="il-gold">young minds</em>
             </h2>
-            <p className="il-sub">
-              Vidyashankar Guru has two decades of experience training students,
-              teachers, and parents from 40+ nationalities. Co-Founder &amp;
-              Chief Vision Officer of MiTran Global, TedX speaker, and author
-              of &ldquo;One Untold Secret of Success&rdquo;, &ldquo;Sweep Through Your
-              Interviews&rdquo;, &ldquo;Be a Champ&rdquo;, and &ldquo;101 Secrets of Effective
-              Parenting&rdquo;.
-            </p>
+            <p className="il-coach-desig">{coach.designation}</p>
+            <ul className="il-story">
+              {coach.story.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
 
             <div className="il-coach-awards">
-              {[
-                { i: "🏆", t: "Indian Achievers Award for Industrial Excellence 2011", s: "Indian Economic Development & Research Association" },
-                { i: "🏅", t: "Edupreneur of the Year 2012",                             s: "Times Group" },
-                { i: "🌟", t: "Lifetime Achievement Award",                              s: "Global Education Conclave" },
-              ].map(a => (
+              {coach.awards.map(a => (
                 <div key={a.t} className="il-coach-award">
-                  <span className="il-coach-award-i">{a.i}</span>
+                  <span className="il-coach-award-i">{a.icon}</span>
                   <div>
-                    <strong>{a.t}</strong>
-                    <span> — {a.s}</span>
+                    <strong>{a.t}{a.year !== "★" && ` ${a.year}`}</strong>
+                    <span>{a.s}</span>
                   </div>
                 </div>
               ))}
@@ -883,11 +863,20 @@ export default function ILoveExamsPage() {
           </div>
 
           <div className="il-coach-card">
-            <div className="il-coach-avatar" aria-hidden>V</div>
-            <div className="il-coach-name">Vidyashankar Guru</div>
-            <div className="il-coach-role">Co-Founder &amp; Chief Vision Officer</div>
+            <div className="il-coach-photo">
+              <Image
+                src={coach.photo}
+                alt={coach.photoAlt}
+                width={778}
+                height={778}
+                sizes="(min-width: 900px) 34vw, 90vw"
+                className="il-coach-img"
+              />
+            </div>
+            <div className="il-coach-name">{coach.name}</div>
+            <div className="il-coach-role">{coach.designation}</div>
             <div className="il-coach-creds">
-              {["NLP Practitioner", "Teen Psychology", "40+ Nationalities", "TedX Speaker", "5★ Rated"].map(c => (
+              {coach.creds.map(c => (
                 <span key={c} className="il-cred">{c}</span>
               ))}
             </div>
@@ -1650,8 +1639,8 @@ const IL_CSS = `
 .il-bento-0 { grid-column: span 3; grid-row: span 2; }     /* HERO */
 .il-bento-1 { grid-column: span 3; }
 .il-bento-2 { grid-column: span 3; }
-.il-bento-3 { grid-column: span 2; }
-.il-bento-4 { grid-column: span 2; }
+.il-bento-3 { grid-column: span 3; }   /* bottom row: two half-width cards */
+.il-bento-4 { grid-column: span 3; }
 .il-bento-5 { grid-column: span 2; }
 @media (max-width: 900px){
   .il-bento { grid-template-columns: 1fr; grid-auto-rows: auto; }
@@ -2154,21 +2143,31 @@ const IL_CSS = `
   background: linear-gradient(160deg, #17243a 0%, #0b1220 100%);
   border: 1px solid var(--il-line-2);
   border-radius: 22px;
-  padding: 40px 30px;
+  padding: 24px 24px 32px;
   text-align: center;
   color: #fff;
 }
-.il-coach-avatar {
-  width: 140px; height: 140px; border-radius: 24px;
-  margin: 0 auto 22px;
-  background: linear-gradient(135deg, #f5d17a, #c99b3a);
-  color: #0b0f1a;
-  display: inline-flex; align-items: center; justify-content: center;
-  font-family: var(--font-display), Georgia, serif;
-  font-size: 68px; font-style: italic;
-  font-weight: 500;
-  box-shadow: 0 20px 40px -15px rgba(233,196,106,0.35);
+.il-coach-photo {
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid rgba(233,196,106,0.3);
+  background: #000;
+  margin: 0 0 22px;
+  box-shadow: 0 20px 40px -15px rgba(233,196,106,0.25);
 }
+.il-coach-img { display: block; width: 100%; height: auto; }
+.il-coach-desig {
+  margin: 14px 0 0;
+  font-family: var(--il-mono);
+  font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--il-gold);
+}
+.il-story { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 12px; }
+.il-story li {
+  position: relative; padding-left: 26px;
+  font-size: 16px; line-height: 1.65; color: rgba(245,244,239,0.72);
+}
+.il-story li::before { content: "✦"; position: absolute; left: 0; top: 0; color: var(--il-gold); }
 .il-coach-name {
   font-family: var(--font-display), Georgia, serif;
   font-size: 24px; font-weight: 500;

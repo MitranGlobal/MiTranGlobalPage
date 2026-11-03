@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
-import { site } from "@/lib/site";
+import { coach, site } from "@/lib/site";
 import {
-  AWARDS,
   BONUS_PAINS,
-  CAMP_POINTS,
-  CREDS,
   ENROLL,
   HERO_BADGES,
   INCLUSIONS,
@@ -296,8 +293,8 @@ export default function AcceleratedLearningPage() {
               What your child gains <em className="al-em">for life</em>
             </h2>
             <p className="al-sub">
-              Every outcome is delivered through 8 brain-based modules, a live
-              2-day camp, and a Learning Behaviour Assessment.
+              Every outcome is delivered through 8 brain-based modules and a
+              Learning Behaviour Assessment.
             </p>
           </Reveal>
           <ol className="al-stairs">
@@ -381,14 +378,14 @@ export default function AcceleratedLearningPage() {
       </section>
 
       {/* ================================================================ */}
-      {/*  10. BONUSES — three gift boxes                                  */}
+      {/*  10. BONUSES — two gift boxes                                    */}
       {/* ================================================================ */}
       <section className="al-sec al-gifts-sec">
         <div className="container-x">
           <Reveal className="al-head">
             <p className="al-eyebrow">Exclusive bonuses</p>
             <h2 className="al-h2">
-              Three gifts included <em className="al-em">free</em>
+              Two gifts included <em className="al-em">free</em>
             </h2>
           </Reveal>
 
@@ -413,21 +410,6 @@ export default function AcceleratedLearningPage() {
 
             <article className="al-gift">
               <div className="al-gift-ribbon" aria-hidden><span>Bonus 2</span></div>
-              <h3 className="al-gift-t">2-Day Live Camp with Certification</h3>
-              <p className="al-gift-p">
-                Join an exclusive two-day live training session led by expert
-                coaches — going beyond theory with hands-on learning and
-                personalised guidance.
-              </p>
-              <ul className="al-gift-list">
-                {CAMP_POINTS.map((p) => (
-                  <li key={p.s}><strong>{p.s}</strong> — {p.r}</li>
-                ))}
-              </ul>
-            </article>
-
-            <article className="al-gift">
-              <div className="al-gift-ribbon" aria-hidden><span>Bonus 3</span></div>
               <h3 className="al-gift-t">Journey to Positivity Course — FREE Access</h3>
               <p className="al-gift-p">
                 A life-changing gift for your child — FREE access to our
@@ -508,23 +490,19 @@ export default function AcceleratedLearningPage() {
           <Reveal>
             <p className="al-eyebrow">Know your coach</p>
             <h2 className="al-h2">
-              Two decades of transforming <em className="al-em">young learners</em>
+              22+ years of transforming <em className="al-em">young learners</em>
             </h2>
-            <p className="al-sub">
-              Vidyashankar Guru has two decades of experience in training
-              students, teachers, and parents from 40 different nationalities.
-              He is the Co-Founder &amp; Chief Vision Officer of MiTran Global —
-              noted TedX speaker, and author of &ldquo;One Untold Secret of
-              Success&rdquo;, &ldquo;Sweep Through Your Interviews&rdquo;,
-              &ldquo;Be a Champ&rdquo;, and &ldquo;101 Secrets of Effective
-              Parenting&rdquo;. Previously he founded OnlySuccess Group of
-              Companies.
-            </p>
+            <p className="al-coach-desig">{coach.designation}</p>
+            <ul className="al-story">
+              {coach.story.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
 
             <ol className="al-awards">
-              {AWARDS.map((a) => (
+              {coach.awards.map((a) => (
                 <li key={a.t}>
-                  <span className="al-award-y">{a.y}</span>
+                  <span className="al-award-y">{a.year}</span>
                   <span>
                     <strong>{a.t}</strong>
                     <small>{a.s}</small>
@@ -541,18 +519,18 @@ export default function AcceleratedLearningPage() {
           <Reveal delay={0.1} className="al-coach-card">
             <div className="al-coach-photo">
               <Image
-                src="/images/vidyashankar-guru.jpg"
-                alt="Vidyashankar Guru, Co-Founder & Chief Vision Officer, MiTran Global"
+                src={coach.photo}
+                alt={coach.photoAlt}
                 width={778}
                 height={778}
                 sizes="(min-width: 1024px) 34vw, (min-width: 640px) 24rem, 90vw"
                 className="al-coach-img"
               />
             </div>
-            <div className="al-coach-name">Vidyashankar Guru</div>
-            <div className="al-coach-role">Co-Founder &amp; Chief Vision Officer</div>
+            <div className="al-coach-name">{coach.name}</div>
+            <div className="al-coach-role">{coach.designation}</div>
             <ul className="al-creds">
-              {CREDS.map((c) => <li key={c}>{c}</li>)}
+              {coach.creds.map((c) => <li key={c}>{c}</li>)}
             </ul>
           </Reveal>
         </div>

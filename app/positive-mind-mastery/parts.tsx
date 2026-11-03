@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { CAMP_POINTS, JTP_POINTS, MODULES } from "./data";
+import { JTP_POINTS, MODULES } from "./data";
 
 /* -------------------------------------------------------------------------- */
 /*  Curriculum: horizontal journey rail (scroll-snap) with prev / next        */
@@ -92,8 +92,7 @@ export function CurriculumRail() {
 
 const TABS = [
   { k: "Bonus 1", t: "Transform Your Child into a Super Achiever!" },
-  { k: "Bonus 2", t: "2-Day Live Camp with Certification" },
-  { k: "Bonus 3", t: "Journey to Positivity Course — FREE Access" },
+  { k: "Bonus 2", t: "Journey to Positivity Course — FREE Access" },
 ];
 
 export function BonusTabs() {
@@ -184,24 +183,6 @@ export function BonusTabs() {
           )}
 
           {i === 1 && (
-            <>
-              <p>
-                Join an exclusive two-day live training session led by expert
-                coaches — going beyond theory with hands-on learning and
-                personalised guidance.
-              </p>
-              <ul className="pm-tab-list">
-                {CAMP_POINTS.map((p) => (
-                  <li key={p.s}>
-                    <strong>{p.s}</strong>
-                    <span>{p.r}</span>
-                  </li>
-                ))}
-              </ul>
-            </>
-          )}
-
-          {i === 2 && (
             <>
               <p>
                 A life-changing gift — FREE access to our Journey to Positivity
