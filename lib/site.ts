@@ -6,8 +6,8 @@ export const site = {
     checkout:
       "https://hub.mitranglobal.com/web/checkout/67c995de375810b49bc96917",
     positivityScore: "http://positivity.mitranglobal.com/",
-    calendly:
-      "https://calendly.com/mitranglobal/one-to-one-session-on-facing-exams",
+    // Single booking link used by every "book a call / appointment" CTA
+    booking: "https://calendar.mitranglobal.com/v3/1-1-session/consultation",
     whatsapp: "https://chat.whatsapp.com/JxY3FynELhu0oE8C2nHcP1",
     spotify: "https://open.spotify.com/show/58xhAnoYMVgPTQK0Ea2jmD",
     ebook:
@@ -18,14 +18,11 @@ export const site = {
       "https://www.linkedin.com/newsletters/mitran-global-positivity-hub-7040456016391507968/",
     hub: "https://hub.mitranglobal.com/",
     allCourses: "https://hub.mitranglobal.com/l/58c2bda165",
-    d2sSchools: "https://positivity.mitranglobal.com/d2s-home",
-    // TODO: swap for a dedicated contact page / mailto when one exists
-    contact:
-      "https://calendly.com/mitranglobal/one-to-one-session-on-facing-exams",
+    yellowZoneSchools: "https://positivity.mitranglobal.com/d2s-home",
   },
 };
 
-export type ProgramItem = {
+export type MenuItem = {
   label: string;
   href: string;
   icon: string;
@@ -34,15 +31,15 @@ export type ProgramItem = {
   external?: boolean;
 };
 
-export type ResourceItem = {
-  label: string;
-  href: string;
-  icon: string;
-  description: string;
-  external?: boolean;
+/** A titled block inside a nav dropdown. `compact` renders as small chips. */
+export type MenuGroup = {
+  title: string;
+  items: MenuItem[];
+  compact?: boolean;
 };
 
-export const programs: ProgramItem[] = [
+/* "For Parents" dropdown — courses, programs, community and socials. */
+export const courseItems: MenuItem[] = [
   {
     label: "Positive Mind Mastery",
     href: "/positive-mind-mastery",
@@ -61,63 +58,74 @@ export const programs: ProgramItem[] = [
     icon: "🎯",
     description: "Transform exam fear into confidence and mastery.",
   },
-  {
-    label: "Free Training",
-    href: "/free-training",
-    icon: "🎁",
-    description: "A no-cost introduction to the Positivity Framework™.",
-  },
-  {
-    label: "Platinum Hub",
-    href: "/platinum",
-    icon: "👑",
-    description: "The complete 24-session 1-on-1 mentorship journey.",
-    flagship: true,
-  },
 ];
 
-export const resources: ResourceItem[] = [
+export const parentGroups: MenuGroup[] = [
+  { title: "Courses", items: courseItems },
   {
-    label: "E-Book",
-    href: "https://drive.google.com/file/d/1RfUt1xS02z4r0y1InDi0jUbspDTEYd0X/view",
-    icon: "📖",
-    description: "The free positivity ebook by Vidyashankar Guru.",
-    external: true,
+    title: "Programs & Community",
+    items: [
+      {
+        label: "Free Training",
+        href: "/free-training",
+        icon: "🎁",
+        description: "A no-cost introduction to the Positivity Framework™.",
+      },
+      {
+        label: "Platinum Hub",
+        href: "/platinum",
+        icon: "👑",
+        description: "The complete 24-session 1-on-1 mentorship journey.",
+        flagship: true,
+      },
+      {
+        label: "WhatsApp Community",
+        href: site.urls.whatsapp,
+        icon: "💬",
+        description: "Join a community of like-minded parents.",
+        external: true,
+      },
+    ],
   },
   {
-    label: "Podcast",
-    href: "https://open.spotify.com/show/58xhAnoYMVgPTQK0Ea2jmD",
-    icon: "🎙️",
-    description: "Positivity conversations, on Spotify.",
-    external: true,
-  },
-  {
-    label: "WhatsApp Community",
-    href: "https://chat.whatsapp.com/JxY3FynELhu0oE8C2nHcP1",
-    icon: "💬",
-    description: "Join a community of like-minded parents.",
-    external: true,
-  },
-  {
-    label: "Newsletter",
-    href: "https://www.linkedin.com/newsletters/mitran-global-positivity-hub-7040456016391507968/",
-    icon: "📰",
-    description: "Weekly insights delivered on LinkedIn.",
-    external: true,
+    title: "Socials",
+    compact: true,
+    items: [
+      {
+        label: "E-Book",
+        href: site.urls.ebook,
+        icon: "📖",
+        description: "The free positivity ebook by Vidyashankar Guru.",
+        external: true,
+      },
+      {
+        label: "Podcast",
+        href: site.urls.spotify,
+        icon: "🎙️",
+        description: "Positivity conversations, on Spotify.",
+        external: true,
+      },
+      {
+        label: "Newsletter",
+        href: site.urls.newsletter,
+        icon: "📰",
+        description: "Weekly insights delivered on LinkedIn.",
+        external: true,
+      },
+    ],
   },
 ];
 
 export type NavItem =
   | { type: "link"; label: string; href: string; external?: boolean }
-  | { type: "dropdown"; label: string; group: "programs" | "resources" };
+  | { type: "dropdown"; label: string; groups: MenuGroup[] };
 
 export const navLinks: NavItem[] = [
-  { type: "link",     label: "Home",            href: "/" },
-  { type: "link",     label: "Framework",       href: "/#framework" },
-  { type: "dropdown", label: "Our Programs",    group: "programs" },
-  { type: "link",     label: "For Schools",     href: "https://positivity.mitranglobal.com/d2s-home", external: true },
-  { type: "dropdown", label: "Resources",       group: "resources" },
-  { type: "link",     label: "Success Stories", href: "/success-stories" },
+  { type: "link",     label: "Home",               href: "/" },
+  { type: "link",     label: "Framework",          href: "/#framework" },
+  { type: "dropdown", label: "For Parents",        groups: parentGroups },
+  { type: "link",     label: "YellowZone Schools", href: site.urls.yellowZoneSchools, external: true },
+  { type: "link",     label: "Success Stories",    href: "/success-stories" },
 ];
 
 export const pillars = [
@@ -163,7 +171,7 @@ export const stats = [
   { value: "10K+", label: "Learners on the Hub" },
   { value: "5/5", label: "Google Stars" },
   { value: "3", label: "Core Pillars" },
-  { value: "52", label: "Live Sessions / Year" },
+  { value: "24/7", label: "Coach Support" },
 ];
 
 export const courses = [
@@ -196,13 +204,13 @@ export const courses = [
 export const platformFeatures = [
   {
     icon: "📺",
-    title: "Course Access",
-    body: "Gain access to all individual online courses covering essential academic and personal growth skills — any time, any device.",
+    title: "Self-paced Courses",
+    body: "Learn at your own pace with all our online courses covering essential academic and personal growth skills — any time, any device.",
   },
   {
     icon: "🎥",
-    title: "52 Live Sessions / Year",
-    body: "52 expert-led live sessions per year aligned with course modules, featuring transformational coaching for lasting learning.",
+    title: "Interactive Live Sessions",
+    body: "Expert-led interactive live sessions aligned with course modules, featuring transformational coaching for lasting learning.",
   },
   {
     icon: "📊",

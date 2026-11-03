@@ -10,7 +10,7 @@ export default function Cta() {
           <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-gold/5 blur-3xl" />
 
           <div className="relative">
-            <p className="eyebrow">For Schools</p>
+            <p className="eyebrow">YellowZone Schools</p>
             <h2 className="mt-5 max-w-2xl text-display-2 font-display">
               Bring the Positivity Framework™ to your{" "}
               <span className="gold-text italic">entire school</span>

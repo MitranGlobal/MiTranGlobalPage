@@ -1,5 +1,5 @@
 import Reveal from "@/components/ui/Reveal";
-import { platformFeatures } from "@/lib/site";
+import { platformFeatures, site } from "@/lib/site";
 
 export default function Platform() {
   return (
@@ -28,6 +28,17 @@ export default function Platform() {
               </p>
             </div>
           ))}
+        </Reveal>
+
+        <Reveal className="mt-14 flex justify-center">
+          <a
+            href={site.urls.booking}
+            target="_blank"
+            rel="noreferrer"
+            className="btn-primary px-8 py-4 text-base"
+          >
+            Book a call →
+          </a>
         </Reveal>
       </div>
     </section>

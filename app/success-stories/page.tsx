@@ -210,7 +210,7 @@ export default function SuccessStoriesPage() {
                 journey.
               </p>
               <div className="ss-cta-row">
-                <a href={site.urls.calendly} target="_blank" rel="noreferrer" className="ss-btn ss-btn-gold">
+                <a href={site.urls.booking} target="_blank" rel="noreferrer" className="ss-btn ss-btn-gold">
                   Book a discovery call →
                 </a>
                 <a href="/platinum" className="ss-btn ss-btn-ghost">

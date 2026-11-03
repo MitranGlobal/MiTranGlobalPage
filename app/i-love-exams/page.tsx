@@ -873,7 +873,7 @@ export default function ILoveExamsPage() {
             </div>
 
             <a
-              href={site.urls.calendly}
+              href={site.urls.booking}
               target="_blank"
               rel="noreferrer"
               className="il-btn il-btn-gold il-coach-cta"
@@ -1028,7 +1028,7 @@ export default function ILoveExamsPage() {
                 <a href={site.urls.enroll} target="_blank" rel="noreferrer" className="il-btn il-btn-gold">
                   Enroll now →
                 </a>
-                <a href={site.urls.calendly} target="_blank" rel="noreferrer" className="il-btn il-btn-ghost">
+                <a href={site.urls.booking} target="_blank" rel="noreferrer" className="il-btn il-btn-ghost">
                   Book a discovery call
                 </a>
               </div>

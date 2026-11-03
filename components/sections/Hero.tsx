@@ -57,20 +57,12 @@ export default function Hero() {
               className="mt-9 flex flex-col items-start gap-3 sm:flex-row sm:items-center"
             >
               <a
-                href={site.urls.positivityScore}
+                href={site.urls.booking}
                 target="_blank"
                 rel="noreferrer"
-                className="btn-primary"
+                className="btn-primary px-8 py-4 text-base"
               >
-                Find your child&apos;s score →
-              </a>
-              <a
-                href={site.urls.checkout}
-                target="_blank"
-                rel="noreferrer"
-                className="btn-ghost"
-              >
-                ▶ Join the experience
+                Book your Appointment →
               </a>
             </motion.div>
           </motion.div>

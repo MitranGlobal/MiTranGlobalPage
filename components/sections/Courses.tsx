@@ -22,12 +22,14 @@ export default function Courses() {
 
         <Reveal className="mt-16 grid gap-6 md:grid-cols-3" stagger>
           {courses.map((c) => (
+            // Wrapper takes the GSAP reveal; the article takes the hover lift —
+            // keeping them on separate elements stops the two fighting over
+            // `transform` and jittering.
+            <div key={c.slug} data-reveal-item className="flex">
             <motion.article
-              key={c.slug}
-              data-reveal-item
               whileHover={{ y: -4 }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="card group flex flex-col"
+              className="card group flex w-full flex-col"
             >
               <div className="text-3xl">{c.icon}</div>
               <p className="mt-6 text-xs uppercase tracking-[0.18em] gold-text">
@@ -59,6 +61,7 @@ export default function Courses() {
                 </button>
               </div>
             </motion.article>
+            </div>
           ))}
         </Reveal>
       </div>

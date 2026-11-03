@@ -1,22 +1,26 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import Reveal from "@/components/ui/Reveal";
 import { testimonials } from "@/lib/site";
+import { cn } from "@/lib/cn";
+
+const INTERVAL_MS = 6000;
 
 export default function Testimonials() {
   const [i, setI] = useState(0);
+  const [paused, setPaused] = useState(false);
 
+  // Restart the timer whenever the slide changes (auto or by a dot click),
+  // so a manual pick always gets a full 6 seconds on screen.
   useEffect(() => {
-    const id = setInterval(
+    if (paused) return;
+    const id = setTimeout(
       () => setI((n) => (n + 1) % testimonials.length),
-      6000
+      INTERVAL_MS
     );
-    return () => clearInterval(id);
-  }, []);
-
-  const t = testimonials[i];
+    return () => clearTimeout(id);
+  }, [i, paused]);
 
   return (
     <section className="section border-t border-line">
@@ -29,37 +33,53 @@ export default function Testimonials() {
           </h2>
         </Reveal>
 
-        <div className="relative mx-auto mt-16 max-w-3xl">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -18 }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="card text-center"
-            >
-              <div className="mb-4 text-gold">★★★★★</div>
-              <blockquote className="font-display text-xl md:text-2xl leading-snug">
-                &ldquo;{t.quote}&rdquo;
-              </blockquote>
-              <div className="mt-6 text-sm text-ink-muted">
-                <span className="font-medium text-ink">{t.name}</span>{" "}
-                — {t.role}
-              </div>
-            </motion.div>
-          </AnimatePresence>
+        <div
+          className="relative mx-auto mt-16 max-w-3xl"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
+          {/* Every quote sits in the same grid cell, so the card is always as
+              tall as the longest quote — no page jump when slides change. */}
+          <div className="card grid text-center" aria-live="polite">
+            {testimonials.map((t, k) => (
+              <figure
+                key={t.name}
+                aria-hidden={k !== i}
+                className={cn(
+                  "[grid-area:1/1] transition-all duration-500 ease-out",
+                  k === i
+                    ? "translate-y-0 opacity-100"
+                    : "pointer-events-none translate-y-3 opacity-0"
+                )}
+              >
+                <div className="mb-4 text-gold">★★★★★</div>
+                <blockquote className="font-display text-xl md:text-2xl leading-snug">
+                  &ldquo;{t.quote}&rdquo;
+                </blockquote>
+                <figcaption className="mt-6 text-sm text-ink-muted">
+                  <span className="font-medium text-ink">{t.name}</span> — {t.role}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
 
-          <div className="mt-6 flex items-center justify-center gap-2">
+          <div className="mt-6 flex items-center justify-center gap-1">
             {testimonials.map((_, k) => (
               <button
                 key={k}
-                aria-label={`Testimonial ${k + 1}`}
+                type="button"
+                aria-label={`Show testimonial ${k + 1}`}
+                aria-current={k === i}
                 onClick={() => setI(k)}
-                className={`h-1.5 rounded-full transition-all ${
-                  k === i ? "w-8 bg-gold" : "w-2 bg-white/20 hover:bg-white/40"
-                }`}
-              />
+                className="grid h-8 place-items-center px-1"
+              >
+                <span
+                  className={cn(
+                    "block h-1.5 rounded-full transition-all",
+                    k === i ? "w-8 bg-gold" : "w-2 bg-white/20 hover:bg-white/40"
+                  )}
+                />
+              </button>
             ))}
           </div>
         </div>

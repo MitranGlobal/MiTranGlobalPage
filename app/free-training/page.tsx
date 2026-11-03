@@ -18,7 +18,7 @@ export default function FreeTrainingPage() {
         primaryCta={{ label: "Get free training →", href: site.urls.enroll }}
         secondaryCta={{
           label: "Talk to a coach",
-          href: site.urls.calendly,
+          href: site.urls.booking,
         }}
       />
 

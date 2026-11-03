@@ -1,11 +1,27 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+// useLayoutEffect sets the hidden start state before the browser paints,
+// avoiding a visible flash of content that then disappears and fades back in.
+const useIsoLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
+let refreshHooked = false;
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
+  // Trigger positions are measured on mount, before images, video and web
+  // fonts have loaded and shifted the layout. Re-measure once everything is
+  // in, otherwise some sections reveal late or stay hidden while on screen.
+  if (!refreshHooked) {
+    refreshHooked = true;
+    const refresh = () => ScrollTrigger.refresh();
+    if (document.readyState === "complete") setTimeout(refresh, 0);
+    else window.addEventListener("load", refresh, { once: true });
+    document.fonts?.ready.then(refresh).catch(() => {});
+  }
 }
 
 type Props = {
@@ -29,7 +45,7 @@ export default function Reveal({
 }: Props) {
   const ref = useRef<HTMLElement>(null);
 
-  useEffect(() => {
+  useIsoLayoutEffect(() => {
     const el = ref.current;
     if (!el) return;
 

@@ -5,6 +5,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Keep anchored sections (e.g. /#framework) clear of the fixed header */
+    scroll-padding-top: 6rem;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -33,6 +35,12 @@
 
   .gold-text {
     @apply bg-gold-gradient bg-clip-text text-transparent;
+    /* Extend the painted background past italic overhangs so the last
+       letter isn't clipped, without changing the layout. */
+    padding-right: 0.1em;
+    margin-right: -0.1em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
   }
 
   .btn {
@@ -88,6 +96,40 @@
   }
 }
 
+/* ------------------------------------------------------------------ */
+/*  Logo marquee (components/ui/LogoMarquee.tsx)                       */
+/* ------------------------------------------------------------------ */
+.logo-marquee-viewport {
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 10%, #000 90%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 10%, #000 90%, transparent 100%);
+}
+.logo-marquee-track {
+  /* One group = 10 slots: 1600px on phones, 2400px from md up.
+     Durations keep a calm ~32-40px/s on every screen size. */
+  animation: logo-marquee 50s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+@media (min-width: 768px) {
+  .logo-marquee-track { animation-duration: 60s; }
+}
+/* Pause on hover only where a real pointer exists; on touch screens a tap
+   would otherwise leave it stuck paused. */
+@media (hover: hover) and (pointer: fine) {
+  .logo-marquee:hover .logo-marquee-track { animation-play-state: paused; }
+}
+@keyframes logo-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+/* Sticky bottom CTA band (components/ui/StickyCta.tsx) */
+.sticky-cta {
+  background: linear-gradient(90deg, #c99b3a 0%, #e9c46a 30%, #f5d17a 55%, #e9c46a 78%, #c99b3a 100%);
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
@@ -105,9 +147,17 @@
 }
 
 /* Reduce motion */
+/* Reduce motion. animation-iteration-count must be capped too — otherwise
+   infinite animations (like the logo marquee) loop every 0.01ms and flicker
+   wildly on devices with "reduce motion" / "animations off" enabled. */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

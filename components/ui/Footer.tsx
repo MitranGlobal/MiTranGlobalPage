@@ -27,7 +27,7 @@ const cols = [
     title: "Connect",
     links: [
       { label: "WhatsApp Community", href: site.urls.whatsapp, external: true },
-      { label: "Book a Session", href: site.urls.calendly, external: true },
+      { label: "Book a Session", href: site.urls.booking, external: true },
       { label: "Positivity Score", href: site.urls.positivityScore, external: true },
       { label: "Login to Hub", href: site.urls.hub, external: true },
     ],
