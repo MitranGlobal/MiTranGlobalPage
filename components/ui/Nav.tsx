@@ -156,7 +156,7 @@ export default function Nav() {
               rel="noreferrer"
               className="hidden md:inline-flex btn-primary px-5 py-2.5 text-sm"
             >
-              Contact Us
+              Book a call
             </a>
             <button
               type="button"
@@ -225,7 +225,7 @@ export default function Nav() {
                 rel="noreferrer"
                 className="btn-primary mt-6 w-full"
               >
-                Contact Us →
+                Book a call →
               </a>
             </div>
           </motion.div>

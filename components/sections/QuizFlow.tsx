@@ -160,12 +160,12 @@ export default function QuizFlow() {
                   </p>
                   <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                     <a
-                      href={site.urls.positivityScore}
+                      href={site.urls.booking}
                       target="_blank"
                       rel="noreferrer"
                       className="btn-primary"
                     >
-                      Take the full Positivity Score →
+                      Book a call →
                     </a>
                     <button onClick={reset} className="btn-ghost">
                       Retake quiz

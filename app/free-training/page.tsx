@@ -16,11 +16,7 @@ export default function FreeTrainingPage() {
           </>
         }
         intro="A no-cost, no-obligation introduction to the science and skills we teach — perfect for parents and teens deciding if MiTran is right for them."
-        primaryCta={{ label: "Get free training →", href: site.urls.enroll }}
-        secondaryCta={{
-          label: "Talk to a coach",
-          href: site.urls.booking,
-        }}
+        primaryCta={{ label: "Book a call →", href: site.urls.booking }}
       />
 
       <FeatureGrid

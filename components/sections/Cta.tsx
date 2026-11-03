@@ -29,14 +29,6 @@ export default function Cta() {
               >
                 Partner with us →
               </a>
-              <a
-                href={site.urls.spotify}
-                target="_blank"
-                rel="noreferrer"
-                className="btn-ghost"
-              >
-                🎙 Listen to the podcast
-              </a>
             </div>
           </div>
         </Reveal>

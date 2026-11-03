@@ -10,7 +10,7 @@ import { cn } from "@/lib/cn";
  */
 export default function Coach({
   className,
-  ctaLabel = "Book a one-to-one session →",
+  ctaLabel = "Book a call →",
 }: {
   className?: string;
   ctaLabel?: string;

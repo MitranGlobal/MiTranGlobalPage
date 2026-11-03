@@ -27,12 +27,12 @@ export default function Challenge() {
             Global, we&apos;ve built the framework to instil it systematically.
           </p>
           <a
-            href={site.urls.positivityScore}
+            href={site.urls.booking}
             target="_blank"
             rel="noreferrer"
             className="btn-primary mt-8"
           >
-            Assess your child now →
+            Book a call →
           </a>
         </Reveal>
       </div>

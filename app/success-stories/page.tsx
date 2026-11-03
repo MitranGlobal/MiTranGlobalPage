@@ -211,16 +211,12 @@ export default function SuccessStoriesPage() {
                 <em className="ss-gold">success story.</em>
               </h2>
               <p className="ss-lede-center">
-                Book a discovery call, take the free Positivity Score
-                assessment, or explore the flagship 24-session Platinum
-                journey.
+                Book a call with our coach to find the right next step for
+                your child.
               </p>
               <div className="ss-cta-row">
                 <a href={site.urls.booking} target="_blank" rel="noreferrer" className="ss-btn ss-btn-gold">
-                  Book a discovery call →
-                </a>
-                <a href="/platinum" className="ss-btn ss-btn-ghost">
-                  Explore Platinum
+                  Book a call →
                 </a>
               </div>
             </div>
