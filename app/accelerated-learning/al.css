@@ -632,6 +632,11 @@
   color: var(--al-gold);
 }
 .al-spec-body dd { margin: 8px 0 0; font-size: 14.5px; line-height: 1.65; color: var(--al-mute); }
+@media (max-width: 560px) {
+  .al-spec-row { grid-template-columns: 44px minmax(0, 1fr); }
+  .al-spec-idx { display: none; }
+  .al-spec-i { width: 44px; height: 44px; font-size: 20px; }
+}
 
 /* =====================================================================
    6. TESTIMONIALS — switcher
@@ -793,7 +798,7 @@
 .al-note {
   position: relative;
   min-height: 96px;
-  padding: 24px 18px 18px;
+  padding: 32px 18px 18px;
   border-radius: 4px;
   background: linear-gradient(180deg, #fbf3d2 0%, #f3e7b9 100%);
   color: var(--al-paper-ink);
@@ -947,6 +952,10 @@
 .al-gift-q li::before { content: "?"; position: absolute; left: 2px; top: 0; font-weight: 700; color: var(--al-teal); }
 .al-gift-list li::before { content: "→"; position: absolute; left: 0; top: 0; color: var(--al-gold); }
 .al-gift-list strong { color: var(--al-ink); font-weight: 600; }
+@media (max-width: 600px) {
+  .al-gift::before { display: none; }
+  .al-gift-t, .al-gift-p, .al-gift-q, .al-gift-list { padding-right: 0; }
+}
 
 /* =====================================================================
    11. PRICING
@@ -955,7 +964,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1.12fr;
   gap: 20px;
-  align-items: start;
+  /* equal-height cards so every button sits on the same line */
+  align-items: stretch;
   max-width: 1120px;
   margin: 0 auto;
 }
