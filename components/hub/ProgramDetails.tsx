@@ -108,6 +108,7 @@ export default function ProgramDetails() {
                     <span className="font-display text-5xl gold-text">{clarityCall.n}</span>
                     <span className="text-xs uppercase tracking-[0.18em] text-gold">Session 1</span>
                   </div>
+                  <AttendBadge label={clarityCall.attendBadge} />
                   <h3 className="mt-4 text-display-3 font-display">{clarityCall.title}</h3>
                   <p className="mt-2 text-ink">{clarityCall.question}</p>
                   <p className="mt-5 leading-relaxed text-ink-muted">{clarityCall.intro}</p>
@@ -159,6 +160,7 @@ export default function ProgramDetails() {
                   <span className="font-display text-4xl gold-text">{s.n}</span>
                   <span className="text-xs uppercase tracking-[0.18em] text-gold">Session {i + 2}</span>
                 </div>
+                <AttendBadge label={s.attend} highlight icon={s.attend.startsWith("Exclusively") ? "🧒" : "👨‍👩"} />
                 <h3 className="mt-4 text-display-3 font-display">{s.title}</h3>
                 <p className="mt-2 text-ink">{s.question}</p>
                 <ul className="mt-6 space-y-3">
@@ -177,5 +179,20 @@ export default function ProgramDetails() {
         </div>
       </section>
     </>
+  );
+}
+
+function AttendBadge({ label, highlight = false, icon = "👨‍👩‍👧" }: { label: string; highlight?: boolean; icon?: string }) {
+  return (
+    <span
+      className={
+        highlight
+          ? "mt-3 inline-flex w-fit items-center gap-2 rounded-full border border-gold/50 bg-gold/[0.12] px-3 py-1 text-xs font-medium text-gold"
+          : "mt-3 inline-flex w-fit items-center gap-2 rounded-full border border-line bg-white/[0.04] px-3 py-1 text-xs text-ink-muted"
+      }
+    >
+      <span aria-hidden>{icon}</span>
+      {label}
+    </span>
   );
 }

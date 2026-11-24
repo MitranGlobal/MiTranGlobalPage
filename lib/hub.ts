@@ -55,7 +55,7 @@ export const handholding = {
   title: "3 Handholding One-to-One Sessions",
   duration: "3 sessions | 40 minutes each",
   description:
-    "Guided by a certified Psychologist & Transformation Coach. Two sessions are for you and your child together, and one is exclusively for your child, so they can open up freely.",
+    "Guided by a certified Psychologist & Transformation Coach. The Clarity Call is for both parents and your child together, the second session is exclusively for your child so they can open up freely, and the third is a mandatory session for parents to understand what is really going on with your child.",
   outcome:
     "Your child feels heard and gets a clear plan, and you learn how to support it at home.",
 };
@@ -63,6 +63,8 @@ export const handholding = {
 export type HandholdingSession = {
   n: string;
   title: string;
+  /** Who attends this session. */
+  attend: string;
   question: string;
   points: string[];
 };
@@ -70,6 +72,7 @@ export type HandholdingSession = {
 export const clarityCall = {
   n: "01",
   title: "Clarity Call",
+  attendBadge: "Parents & child together",
   question: "What happens in the Clarity Call?",
   intro:
     "After our first conversation, we arrange a personal session with our Mentor, Mr. Vidyashankar. He brings 22+ years of experience working with children and understanding their concerns.",
@@ -89,6 +92,7 @@ export const handholdingSessions: HandholdingSession[] = [
   {
     n: "02",
     title: "Beneath “Fine”",
+    attend: "Exclusively for your child",
     question: "What is really going on with my teenager?",
     points: [
       "Why behaviour is communication, and why the phone is usually a symptom",
@@ -101,6 +105,7 @@ export const handholdingSessions: HandholdingSession[] = [
   {
     n: "03",
     title: "From Managing to Supporting",
+    attend: "All parents · Mandatory",
     question: "How do I help without doing it all myself?",
     points: [
       "The handover ladder: moving tasks from you to them",
