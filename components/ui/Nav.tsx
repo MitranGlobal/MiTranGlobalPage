@@ -377,7 +377,7 @@ function DesktopDropdown({
             // without the menu closing.
             className={cn(
               "absolute left-1/2 top-full z-50 pt-3",
-              columns.length > 1 ? "w-[720px]" : "w-[440px]"
+              columns.length > 1 ? "w-[720px]" : "w-[540px]"
             )}
           >
             <div className="relative rounded-2xl border border-line bg-bg-card/95 p-3 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)] backdrop-blur-xl">
@@ -405,11 +405,10 @@ function DesktopDropdown({
                   <span className="w-24 shrink-0 px-2 text-[10.5px] font-medium uppercase tracking-[0.2em] text-ink-faint">
                     {group.title}
                   </span>
-                  <div className="flex flex-1 flex-wrap gap-2">
-                    {group.items.map((entry) =>
-                      group.socials ? (
-                        <SocialButton key={entry.label} entry={entry} />
-                      ) : (
+                  <div className="flex flex-1 flex-wrap items-center gap-2">
+                    {group.items
+                      .filter((entry) => !entry.social)
+                      .map((entry) => (
                         <SmartLink
                           key={entry.label}
                           href={entry.href}
@@ -420,8 +419,15 @@ function DesktopDropdown({
                           <span aria-hidden>{entry.icon}</span>
                           {entry.label}
                         </SmartLink>
-                      )
+                      ))}
+                    {group.items.some((entry) => entry.social) && (
+                      <span className="mx-1 h-6 w-px bg-line" aria-hidden />
                     )}
+                    {group.items
+                      .filter((entry) => entry.social)
+                      .map((entry) => (
+                        <SocialButton key={entry.label} entry={entry} />
+                      ))}
                   </div>
                 </div>
               ))}
@@ -558,25 +564,26 @@ function MobileDropdown({
               {item.groups.map((group) => (
                 <div key={group.title}>
                   <GroupTitle>{group.title}</GroupTitle>
-                  {group.socials ? (
-                    <div className="flex gap-2 px-3 pt-1">
-                      {group.items.map((entry) => (
-                        <SocialButton key={entry.label} entry={entry} />
-                      ))}
-                    </div>
-                  ) : group.compact ? (
-                    <div className="flex flex-wrap gap-2 px-3 pt-1">
-                      {group.items.map((entry) => (
-                        <SmartLink
-                          key={entry.label}
-                          href={entry.href}
-                          external={entry.external}
-                          className="inline-flex items-center gap-2 rounded-full border border-line bg-white/[0.03] px-3.5 py-2 text-sm text-ink-muted"
-                        >
-                          <span aria-hidden>{entry.icon}</span>
-                          {entry.label}
-                        </SmartLink>
-                      ))}
+                  {group.compact ? (
+                    <div className="flex flex-wrap items-center gap-2 px-3 pt-1">
+                      {group.items
+                        .filter((entry) => !entry.social)
+                        .map((entry) => (
+                          <SmartLink
+                            key={entry.label}
+                            href={entry.href}
+                            external={entry.external}
+                            className="inline-flex items-center gap-2 rounded-full border border-line bg-white/[0.03] px-3.5 py-2 text-sm text-ink-muted"
+                          >
+                            <span aria-hidden>{entry.icon}</span>
+                            {entry.label}
+                          </SmartLink>
+                        ))}
+                      {group.items
+                        .filter((entry) => entry.social)
+                        .map((entry) => (
+                          <SocialButton key={entry.label} entry={entry} />
+                        ))}
                     </div>
                   ) : (
                     <div className="grid gap-1">

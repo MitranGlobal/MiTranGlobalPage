@@ -73,6 +73,8 @@ export type MenuItem = {
   description: string;
   flagship?: boolean;
   external?: boolean;
+  /** Render as an icon-only social button; `icon` is the SocialIcon name. */
+  social?: boolean;
 };
 
 /** A titled block inside a nav dropdown. `compact` renders as small chips. */
@@ -80,8 +82,6 @@ export type MenuGroup = {
   title: string;
   items: MenuItem[];
   compact?: boolean;
-  /** Render items as icon-only social buttons (label used for a11y). */
-  socials?: boolean;
 };
 
 /* "For Parents" dropdown — courses, programs, community and socials. */
@@ -150,15 +150,10 @@ export const parentGroups: MenuGroup[] = [
         description: "Weekly insights delivered on LinkedIn.",
         external: true,
       },
-    ],
-  },
-  {
-    title: "Follow us",
-    socials: true,
-    items: [
-      { label: "Instagram", href: site.urls.instagram, icon: "instagram", description: "", external: true },
-      { label: "YouTube", href: site.urls.youtube, icon: "youtube", description: "", external: true },
-      { label: "LinkedIn", href: site.urls.linkedin, icon: "linkedin", description: "", external: true },
+      // Social profiles — shown as icons on the same row
+      { label: "Instagram", href: site.urls.instagram, icon: "instagram", description: "", external: true, social: true },
+      { label: "YouTube", href: site.urls.youtube, icon: "youtube", description: "", external: true, social: true },
+      { label: "LinkedIn", href: site.urls.linkedin, icon: "linkedin", description: "", external: true, social: true },
     ],
   },
 ];

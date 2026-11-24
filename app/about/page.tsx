@@ -20,13 +20,6 @@ const MAPS = `https://www.google.com/maps/search/?api=1&query=${encodeURICompone
   "Spaces Shantiniketan, Crescent Tower 4, Prestige Shantiniketan, Krishnarajapuram, Bangalore 560066"
 )}`;
 
-const facts = [
-  { value: "10K+", label: "Learners on the Hub" },
-  { value: "25K+", label: "Teens & professionals trained" },
-  { value: "40+", label: "Nationalities" },
-  { value: "22+", label: "Years of experience" },
-];
-
 const whatWeDo = [
   {
     icon: "👨‍👩‍👧",
@@ -92,14 +85,6 @@ export default function AboutPage() {
               and life skills that schools rarely teach — so a positive teen
               today becomes a confident leader tomorrow.
             </p>
-          </Reveal>
-          <Reveal className="mx-auto mt-14 grid max-w-5xl grid-cols-2 gap-4 md:grid-cols-4" stagger>
-            {facts.map((f) => (
-              <div key={f.label} data-reveal-item className="rounded-2xl border border-line bg-white/[0.02] px-5 py-6 text-center">
-                <div className="font-display text-3xl gold-text md:text-4xl">{f.value}</div>
-                <div className="mt-1 text-xs uppercase tracking-widest text-ink-faint">{f.label}</div>
-              </div>
-            ))}
           </Reveal>
         </div>
       </section>
