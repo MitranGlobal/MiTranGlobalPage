@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
-import { coach, site } from "@/lib/site";
+import RefundSection from "@/components/course/RefundSection";
 import {
   BONUS_PAINS,
   ENROLL,
@@ -14,7 +13,7 @@ import {
   REASONS,
   SKILLS,
 } from "./data";
-import { ModuleExplorer, TestimonialSwitcher } from "./parts";
+import { ModuleExplorer } from "./parts";
 import "./al.css";
 
 export const metadata: Metadata = {
@@ -268,21 +267,6 @@ export default function AcceleratedLearningPage() {
       </section>
 
       {/* ================================================================ */}
-      {/*  6. TESTIMONIALS — switcher                                      */}
-      {/* ================================================================ */}
-      <section className="al-sec al-testi">
-        <div className="container-x">
-          <Reveal className="al-head">
-            <p className="al-eyebrow">Testimonials</p>
-            <h2 className="al-h2">
-              Changing lives, one <em className="al-em">learner</em> at a time
-            </h2>
-          </Reveal>
-          <TestimonialSwitcher />
-        </div>
-      </section>
-
-      {/* ================================================================ */}
       {/*  7. OUTCOMES — level-up staircase                                */}
       {/* ================================================================ */}
       <section className="al-outcomes">
@@ -347,7 +331,7 @@ export default function AcceleratedLearningPage() {
                 subject.
               </p>
               <a href={ENROLL} target="_blank" rel="noreferrer" className="al-btn al-btn-gold">
-                Enroll now — from ₹499 →
+                Enroll now — from ₹4,990 →
               </a>
             </div>
           </div>
@@ -483,60 +467,6 @@ export default function AcceleratedLearningPage() {
       </section>
 
       {/* ================================================================ */}
-      {/*  12. COACH — photo + award timeline                              */}
-      {/* ================================================================ */}
-      <section className="al-coach" id="coach">
-        <div className="container-x al-coach-grid">
-          <Reveal>
-            <p className="al-eyebrow">Know your coach</p>
-            <h2 className="al-h2">
-              22+ years of transforming <em className="al-em">young learners</em>
-            </h2>
-            <p className="al-coach-desig">{coach.designation}</p>
-            <ul className="al-story">
-              {coach.story.map((line) => (
-                <li key={line}>{line}</li>
-              ))}
-            </ul>
-
-            <ol className="al-awards">
-              {coach.awards.map((a) => (
-                <li key={a.t}>
-                  <span className="al-award-y">{a.year}</span>
-                  <span>
-                    <strong>{a.t}</strong>
-                    <small>{a.s}</small>
-                  </span>
-                </li>
-              ))}
-            </ol>
-
-            <a href={site.urls.booking} target="_blank" rel="noreferrer" className="al-btn al-btn-gold">
-              Book a one-to-one session →
-            </a>
-          </Reveal>
-
-          <Reveal delay={0.1} className="al-coach-card">
-            <div className="al-coach-photo">
-              <Image
-                src={coach.photo}
-                alt={coach.photoAlt}
-                width={778}
-                height={778}
-                sizes="(min-width: 1024px) 34vw, (min-width: 640px) 24rem, 90vw"
-                className="al-coach-img"
-              />
-            </div>
-            <div className="al-coach-name">{coach.name}</div>
-            <div className="al-coach-role">{coach.designation}</div>
-            <ul className="al-creds">
-              {coach.creds.map((c) => <li key={c}>{c}</li>)}
-            </ul>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ================================================================ */}
       {/*  13. OVERVIEW — pull quote + prose                               */}
       {/* ================================================================ */}
       <section className="al-sec al-over">
@@ -600,6 +530,11 @@ export default function AcceleratedLearningPage() {
       </section>
 
       {/* ================================================================ */}
+      {/*  REFUND — same 14-day policy as I Love Exams                     */}
+      {/* ================================================================ */}
+      <RefundSection enrollHref={ENROLL} />
+
+      {/* ================================================================ */}
       {/*  14. FINAL — gold band                                           */}
       {/* ================================================================ */}
       <section className="al-band">
@@ -608,7 +543,7 @@ export default function AcceleratedLearningPage() {
           <h2 className="al-band-t">Ready to learn smarter?</h2>
           <p className="al-band-p">
             Join thousands of students aged 11–17 who have already unlocked
-            their full learning potential with MiTran Global — from ₹499.
+            their full learning potential with MiTran Global — from ₹4,990.
           </p>
           <a href={ENROLL} target="_blank" rel="noreferrer" className="al-btn al-btn-navy">
             Enroll now — risk free →

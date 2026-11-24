@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
 import { site } from "@/lib/site";
 
@@ -21,14 +22,9 @@ export default function Cta() {
               student reports.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a
-                href={site.urls.yellowZoneSchools}
-                target="_blank"
-                rel="noreferrer"
-                className="btn-primary"
-              >
+              <Link href={site.urls.yellowZoneSchools} className="btn-primary">
                 Partner with us →
-              </a>
+              </Link>
             </div>
           </div>
         </Reveal>

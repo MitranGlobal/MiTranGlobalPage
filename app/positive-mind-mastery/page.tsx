@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
-import { coach, site } from "@/lib/site";
+import RefundSection from "@/components/course/RefundSection";
 import {
   ENROLL,
   HERO_BADGES,
@@ -12,7 +11,6 @@ import {
   PLANS,
   REASONS,
   SKILLS,
-  TESTIMONIALS,
 } from "./data";
 import { BonusTabs, CurriculumRail } from "./parts";
 import "./pm.css";
@@ -25,12 +23,6 @@ export const metadata: Metadata = {
 
 const ORBIT_INNER = ["Confidence", "Gratitude", "Resilience", "Optimism"];
 const ORBIT_OUTER = ["Self-Belief", "Focus", "Motivation", "Mindfulness", "Discipline", "Growth"];
-const AV_GRAD = [
-  "linear-gradient(135deg,#b58cfa,#6d4fc4)",
-  "linear-gradient(135deg,#f5d17a,#c99b3a)",
-  "linear-gradient(135deg,#5cc0d6,#2a6f80)",
-];
-
 export default function PositiveMindMasteryPage() {
   return (
     <div className="pm">
@@ -263,35 +255,6 @@ export default function PositiveMindMasteryPage() {
       </section>
 
       {/* ================================================================ */}
-      {/*  7. TESTIMONIALS — fanned hand of cards                          */}
-      {/* ================================================================ */}
-      <section className="pm-sec pm-testi">
-        <div className="container-x">
-          <Reveal className="pm-head">
-            <p className="pm-eyebrow">Testimonials</p>
-            <h2 className="pm-h2">
-              Changing lives, one <em className="pm-em">mindset</em> at a time
-            </h2>
-          </Reveal>
-          <div className="pm-fan">
-            {TESTIMONIALS.map((t, i) => (
-              <figure key={t.n} className={`pm-fan-card pm-fan-${i}`}>
-                <div className="pm-fan-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                <blockquote className="pm-fan-q">&ldquo;{t.q}&rdquo;</blockquote>
-                <figcaption className="pm-fan-foot">
-                  <span className="pm-fan-av" style={{ background: AV_GRAD[i] }}>{t.n.charAt(0)}</span>
-                  <span>
-                    <strong>{t.n}</strong>
-                    <small>{t.r}</small>
-                  </span>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ================================================================ */}
       {/*  8. OUTCOMES — lighting-up chips on a violet panel               */}
       {/* ================================================================ */}
       <section className="pm-outcomes">
@@ -354,7 +317,7 @@ export default function PositiveMindMasteryPage() {
                 confidence — and come out stronger every time.
               </p>
               <a href={ENROLL} target="_blank" rel="noreferrer" className="pm-btn pm-btn-gold">
-                Enroll now — from ₹499 →
+                Enroll now — from ₹4,990 →
               </a>
             </div>
           </div>
@@ -458,58 +421,6 @@ export default function PositiveMindMasteryPage() {
       </section>
 
       {/* ================================================================ */}
-      {/*  13. COACH — photo left, medal row                               */}
-      {/* ================================================================ */}
-      <section className="pm-coach" id="coach">
-        <div className="container-x pm-coach-grid">
-          <Reveal className="pm-coach-photo-wrap">
-            <div className="pm-coach-photo">
-              <Image
-                src={coach.photo}
-                alt={coach.photoAlt}
-                width={778}
-                height={778}
-                sizes="(min-width: 1024px) 38vw, (min-width: 640px) 26rem, 90vw"
-                className="pm-coach-img"
-              />
-              <div className="pm-coach-caption">
-                <strong>{coach.name}</strong>
-                <span>{coach.designation}</span>
-              </div>
-            </div>
-            <ul className="pm-creds">
-              {coach.creds.map((c) => <li key={c}>{c}</li>)}
-            </ul>
-          </Reveal>
-
-          <Reveal delay={0.1}>
-            <p className="pm-eyebrow">Know your coach</p>
-            <h2 className="pm-h2">
-              22+ years of transforming <em className="pm-em">young minds</em>
-            </h2>
-            <p className="pm-coach-desig">{coach.designation}</p>
-            <ul className="pm-story">
-              {coach.story.map((line) => (
-                <li key={line}>{line}</li>
-              ))}
-            </ul>
-            <ul className="pm-medals">
-              {coach.awards.map((a) => (
-                <li key={a.t} className="pm-medal">
-                  <span className="pm-medal-i" aria-hidden>{a.icon}</span>
-                  <strong>{a.t}{a.year !== "★" && ` ${a.year}`}</strong>
-                  <small>{a.s}</small>
-                </li>
-              ))}
-            </ul>
-            <a href={site.urls.booking} target="_blank" rel="noreferrer" className="pm-btn pm-btn-gold">
-              Book a one-to-one session →
-            </a>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ================================================================ */}
       {/*  14. OVERVIEW — highlighted editorial columns                    */}
       {/* ================================================================ */}
       <section className="pm-sec pm-over">
@@ -564,6 +475,11 @@ export default function PositiveMindMasteryPage() {
       </section>
 
       {/* ================================================================ */}
+      {/*  REFUND — same 14-day policy as I Love Exams                     */}
+      {/* ================================================================ */}
+      <RefundSection enrollHref={ENROLL} />
+
+      {/* ================================================================ */}
       {/*  15. FINAL — gold band                                           */}
       {/* ================================================================ */}
       <section className="pm-band">
@@ -573,7 +489,7 @@ export default function PositiveMindMasteryPage() {
           <p className="pm-band-p">
             Join thousands of students aged 11–17 who have already built an
             unstoppable, positive mindset with MiTran Global — starting at just
-            ₹499.
+            ₹4,990.
           </p>
           <a href={ENROLL} target="_blank" rel="noreferrer" className="pm-btn pm-btn-navy">
             Enroll now — risk free →

@@ -1,17 +1,19 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
+import SocialIcon from "@/components/ui/SocialIcon";
 
 const LOGO_WHITE =
   "https://res.cloudinary.com/twteccae/image/upload/Logo_White_szjcqg.svg";
 
 const cols = [
   {
-    title: "Courses",
+    title: "For Parents",
     links: [
-      { label: "Accelerated Learning", href: "/accelerated-learning" },
+      { label: "Positivity Hub", href: "/positivity-hub" },
+      { label: "Positivity Hub Platinum", href: "/platinum" },
       { label: "Positive Mind Mastery", href: "/positive-mind-mastery" },
+      { label: "Accelerated Learning", href: "/accelerated-learning" },
       { label: "I Love Exams", href: "/i-love-exams" },
-      { label: "All Courses", href: site.urls.allCourses, external: true },
     ],
   },
   {
@@ -19,19 +21,27 @@ const cols = [
     links: [
       { label: "Free Ebook", href: site.urls.ebook, external: true },
       { label: "Podcast", href: site.urls.spotify, external: true },
-      { label: "Posters", href: site.urls.posters, external: true },
       { label: "Newsletter", href: site.urls.newsletter, external: true },
+      { label: "WhatsApp Community", href: site.urls.whatsapp, external: true },
+      { label: "Take the Quiz", href: "/quiz" },
     ],
   },
   {
-    title: "Connect",
+    title: "Company",
     links: [
-      { label: "WhatsApp Community", href: site.urls.whatsapp, external: true },
+      { label: "About Us", href: "/about" },
+      { label: "Real Life Real Stories", href: "/real-life-real-stories" },
+      { label: "YellowZone Schools", href: site.urls.yellowZoneSchools },
       { label: "Book a call", href: site.urls.booking, external: true },
-      { label: "Positivity Score", href: site.urls.positivityScore, external: true },
       { label: "Login to Hub", href: site.urls.hub, external: true },
     ],
   },
+];
+
+const socials = [
+  { name: "instagram", label: "Instagram", href: site.urls.instagram },
+  { name: "youtube", label: "YouTube", href: site.urls.youtube },
+  { name: "linkedin", label: "LinkedIn", href: site.urls.linkedin },
 ];
 
 export default function Footer() {
@@ -55,6 +65,21 @@ export default function Footer() {
             Crescent Tower 4, Krishnarajapuram, Bangalore-560066, Karnataka,
             India.
           </p>
+          <div className="mt-6 flex gap-2">
+            {socials.map((sc) => (
+              <a
+                key={sc.name}
+                href={sc.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={sc.label}
+                title={sc.label}
+                className="grid h-10 w-10 place-items-center rounded-full border border-line bg-white/[0.03] text-ink-muted transition-colors hover:border-gold/40 hover:text-gold"
+              >
+                <SocialIcon name={sc.name} />
+              </a>
+            ))}
+          </div>
         </div>
 
         {cols.map((col) => (

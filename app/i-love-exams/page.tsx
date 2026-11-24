@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
-import { coach, site } from "@/lib/site";
+import { site } from "@/lib/site";
 
 /* -------------------------------------------------------------------------- */
 /*  DATA                                                                       */
@@ -112,12 +111,6 @@ const INCLUSIONS = [
   { icon: "🛡️", t: "14-Day Refund",         b: "If the course isn't the right fit, request a full refund within 14 days — no questions asked. Completely risk-free." },
 ];
 
-const TESTIMONIALS = [
-  { q: "Since I started using MiTran Global, everything took a turn. I love exams, accelerated learning, positive mind mastery — all the stuff a student needs. I especially thank the whole MiTran Global team for making my life much easier.", n: "Banshika Kumari", r: "9th Grade · Jammu Sanskriti School, Jammu" },
-  { q: "Working at the foundational level, the system created by Vidyashankar has instilled in Siddharth a drive for success and a belief in failure as a stepping stone. The coaching has been fundamental in shaping his trajectory.",                        n: "Raju Adnani",     r: "Father of Siddharth, 11th Grade · Dubai English School, UAE" },
-  { q: "I have learned many new things from these classes. The courses made me believe exams are easy once we love the same. Positive Mind Mastery changed me from feeling negative to thinking positive. Thank you MiTran Global!",                             n: "Mahathi",         r: "8th Grade · KRM Public School, Chennai" },
-];
-
 const OUTCOMES = [
   "Replace exam fear with calm confidence",
   "Unlock hidden potential",
@@ -183,7 +176,7 @@ type Plan = {
 const PLANS: Plan[] = [
   {
     tier: "Silver",
-    price: "499",
+    price: "4,990",
     fee: "One-time fee",
     feat: [
       { yes: true,  t: "I Love Exams eBook" },
@@ -193,12 +186,12 @@ const PLANS: Plan[] = [
       { yes: false, t: "One-to-One Coaching" },
     ],
     href: "https://hub.mitranglobal.com/web/checkout/6718b3967f301b53ef6b5891",
-    btn: "Enroll @ ₹499",
+    btn: "Enroll @ ₹4,990",
     style: "ghost",
   },
   {
     tier: "Ultimate",
-    price: "999",
+    price: "9,990",
     fee: "One-time fee · Best value",
     popular: true,
     feat: [
@@ -214,12 +207,12 @@ const PLANS: Plan[] = [
       { yes: true,  t: "Bonus 2: Journey to Positivity", highlight: true },
     ],
     href: "https://hub.mitranglobal.com/web/checkout/67779d889d742b6eec40373a",
-    btn: "Enroll @ ₹999",
+    btn: "Enroll @ ₹9,990",
     style: "gold",
   },
   {
     tier: "Premium",
-    price: "899",
+    price: "8,990",
     fee: "One-time fee",
     feat: [
       { yes: true,  t: "Video Lessons" },
@@ -231,7 +224,7 @@ const PLANS: Plan[] = [
       { yes: false, t: "Bonuses" },
     ],
     href: "https://hub.mitranglobal.com/web/checkout/679c9f96f5411363bf9ec0cd",
-    btn: "Enroll @ ₹899",
+    btn: "Enroll @ ₹8,990",
     style: "dark",
   },
 ];
@@ -538,66 +531,6 @@ export default function ILoveExamsPage() {
       </section>
 
       {/* ================================================================== */}
-      {/*  7. TESTIMONIALS — featured centre + 2 side                        */}
-      {/* ================================================================== */}
-      <section className="il-sec il-testi">
-        <div className="container-x">
-          <div className="il-head">
-            <p className="il-eyebrow">What families say</p>
-            <h2 className="il-h2">
-              Changing lives, one{" "}
-              <em className="il-gold">mindset</em> at a time.
-            </h2>
-          </div>
-
-          <div className="il-testi-stage">
-            <div className="il-testi-card il-testi-side">
-              <div className="il-testi-stars">★★★★★</div>
-              <p className="il-testi-q">{TESTIMONIALS[0].q}</p>
-              <div className="il-testi-foot">
-                <span className="il-testi-av" style={{ background: "linear-gradient(135deg,#5cc0d6,#2a6f80)" }}>
-                  {TESTIMONIALS[0].n.charAt(0)}
-                </span>
-                <div>
-                  <div className="il-testi-n">{TESTIMONIALS[0].n}</div>
-                  <div className="il-testi-r">{TESTIMONIALS[0].r}</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="il-testi-card il-testi-featured">
-              <div className="il-testi-quote-mark">&ldquo;</div>
-              <div className="il-testi-stars">★★★★★</div>
-              <p className="il-testi-q">{TESTIMONIALS[1].q}</p>
-              <div className="il-testi-foot">
-                <span className="il-testi-av" style={{ background: "linear-gradient(135deg,#f5d17a,#c99b3a)" }}>
-                  {TESTIMONIALS[1].n.charAt(0)}
-                </span>
-                <div>
-                  <div className="il-testi-n">{TESTIMONIALS[1].n}</div>
-                  <div className="il-testi-r">{TESTIMONIALS[1].r}</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="il-testi-card il-testi-side">
-              <div className="il-testi-stars">★★★★★</div>
-              <p className="il-testi-q">{TESTIMONIALS[2].q}</p>
-              <div className="il-testi-foot">
-                <span className="il-testi-av" style={{ background: "linear-gradient(135deg,#b58cfa,#7a5ad1)" }}>
-                  {TESTIMONIALS[2].n.charAt(0)}
-                </span>
-                <div>
-                  <div className="il-testi-n">{TESTIMONIALS[2].n}</div>
-                  <div className="il-testi-r">{TESTIMONIALS[2].r}</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ================================================================== */}
       {/*  8. OUTCOMES — split with receipt-style checklist                  */}
       {/* ================================================================== */}
       <section className="il-outcomes">
@@ -670,7 +603,7 @@ export default function ILoveExamsPage() {
                   confidence — and actually enjoy the process.
                 </p>
                 <a href={site.urls.enroll} target="_blank" rel="noreferrer" className="il-btn il-btn-dark">
-                  Enroll now — from ₹499 →
+                  Enroll now — from ₹4,990 →
                 </a>
               </div>
             </div>
@@ -818,68 +751,6 @@ export default function ILoveExamsPage() {
                 </a>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ================================================================== */}
-      {/*  13. KNOW YOUR COACH                                                */}
-      {/* ================================================================== */}
-      <section className="il-coach" id="coach">
-        <div className="container-x il-coach-grid">
-          <div>
-            <p className="il-eyebrow">Know your coach</p>
-            <h2 className="il-h2">
-              22+ years of transforming{" "}
-              <em className="il-gold">young minds</em>
-            </h2>
-            <p className="il-coach-desig">{coach.designation}</p>
-            <ul className="il-story">
-              {coach.story.map((line) => (
-                <li key={line}>{line}</li>
-              ))}
-            </ul>
-
-            <div className="il-coach-awards">
-              {coach.awards.map(a => (
-                <div key={a.t} className="il-coach-award">
-                  <span className="il-coach-award-i">{a.icon}</span>
-                  <div>
-                    <strong>{a.t}{a.year !== "★" && ` ${a.year}`}</strong>
-                    <span>{a.s}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <a
-              href={site.urls.booking}
-              target="_blank"
-              rel="noreferrer"
-              className="il-btn il-btn-gold il-coach-cta"
-            >
-              Book a one-to-one session →
-            </a>
-          </div>
-
-          <div className="il-coach-card">
-            <div className="il-coach-photo">
-              <Image
-                src={coach.photo}
-                alt={coach.photoAlt}
-                width={778}
-                height={778}
-                sizes="(min-width: 900px) 34vw, 90vw"
-                className="il-coach-img"
-              />
-            </div>
-            <div className="il-coach-name">{coach.name}</div>
-            <div className="il-coach-role">{coach.designation}</div>
-            <div className="il-coach-creds">
-              {coach.creds.map(c => (
-                <span key={c} className="il-cred">{c}</span>
-              ))}
-            </div>
           </div>
         </div>
       </section>

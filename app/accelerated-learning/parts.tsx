@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { MODULES, TESTIMONIALS } from "./data";
+import { MODULES } from "./data";
 
 /* -------------------------------------------------------------------------- */
 /*  Curriculum: two-pane module explorer (desktop) / accordion (mobile)        */
@@ -94,53 +94,3 @@ function ModuleBody({ mod }: { mod: (typeof MODULES)[number] }) {
 /* -------------------------------------------------------------------------- */
 /*  Testimonials: one large quote, people as selector tabs                     */
 /* -------------------------------------------------------------------------- */
-
-const AV_GRAD = [
-  "linear-gradient(135deg,#5cc0d6,#2a6f80)",
-  "linear-gradient(135deg,#f5d17a,#c99b3a)",
-  "linear-gradient(135deg,#b58cfa,#6d4fc4)",
-];
-
-export function TestimonialSwitcher() {
-  const [i, setI] = useState(0);
-  const t = TESTIMONIALS[i];
-
-  return (
-    <div className="al-voice">
-      <figure key={t.n} className="al-voice-stage al-explorer-fade">
-        <div className="al-voice-mark" aria-hidden>
-          &ldquo;
-        </div>
-        <div className="al-voice-stars" aria-label="5 out of 5 stars">
-          ★★★★★
-        </div>
-        <blockquote className="al-voice-q">{t.q}</blockquote>
-        <figcaption className="al-voice-cap">
-          <strong>{t.n}</strong>
-          <span>{t.r}</span>
-        </figcaption>
-      </figure>
-
-      <div className="al-voice-tabs" role="tablist" aria-label="Choose a testimonial">
-        {TESTIMONIALS.map((p, idx) => (
-          <button
-            key={p.n}
-            type="button"
-            role="tab"
-            aria-selected={idx === i}
-            className={`al-voice-tab ${idx === i ? "is-on" : ""}`}
-            onClick={() => setI(idx)}
-          >
-            <span className="al-voice-av" style={{ background: AV_GRAD[idx] }}>
-              {p.n.charAt(0)}
-            </span>
-            <span className="al-voice-tab-text">
-              <span className="al-voice-tab-n">{p.n}</span>
-              <span className="al-voice-tab-r">{p.r}</span>
-            </span>
-          </button>
-        ))}
-      </div>
-    </div>
-  );
-}

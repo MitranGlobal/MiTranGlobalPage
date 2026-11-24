@@ -1,7 +1,6 @@
 import PageShell from "@/components/ui/PageShell";
 import FeatureGrid from "@/components/ui/FeatureGrid";
 import Cta from "@/components/sections/Cta";
-import Coach from "@/components/sections/Coach";
 import { site } from "@/lib/site";
 
 export default function FreeTrainingPage() {
@@ -35,8 +34,6 @@ export default function FreeTrainingPage() {
           { icon: "🎁", title: "Course Discount", body: "A meaningful discount if you decide to continue with any paid course." },
         ]}
       />
-
-      <Coach />
 
       <Cta />
     </>

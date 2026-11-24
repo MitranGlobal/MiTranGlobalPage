@@ -18,7 +18,11 @@ export const site = {
       "https://www.linkedin.com/newsletters/mitran-global-positivity-hub-7040456016391507968/",
     hub: "https://hub.mitranglobal.com/",
     allCourses: "https://hub.mitranglobal.com/l/58c2bda165",
-    yellowZoneSchools: "https://join.yellowzone.mitranglobal.com/",
+    // YellowZone now has its own page on this site
+    yellowZoneSchools: "/yellowzone-schools",
+    instagram: "https://www.instagram.com/mitran_global/",
+    linkedin: "https://www.linkedin.com/company/mitranglobal/",
+    youtube: "https://www.youtube.com/@mitranglobal",
   },
 };
 
@@ -76,6 +80,8 @@ export type MenuGroup = {
   title: string;
   items: MenuItem[];
   compact?: boolean;
+  /** Render items as icon-only social buttons (label used for a11y). */
+  socials?: boolean;
 };
 
 /* "For Parents" dropdown — courses, programs, community and socials. */
@@ -101,43 +107,35 @@ export const courseItems: MenuItem[] = [
 ];
 
 export const parentGroups: MenuGroup[] = [
-  { title: "Courses", items: courseItems },
   {
-    title: "Programs & Community",
+    title: "Programs",
     items: [
       {
-        label: "Free Training",
-        href: "/free-training",
-        icon: "🎁",
-        description: "A no-cost introduction to the Positivity Framework™.",
-      },
-      {
-        label: "Platinum Hub",
-        href: "/platinum",
-        icon: "👑",
-        description: "The complete 24-session 1-on-1 mentorship journey.",
-        flagship: true,
-      },
-      {
-        label: "WhatsApp Community",
+        label: "Join FREE WhatsApp Community",
         href: site.urls.whatsapp,
         icon: "💬",
-        description: "Join a community of like-minded parents.",
+        description: "A free community of parents raising confident teens.",
         external: true,
+      },
+      {
+        label: "Positivity Hub",
+        href: "/positivity-hub",
+        icon: "✨",
+        description: "3 one-to-one sessions with the coach, plus 5 bonuses.",
+      },
+      {
+        label: "Positivity Hub Platinum",
+        href: "/platinum",
+        icon: "👑",
+        description: "The complete 24-session 1-on-1 transformation journey.",
+        flagship: true,
       },
     ],
   },
   {
-    title: "Socials",
+    title: "Listen & read",
     compact: true,
     items: [
-      {
-        label: "E-Book",
-        href: site.urls.ebook,
-        icon: "📖",
-        description: "The free positivity ebook by Vidyashankar Guru.",
-        external: true,
-      },
       {
         label: "Podcast",
         href: site.urls.spotify,
@@ -154,18 +152,36 @@ export const parentGroups: MenuGroup[] = [
       },
     ],
   },
+  {
+    title: "Follow us",
+    socials: true,
+    items: [
+      { label: "Instagram", href: site.urls.instagram, icon: "instagram", description: "", external: true },
+      { label: "YouTube", href: site.urls.youtube, icon: "youtube", description: "", external: true },
+      { label: "LinkedIn", href: site.urls.linkedin, icon: "linkedin", description: "", external: true },
+    ],
+  },
 ];
+
+export const courseGroups: MenuGroup[] = [{ title: "Courses", items: courseItems }];
 
 export type NavItem =
   | { type: "link"; label: string; href: string; external?: boolean }
-  | { type: "dropdown"; label: string; groups: MenuGroup[] };
+  | {
+      type: "dropdown";
+      label: string;
+      /** Small grey text after the label, e.g. "(11–17 year teens)". */
+      sublabel?: string;
+      groups: MenuGroup[];
+    };
 
 export const navLinks: NavItem[] = [
-  { type: "link",     label: "Home",               href: "/" },
-  { type: "link",     label: "Framework",          href: "/#framework" },
-  { type: "dropdown", label: "For Parents",        groups: parentGroups },
-  { type: "link",     label: "YellowZone Schools", href: site.urls.yellowZoneSchools, external: true },
-  { type: "link",     label: "Success Stories",    href: "/success-stories" },
+  { type: "link",     label: "Home",                   href: "/" },
+  { type: "dropdown", label: "For Parents",            sublabel: "(11–17 year teens)", groups: parentGroups },
+  { type: "dropdown", label: "Courses",                groups: courseGroups },
+  { type: "link",     label: "YellowZone Schools",     href: site.urls.yellowZoneSchools },
+  { type: "link",     label: "Real Life Real Stories", href: "/real-life-real-stories" },
+  { type: "link",     label: "About Us",               href: "/about" },
 ];
 
 export const pillars = [
@@ -209,36 +225,8 @@ export const pillars = [
 
 export const stats = [
   { value: "10K+", label: "Learners on the Hub" },
-  { value: "5/5", label: "Google Stars" },
-  { value: "3", label: "Core Pillars" },
-  { value: "24/7", label: "Coach Support" },
-];
-
-export const courses = [
-  {
-    slug: "accelerated-learning",
-    eyebrow: "Learning Science",
-    title: "Accelerated Learning Methodology",
-    blurb:
-      "Master proven techniques to absorb, retain, and apply knowledge faster. Visual, experiential, and gamified learning.",
-    icon: "🚀",
-  },
-  {
-    slug: "positive-mind-mastery",
-    eyebrow: "Mindset & Wellbeing",
-    title: "Positive Mind Mastery",
-    blurb:
-      "Build emotional resilience, a growth mindset, and lasting positivity habits using NLP and evidence-based psychology.",
-    icon: "✨",
-  },
-  {
-    slug: "i-love-exams",
-    eyebrow: "Academic Excellence",
-    title: "I Love Exams",
-    blurb:
-      "Transform exam anxiety into excitement. Build the strategies, confidence, and habits to perform under pressure.",
-    icon: "📝",
-  },
+  { value: "1000+", label: "Video lessons" },
+  { value: "98+", label: "Emotions measured" },
 ];
 
 export const platformFeatures = [
@@ -274,45 +262,11 @@ export const platformFeatures = [
   },
 ];
 
-export const testimonials = [
-  {
-    quote:
-      "My daughter went from dreading exams to actually looking forward to them. The mindset shift is remarkable.",
-    name: "Priya M.",
-    role: "Parent, Bangalore",
-  },
-  {
-    quote:
-      "MiTran gave my son the confidence he was missing. His teachers have noticed a complete transformation.",
-    name: "Ramesh K.",
-    role: "Parent, Chennai",
-  },
-  {
-    quote:
-      "The positivity score was an eye-opener. We had no idea our daughter was struggling with self-doubt at that level.",
-    name: "Anitha S.",
-    role: "Parent, Hyderabad",
-  },
-  {
-    quote:
-      "As a school principal, I've seen many programmes. MiTran's approach is the most systematic and genuinely effective.",
-    name: "Dr. Venkat R.",
-    role: "Principal, MG School",
-  },
-  {
-    quote:
-      "My son used to give up at the first sign of difficulty. Now he approaches challenges with a completely different mindset.",
-    name: "Lakshmi P.",
-    role: "Parent, Mumbai",
-  },
-];
-
 export type PressLogo = { name: string; src: string };
 
 export const pressLogos: PressLogo[] = [
-  { name: "The Hindu",       src: "https://res.cloudinary.com/twteccae/image/upload/The_Hindu_kolitv.svg"          },
-  { name: "Deccan Herald",   src: "https://res.cloudinary.com/twteccae/image/upload/Deccan_Herald_besjd7.svg"      },
-  { name: "Hindustan Times", src: "https://res.cloudinary.com/twteccae/image/upload/Hindustan_Times_zxx8ri.svg"    },
-  { name: "Times of India",  src: "https://res.cloudinary.com/twteccae/image/upload/The_Times_Of_India_fnegdh.svg" },
-  { name: "YourStory",       src: "https://res.cloudinary.com/twteccae/image/upload/Your_Story_gmgfbd.svg"         },
+  { name: "The Hindu",      src: "https://res.cloudinary.com/twteccae/image/upload/The_Hindu_kolitv.svg"          },
+  { name: "Times of India", src: "https://res.cloudinary.com/twteccae/image/upload/The_Times_Of_India_fnegdh.svg" },
+  { name: "India Today",    src: "/press/india-today.png" },
+  { name: "Gulf News",      src: "/press/gulf-news.jpg" },
 ];

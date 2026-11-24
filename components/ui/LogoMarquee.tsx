@@ -23,7 +23,9 @@ export default function LogoMarquee({
   size?: "md" | "lg";
   className?: string;
 }) {
-  const group = [...pressLogos, ...pressLogos];
+  // Repeat the logos so one group is always wider than the widest screen.
+  const repeats = Math.max(2, Math.ceil(10 / pressLogos.length));
+  const group = Array.from({ length: repeats }, () => pressLogos).flat();
   const slot =
     size === "lg"
       ? "h-24 w-40 px-5 md:h-32 md:w-60 md:px-7"
@@ -48,7 +50,7 @@ export default function LogoMarquee({
                   <img
                     src={logo.src}
                     alt={copy === 0 && i < pressLogos.length ? logo.name : ""}
-                    className="max-h-full max-w-full object-contain opacity-85 transition-opacity duration-300 hover:opacity-100"
+                    className="max-h-full max-w-full rounded-xl object-contain opacity-85 transition-opacity duration-300 hover:opacity-100"
                     decoding="async"
                     draggable={false}
                   />

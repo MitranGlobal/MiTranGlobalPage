@@ -125,9 +125,32 @@
   to   { transform: translate3d(-50%, 0, 0); }
 }
 
-/* Sticky bottom CTA band (components/ui/StickyCta.tsx) */
-.sticky-cta {
-  background: linear-gradient(90deg, #c99b3a 0%, #e9c46a 30%, #f5d17a 55%, #e9c46a 78%, #c99b3a 100%);
+/* Image card bands (components/ui/ImageBand.tsx) */
+.image-band-track {
+  animation: image-band 70s linear infinite;
+  will-change: transform;
+}
+.image-band-reverse {
+  animation-direction: reverse;
+}
+@keyframes image-band {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+@media (hover: hover) and (pointer: fine) {
+  .image-band:hover .image-band-track { animation-play-state: paused; }
+}
+
+/* Platinum accents (silver) */
+.platinum-chip {
+  background: linear-gradient(135deg, #f4f6f8 0%, #c9cfd6 45%, #f9fafb 60%, #9aa3ad 100%);
+  box-shadow: 0 0 40px -10px rgba(220, 226, 232, 0.45);
+}
+.platinum-text {
+  background: linear-gradient(135deg, #ffffff 0%, #c9cfd6 45%, #f4f6f8 60%, #9aa3ad 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /* Custom scrollbar */

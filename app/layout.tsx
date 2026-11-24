@@ -3,8 +3,7 @@ import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/ui/Nav";
 import Footer from "@/components/ui/Footer";
-import Lightbox from "@/components/ui/Lightbox";
-import StickyCta, { StickyCtaSpacer } from "@/components/ui/StickyCta";
+import QuizModal from "@/components/quiz/QuizModal";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -42,9 +41,7 @@ export default function RootLayout({
         <Nav />
         <main className="relative">{children}</main>
         <Footer />
-        <StickyCtaSpacer />
-        <StickyCta />
-        <Lightbox />
+        <QuizModal />
       </body>
     </html>
   );

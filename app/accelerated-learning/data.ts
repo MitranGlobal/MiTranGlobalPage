@@ -146,24 +146,6 @@ export const INCLUSIONS = [
   { icon: "🛡️", tag: "Risk-free", t: "14-Day Refund Policy", b: "A full 14-day refund if the course isn't the right fit. No questions asked. 100% risk-free." },
 ];
 
-export const TESTIMONIALS = [
-  {
-    q: "I always face the problems of slow reading and learning but, since I am using MiTran Global everything took a turn. From the accelerated learning methodologies course, I learned to read and learn fast. I especially thank the whole MiTran Global team for making my life much easier.",
-    n: "Banshika Kumari",
-    r: "9th Grade · Jammu Sanskriti School, Jammu",
-  },
-  {
-    q: "Working at the foundational level, the system created by Vidyashankar has instilled in Siddharth a drive for success and a belief in failure as a stepping stone. The whole coaching process has been fundamental in shaping his trajectory — addressing aspects often overlooked by mainstream education.",
-    n: "Raju Adnani",
-    r: "Father of Siddharth, 11th Grade · Dubai English School, UAE",
-  },
-  {
-    q: "I have learned many new things from these classes. The online courses were very understandable and made me believe exams are easy once we love the same. The Positive Mind Mastery course changed me from feeling negative to thinking positive. Thank you MiTran Global!",
-    n: "Mahathi",
-    r: "8th Grade · KRM Public School, Chennai",
-  },
-];
-
 export const OUTCOMES = [
   "Read Faster & Understand Better",
   "Retain & Recall Information Effortlessly",
@@ -227,7 +209,7 @@ export type Plan = {
 export const PLANS: Plan[] = [
   {
     tier: "Silver",
-    price: "499",
+    price: "4,990",
     fee: "One-time fee",
     href: "https://hub.mitranglobal.com/web/checkout/67a32a177470ec6f59c6b29a",
     feats: [
@@ -240,7 +222,7 @@ export const PLANS: Plan[] = [
   },
   {
     tier: "Premium",
-    price: "899",
+    price: "8,990",
     fee: "One-time fee",
     href: "https://hub.mitranglobal.com/web/checkout/67a3137cbb1099bd3da24774",
     feats: [
@@ -255,7 +237,7 @@ export const PLANS: Plan[] = [
   },
   {
     tier: "Ultimate",
-    price: "999",
+    price: "9,990",
     fee: "One-time fee · Best value",
     href: "https://hub.mitranglobal.com/web/checkout/6777a1de0912d5e961c43c72",
     featured: true,

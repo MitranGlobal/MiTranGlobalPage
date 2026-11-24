@@ -6,7 +6,12 @@ const nextConfig = {
       { protocol: "https", hostname: "res.cloudinary.com" },
     ],
   },
-  transpilePackages: ["three"],
+  async redirects() {
+    return [
+      // Success Stories was renamed "Real Life Real Stories"
+      { source: "/success-stories", destination: "/real-life-real-stories", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

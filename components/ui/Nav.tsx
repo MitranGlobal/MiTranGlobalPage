@@ -12,6 +12,7 @@ import {
   type NavItem,
 } from "@/lib/site";
 import { cn } from "@/lib/cn";
+import SocialIcon from "@/components/ui/SocialIcon";
 
 const LOGO_WHITE =
   "https://res.cloudinary.com/twteccae/image/upload/Logo_White_szjcqg.svg";
@@ -351,6 +352,9 @@ function DesktopDropdown({
         )}
       >
         {item.label}
+        {item.sublabel && (
+          <span className="text-[11px] text-ink-faint">{item.sublabel}</span>
+        )}
         <Chevron open={isOpen} className="h-3.5 w-3.5" />
         {active && (
           <span className="absolute inset-0 -z-10 rounded-full border border-line bg-white/[0.06]" />
@@ -363,22 +367,24 @@ function DesktopDropdown({
             // The horizontal offset lives in the animation (x) — Framer Motion
             // writes an inline transform that would override a Tailwind
             // translate class, leaving the panel off-centre.
-            initial={{ opacity: 0, x: "-60%", y: 8 }}
-            animate={{ opacity: 1, x: "-60%", y: 0 }}
-            exit={{ opacity: 0, x: "-60%", y: 6 }}
+            initial={{ opacity: 0, x: "-50%", y: 8 }}
+            animate={{ opacity: 1, x: "-50%", y: 0 }}
+            exit={{ opacity: 0, x: "-50%", y: 6 }}
             transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
             role="menu"
             // Outer wrapper owns the centering + an invisible hover bridge
             // (pt-3) so the pointer can travel from the button to the panel
-            // without the menu closing. Shifted 60% left (notch at 60%) so the
-            // panel stays inside the viewport at the 1280px breakpoint.
-            className="absolute left-1/2 top-full z-50 w-[720px] pt-3"
+            // without the menu closing.
+            className={cn(
+              "absolute left-1/2 top-full z-50 pt-3",
+              columns.length > 1 ? "w-[720px]" : "w-[440px]"
+            )}
           >
             <div className="relative rounded-2xl border border-line bg-bg-card/95 p-3 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)] backdrop-blur-xl">
               {/* Notch arrow */}
-              <span className="absolute -top-1.5 left-[60%] h-3 w-3 -translate-x-1/2 rotate-45 border-l border-t border-line bg-bg-card" />
+              <span className="absolute -top-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border-l border-t border-line bg-bg-card" />
 
-              <div className="grid grid-cols-2 gap-2">
+              <div className={cn("grid gap-2", columns.length > 1 && "grid-cols-2")}>
                 {columns.map((group) => (
                   <div key={group.title}>
                     <GroupTitle>{group.title}</GroupTitle>
@@ -396,22 +402,26 @@ function DesktopDropdown({
                   key={group.title}
                   className="mt-2 flex items-center gap-2 border-t border-line px-1 pt-3"
                 >
-                  <span className="shrink-0 px-2 text-[10.5px] font-medium uppercase tracking-[0.2em] text-ink-faint">
+                  <span className="w-24 shrink-0 px-2 text-[10.5px] font-medium uppercase tracking-[0.2em] text-ink-faint">
                     {group.title}
                   </span>
                   <div className="flex flex-1 flex-wrap gap-2">
-                    {group.items.map((entry) => (
-                      <SmartLink
-                        key={entry.label}
-                        href={entry.href}
-                        external={entry.external}
-                        role="menuitem"
-                        className="inline-flex items-center gap-2 rounded-full border border-line bg-white/[0.03] px-3.5 py-1.5 text-sm text-ink-muted transition-colors hover:border-white/20 hover:text-ink"
-                      >
-                        <span aria-hidden>{entry.icon}</span>
-                        {entry.label}
-                      </SmartLink>
-                    ))}
+                    {group.items.map((entry) =>
+                      group.socials ? (
+                        <SocialButton key={entry.label} entry={entry} />
+                      ) : (
+                        <SmartLink
+                          key={entry.label}
+                          href={entry.href}
+                          external={entry.external}
+                          role="menuitem"
+                          className="inline-flex items-center gap-2 rounded-full border border-line bg-white/[0.03] px-3.5 py-1.5 text-sm text-ink-muted transition-colors hover:border-white/20 hover:text-ink"
+                        >
+                          <span aria-hidden>{entry.icon}</span>
+                          {entry.label}
+                        </SmartLink>
+                      )
+                    )}
                   </div>
                 </div>
               ))}
@@ -420,6 +430,22 @@ function DesktopDropdown({
         )}
       </AnimatePresence>
     </div>
+  );
+}
+
+function SocialButton({ entry }: { entry: MenuItem }) {
+  return (
+    <a
+      href={entry.href}
+      target="_blank"
+      rel="noreferrer"
+      role="menuitem"
+      aria-label={entry.label}
+      title={entry.label}
+      className="grid h-9 w-9 place-items-center rounded-full border border-line bg-white/[0.03] text-ink-muted transition-colors hover:border-gold/40 hover:text-gold"
+    >
+      <SocialIcon name={entry.icon} className="h-[18px] w-[18px]" />
+    </a>
   );
 }
 
@@ -510,7 +536,12 @@ function MobileDropdown({
         className="flex w-full items-center justify-between px-5 py-4 text-left text-lg font-medium text-ink"
         aria-expanded={open}
       >
-        {item.label}
+        <span>
+          {item.label}
+          {item.sublabel && (
+            <span className="ml-2 text-sm font-normal text-ink-faint">{item.sublabel}</span>
+          )}
+        </span>
         <Chevron open={open} className="h-4 w-4" />
       </button>
 
@@ -527,7 +558,13 @@ function MobileDropdown({
               {item.groups.map((group) => (
                 <div key={group.title}>
                   <GroupTitle>{group.title}</GroupTitle>
-                  {group.compact ? (
+                  {group.socials ? (
+                    <div className="flex gap-2 px-3 pt-1">
+                      {group.items.map((entry) => (
+                        <SocialButton key={entry.label} entry={entry} />
+                      ))}
+                    </div>
+                  ) : group.compact ? (
                     <div className="flex flex-wrap gap-2 px-3 pt-1">
                       {group.items.map((entry) => (
                         <SmartLink

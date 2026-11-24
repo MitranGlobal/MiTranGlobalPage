@@ -5,37 +5,40 @@ Full modern rebuild of [MiTranGlobalPage](https://github.com/MitranGlobal/MiTran
 ## Stack
 
 - **Next.js 14** — App Router, TypeScript
-- **Tailwind CSS v3** — design tokens in `tailwind.config.ts`
-- **Three.js + React Three Fiber + Drei** — hero background (floating orbs + sparkles)
-- **Framer Motion** — nav, mobile drawer, testimonials, lightbox, quiz transitions
-- **GSAP + ScrollTrigger** — scroll-reveal animations (`components/ui/Reveal.tsx`)
-- **Zustand** — lightbox state (`store/lightbox.ts`)
+- **Tailwind CSS v3** — design tokens in `tailwind.config.ts` (dark + gold, Fraunces/Inter)
+- **Framer Motion** — nav, menus, quiz, popups
+- **GSAP + ScrollTrigger** — scroll reveals (`components/ui/Reveal.tsx`)
+- **React Three Fiber** — YellowZone 3D seal
+- **Zustand** — quiz popup state (`store/quiz.ts`)
+- **ClarityConvert** — leads from the quiz and the Positivity Hub video (`app/api/leads`)
 - **Vercel** — deployment target
 
-No custom cursor. Native pointer only.
+## Pages
 
-## Project layout
+| Route | Page |
+|---|---|
+| `/` | Home |
+| `/positivity-hub` | Positivity Hub (3 one-to-one sessions + 5 bonuses) |
+| `/platinum` | Positivity Hub Platinum (24-session compass) |
+| `/positive-mind-mastery`, `/accelerated-learning`, `/i-love-exams` | Course pages |
+| `/yellowzone-schools` | YellowZone Schools |
+| `/real-life-real-stories` | Testimonials (`/success-stories` redirects here) |
+| `/about` | About Us + Meet the Coach |
+| `/quiz` | Parent quiz (also opens as a popup from the home hero) |
+| `/free-training` | Free training (not in the nav) |
+
+## Where content lives
 
 ```
-app/
-  layout.tsx           Root layout, fonts, Nav, Footer, Lightbox
-  page.tsx             Home
-  platinum/            Platinum Hub (24-session flagship)
-  i-love-exams/
-  accelerated-learning/
-  positive-mind-mastery/
-  free-training/
-  quiz/                Interactive quiz
-components/
-  ui/                  Nav, Footer, Lightbox, Reveal, PageShell, FeatureGrid
-  three/HeroScene.tsx  R3F Canvas
-  sections/            Hero, Framework, Science, Platform, Courses,
-                       Testimonials, Coach, Challenge, PressMarquee, Cta, QuizFlow
-lib/
-  cn.ts                clsx + tailwind-merge helper
-  site.ts              All site content (nav, courses, pillars, testimonials, urls)
-store/
-  lightbox.ts          Zustand store
+lib/site.ts         Links, nav menus, coach profile, pillars, stats, press logos
+lib/hub.ts          Positivity Hub + Platinum copy, bonuses, Clarity Call, FAQs
+lib/platinum.ts     The 24 sessions, pillars and LevelUp habits
+lib/quiz.ts         Quiz questions and result bands
+lib/stories.ts      Real Life Real Stories testimonials
+lib/yellowzone.ts   YellowZone page copy, criteria, Tally form URL
+lib/bands.ts        Home page image bands
+lib/clarity.ts      ClarityConvert form and field mapping
+app/<course>/data.ts  Course page copy and pricing
 ```
 
 ## Local development
@@ -94,14 +97,12 @@ The existing Vercel project points at the old static site. When you push this re
 
 ## Editing content
 
-All site copy, links, testimonials, pillars, and courses live in `lib/site.ts`. Edit there — pages automatically re-render.
+Edit the files listed under "Where content lives" — pages re-render automatically.
 
-## Notes on the rebuild
+### Leads (ClarityConvert)
 
-- All 7 legacy HTML files consolidated into 7 routes with a single shared layout, nav, and footer.
-- Duplicated nav strip removed — one `<Nav />` component with active-route highlighting via Framer Motion `layoutId`.
-- Custom cursor removed as requested.
-- Hero uses a Three.js scene (dynamic import, no SSR) with graceful `null` fallback and a gradient overlay so type stays readable.
-- Scroll reveals are declarative — wrap any block in `<Reveal>` and it fades in with GSAP ScrollTrigger.
-- Lightbox is globally mounted in `layout.tsx` and controlled from anywhere via `useLightbox()`.
-- Respects `prefers-reduced-motion`.
+The quiz and the Positivity Hub video sign-up post to `/api/leads`, which forwards to the
+ClarityConvert "Contact Form" (defaults in `lib/clarity.ts`, overridable with
+`CLARITY_FORM_*` env vars). Quiz results travel on the landing-page URL
+(`?lead_source=quiz&quiz_result=…&quiz_score=…&quiz_focus=…`). To store each answer as its
+own field, add fields to the form and map them in `lib/clarity.ts`.
