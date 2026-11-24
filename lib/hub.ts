@@ -55,7 +55,7 @@ export const handholding = {
   title: "3 Handholding One-to-One Sessions",
   duration: "3 sessions | 40 minutes each",
   description:
-    "Guided by a certified Psychologist & Transformation Coach. The Clarity Call is for both parents and your child together, the second session is exclusively for your child so they can open up freely, and the third is a mandatory session for parents to understand what is really going on with your child.",
+    "Guided by a certified Psychologist & Transformation Coach. The first session is for you and your child together, the second is exclusively for your child so they can open up freely, and the third — the Clarity Call — is mandatory for both parents, so you understand what is really going on with your child.",
   outcome:
     "Your child feels heard and gets a clear plan, and you learn how to support it at home.",
 };
@@ -70,13 +70,13 @@ export type HandholdingSession = {
 };
 
 export const clarityCall = {
-  n: "01",
+  n: "03",
   title: "Clarity Call",
-  attendBadge: "Parents & child together",
+  attendBadge: "Both parents · Mandatory",
   question: "What happens in the Clarity Call?",
   intro:
     "After our first conversation, we arrange a personal session with our Mentor, Mr. Vidyashankar. He brings 22+ years of experience working with children and understanding their concerns.",
-  attend: "We recommend that both parents and the child attend together.",
+  attend: "Both parents must attend — this session is mandatory. We recommend that your child attends too.",
   during: [
     { t: "Understand your concerns in depth", d: "We listen to you and your child to get the full picture." },
     { t: "Explain the complete structured program", d: "Designed specifically for your child." },
@@ -87,12 +87,12 @@ export const clarityCall = {
     "Slots are offered based on availability. Please confirm your preferred time quickly to secure your session. Once you confirm, we’ll check and send the session details on WhatsApp.",
 };
 
-/** From the Parent Live Sessions agenda. */
+/** Sessions 1 & 2, from the Parent Live Sessions agenda. The Clarity Call is session 3. */
 export const handholdingSessions: HandholdingSession[] = [
   {
-    n: "02",
+    n: "01",
     title: "Beneath “Fine”",
-    attend: "Exclusively for your child",
+    attend: "Parent & child together",
     question: "What is really going on with my teenager?",
     points: [
       "Why behaviour is communication, and why the phone is usually a symptom",
@@ -103,9 +103,9 @@ export const handholdingSessions: HandholdingSession[] = [
     ],
   },
   {
-    n: "03",
+    n: "02",
     title: "From Managing to Supporting",
-    attend: "All parents · Mandatory",
+    attend: "Exclusively for your child",
     question: "How do I help without doing it all myself?",
     points: [
       "The handover ladder: moving tasks from you to them",

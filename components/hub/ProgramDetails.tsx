@@ -98,17 +98,41 @@ export default function ProgramDetails() {
             <p className="mt-6 max-w-3xl leading-relaxed text-ink-muted md:text-lg">{handholding.description}</p>
           </Reveal>
 
-          {/* Session 1: Clarity Call */}
-          <Reveal className="mt-14">
+          {/* Sessions 1 & 2 */}
+          <Reveal className="mt-14 grid gap-6 lg:grid-cols-2" stagger>
+            {handholdingSessions.map((s, i) => (
+              <article key={s.title} data-reveal-item className="card flex flex-col">
+                <div className="flex items-baseline gap-4">
+                  <span className="font-display text-4xl gold-text">{s.n}</span>
+                  <span className="text-xs uppercase tracking-[0.18em] text-gold">Session {i + 1}</span>
+                </div>
+                <AttendBadge label={s.attend} highlight icon={s.attend.startsWith("Exclusively") ? "🧒" : "👨‍👩‍👧"} />
+                <h3 className="mt-4 text-display-3 font-display">{s.title}</h3>
+                <p className="mt-2 text-ink">{s.question}</p>
+                <ul className="mt-6 space-y-3">
+                  {s.points.map((p) => (
+                    <li key={p} className="flex gap-3 leading-snug text-ink-muted">
+                      <span className="mt-0.5 shrink-0 text-gold" aria-hidden>
+                        ✓
+                      </span>
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </Reveal>
+          {/* Session 3: Clarity Call */}
+          <Reveal className="mt-6">
             <article className="relative overflow-hidden rounded-3xl border border-gold/30 bg-gradient-to-br from-gold/[0.08] via-bg-card to-bg-card p-7 md:p-10">
               <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" aria-hidden />
               <div className="relative grid gap-10 lg:grid-cols-[1fr_1.1fr]">
                 <div>
                   <div className="flex items-baseline gap-4">
                     <span className="font-display text-5xl gold-text">{clarityCall.n}</span>
-                    <span className="text-xs uppercase tracking-[0.18em] text-gold">Session 1</span>
+                    <span className="text-xs uppercase tracking-[0.18em] text-gold">Session 3</span>
                   </div>
-                  <AttendBadge label={clarityCall.attendBadge} />
+                  <AttendBadge label={clarityCall.attendBadge} highlight icon="👨‍👩‍👧" />
                   <h3 className="mt-4 text-display-3 font-display">{clarityCall.title}</h3>
                   <p className="mt-2 text-ink">{clarityCall.question}</p>
                   <p className="mt-5 leading-relaxed text-ink-muted">{clarityCall.intro}</p>
@@ -152,30 +176,6 @@ export default function ProgramDetails() {
             </article>
           </Reveal>
 
-          {/* Sessions 2 & 3 */}
-          <Reveal className="mt-6 grid gap-6 lg:grid-cols-2" stagger>
-            {handholdingSessions.map((s, i) => (
-              <article key={s.title} data-reveal-item className="card flex flex-col">
-                <div className="flex items-baseline gap-4">
-                  <span className="font-display text-4xl gold-text">{s.n}</span>
-                  <span className="text-xs uppercase tracking-[0.18em] text-gold">Session {i + 2}</span>
-                </div>
-                <AttendBadge label={s.attend} highlight icon={s.attend.startsWith("Exclusively") ? "🧒" : "👨‍👩"} />
-                <h3 className="mt-4 text-display-3 font-display">{s.title}</h3>
-                <p className="mt-2 text-ink">{s.question}</p>
-                <ul className="mt-6 space-y-3">
-                  {s.points.map((p) => (
-                    <li key={p} className="flex gap-3 leading-snug text-ink-muted">
-                      <span className="mt-0.5 shrink-0 text-gold" aria-hidden>
-                        ✓
-                      </span>
-                      {p}
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </Reveal>
         </div>
       </section>
     </>
