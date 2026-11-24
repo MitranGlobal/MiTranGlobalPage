@@ -3,7 +3,7 @@ import Reveal from "@/components/ui/Reveal";
 import YzHero from "@/components/yellowzone/YzHero";
 import VideoPlayer from "@/components/yellowzone/VideoPlayer";
 import TallyEmbed from "@/components/yellowzone/TallyEmbed";
-import { about, criteria, gap, gates, methodology, yz } from "@/lib/yellowzone";
+import { about, criteria, explainer, gap, gates, methodology, yz } from "@/lib/yellowzone";
 
 export const metadata: Metadata = {
   title: "YellowZone Schools — emotional wellbeing certification | MiTran Global",
@@ -17,8 +17,36 @@ export default function YellowZoneSchoolsPage() {
       {/* 1. Hero — from the Lead Capture page */}
       <YzHero />
 
-      {/* 2. Every school measures marks */}
-      <section className="section">
+      {/* 2. What is YellowZone? — short explainer video for first-time visitors */}
+      <section id="what-is-yellowzone" className="section scroll-mt-20">
+        <div className="container-x">
+          <Reveal className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow">New to YellowZone?</p>
+            <h2 className="mt-5 text-display-2 font-display">
+              What is <span className="gold-text italic">YellowZone?</span>
+            </h2>
+            <p className="mt-4 text-ink-muted md:text-lg">
+              A quick look at how schools measure and certify the emotional
+              wellbeing of their students.
+            </p>
+          </Reveal>
+          <Reveal className="mx-auto mt-10 max-w-4xl">
+            <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-line bg-bg-card shadow-card">
+              <iframe
+                src={explainer.src}
+                title={explainer.title}
+                loading="lazy"
+                allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 h-full w-full border-0"
+              />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 3. Every school measures marks */}
+      <section className="section border-t border-line">
         <div className="container-x grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
           <Reveal>
             <p className="eyebrow">{gap.eyebrow}</p>
@@ -38,7 +66,7 @@ export default function YellowZoneSchoolsPage() {
         </div>
       </section>
 
-      {/* 3. About — Building the emotional wellbeing infrastructure */}
+      {/* 4. About — Building the emotional wellbeing infrastructure */}
       <section className="section border-t border-line">
         <div className="container-x">
           <Reveal className="relative overflow-hidden rounded-3xl border border-line bg-bg-card p-8 shadow-card md:p-14">
@@ -57,7 +85,7 @@ export default function YellowZoneSchoolsPage() {
         </div>
       </section>
 
-      {/* 4. The Methodology — EPPT */}
+      {/* 5. The Methodology — EPPT */}
       <section className="section border-t border-line">
         <div className="container-x grid gap-14 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
           <Reveal>
@@ -83,7 +111,7 @@ export default function YellowZoneSchoolsPage() {
         </div>
       </section>
 
-      {/* 5. Criteria — from the Lead Capture page */}
+      {/* 6. Criteria — from the Lead Capture page */}
       <section id="criteria" className="section border-t border-line">
         <div className="container-x">
           <Reveal>
@@ -109,7 +137,7 @@ export default function YellowZoneSchoolsPage() {
         </div>
       </section>
 
-      {/* 6. Find out where your campus actually stands */}
+      {/* 7. Find out where your campus actually stands */}
       <section className="section border-t border-line">
         <div className="container-x">
           <Reveal className="relative mx-auto max-w-3xl overflow-hidden rounded-3xl border border-gold/30 bg-gradient-to-br from-gold/[0.10] via-bg-card to-bg-card px-8 py-14 text-center md:px-14">
@@ -133,7 +161,7 @@ export default function YellowZoneSchoolsPage() {
         </div>
       </section>
 
-      {/* 7. YellowZone video */}
+      {/* 8. YellowZone briefing video */}
       <section id="briefing" className="section scroll-mt-20 border-t border-line">
         <div className="container-x">
           <Reveal className="mx-auto max-w-3xl text-center">
@@ -148,7 +176,7 @@ export default function YellowZoneSchoolsPage() {
         </div>
       </section>
 
-      {/* 8. Application */}
+      {/* 9. Application */}
       <section id="apply" className="section scroll-mt-20 border-t border-line">
         <div className="container-x">
           <Reveal className="mx-auto max-w-3xl text-center">
@@ -177,7 +205,7 @@ export default function YellowZoneSchoolsPage() {
         </div>
       </section>
 
-      {/* 9. Before you apply */}
+      {/* 10. Before you apply */}
       <section className="pb-24 md:pb-32">
         <div className="container-x">
           <Reveal stagger className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-3">

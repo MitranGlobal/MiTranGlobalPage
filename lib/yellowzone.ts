@@ -17,6 +17,12 @@ export const yz = {
     "https://tally.so/embed/WOadLk?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1",
 };
 
+/** "What is YellowZone?" explainer (Cloudinary player embed) — not the briefing video. */
+export const explainer = {
+  src: "https://player.cloudinary.com/embed/?cloud_name=twteccae&public_id=YellowZone_PILOT_odrazr",
+  title: "What is YellowZone?",
+};
+
 export const gap = {
   eyebrow: "The gap",
   title: "Every school measures marks. Almost none measure how students feel.",

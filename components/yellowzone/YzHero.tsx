@@ -47,8 +47,8 @@ export default function YzHero() {
             <a href="#apply" className="btn-primary px-8 py-4 text-base">
               Apply now →
             </a>
-            <a href="#briefing" className="btn-ghost px-8 py-4 text-base">
-              ▶ Watch the briefing
+            <a href="#what-is-yellowzone" className="btn-ghost px-8 py-4 text-base">
+              ▶ What is YellowZone?
             </a>
           </motion.div>
         </motion.div>
