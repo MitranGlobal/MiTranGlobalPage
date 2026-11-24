@@ -28,11 +28,11 @@ export const missingSkill = {
     "Confidence development",
     "Positive mindset cultivation",
   ],
-  proofLabel: "Supported by wellness seekers globally",
+  proofLabel: "Inside the Positivity Hub",
   stats: [
-    { value: "10K+", label: "Participants" },
-    { value: "4.9★", label: "Feedback" },
-    { value: "95%", label: "Success indicator" },
+    { value: "10K+", label: "Learners on the Hub" },
+    { value: "3", label: "One-to-one sessions" },
+    { value: "5", label: "Bonuses included" },
   ],
   cta: "See what your child receives",
 };

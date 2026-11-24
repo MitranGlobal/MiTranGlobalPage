@@ -65,8 +65,8 @@ export default function AcceleratedLearningPage() {
                 View curriculum
               </a>
               <span className="al-reviews">
-                <span className="al-stars" aria-hidden>★★★★★</span>
-                <span>5 Google Reviews</span>
+                <span className="al-stars" aria-hidden>🛡️</span>
+                <span>14-day money-back guarantee</span>
               </span>
             </div>
 
@@ -126,11 +126,11 @@ export default function AcceleratedLearningPage() {
 
             <div className="al-float al-float-a">
               <span className="al-float-i" style={{ background: "#5cc0d6" }}>🧠</span>
-              <span><strong>92%</strong><small>Recall rate</small></span>
+              <span><strong>Mind maps</strong><small>Remember more</small></span>
             </div>
             <div className="al-float al-float-b">
               <span className="al-float-i" style={{ background: "#e9c46a" }}>⚡</span>
-              <span><strong>3× faster</strong><small>Revision time</small></span>
+              <span><strong>Speed reading</strong><small>Revise smarter</small></span>
             </div>
           </div>
         </div>

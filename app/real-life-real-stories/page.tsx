@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 };
 
 const meta = [
-  { n: "10,000+", l: "Students transformed" },
-  { n: "40+", l: "Nationalities" },
-  { n: "5.0★", l: "Google rating" },
+  { n: "10,000+", l: "Learners on the Hub" },
+  { n: "100%", l: "Real students, real words" },
+  { n: "11–17", l: "The age that shapes a life" },
 ];
 
 export default function RealLifeRealStoriesPage() {
@@ -54,7 +54,7 @@ export default function RealLifeRealStoriesPage() {
                   <span className="pointer-events-none absolute right-6 top-2 font-display text-7xl leading-none text-gold/15" aria-hidden>
                     &ldquo;
                   </span>
-                  <div className="text-gold" aria-label="5 stars">★★★★★</div>
+                  <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-gold">In their own words</p>
                   <p className="mt-3 font-display text-xl leading-snug md:text-2xl">&ldquo;{s.pull}&rdquo;</p>
                   <p className="mt-4 text-sm leading-relaxed text-ink-muted">{s.quote}</p>
                   <div className="mt-6 flex items-center gap-4 border-t border-line pt-5">

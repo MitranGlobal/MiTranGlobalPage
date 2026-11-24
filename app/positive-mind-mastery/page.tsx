@@ -62,8 +62,8 @@ export default function PositiveMindMasteryPage() {
                 View curriculum
               </a>
               <span className="pm-reviews">
-                <span className="pm-stars" aria-hidden>★★★★★</span>
-                <span>5 Star Google Reviews</span>
+                <span className="pm-stars" aria-hidden>🛡️</span>
+                <span>14-day money-back guarantee</span>
               </span>
             </div>
 

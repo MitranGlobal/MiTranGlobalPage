@@ -320,8 +320,8 @@ export default function ILoveExamsPage() {
               </div>
 
               <div className="il-hero-float il-hero-float-tl">
-                <span className="il-hero-float-num">+47%</span>
-                <span className="il-hero-float-lbl">Confidence</span>
+                <span className="il-hero-float-num">Calm</span>
+                <span className="il-hero-float-lbl">Exam-ready mindset</span>
               </div>
               <div className="il-hero-float il-hero-float-br">
                 <span className="il-hero-float-num">10K+</span>
@@ -648,12 +648,12 @@ export default function ILoveExamsPage() {
             </p>
             <div className="il-stat-rows">
               <div className="il-stat-row">
-                <span>Nationalities</span>
+                <span>Video lessons</span>
                 <strong>40+</strong>
               </div>
               <div className="il-stat-row">
-                <span>Google Rating</span>
-                <strong>5 / 5 ★</strong>
+                <span>Modules</span>
+                <strong>5</strong>
               </div>
               <div className="il-stat-row">
                 <span>Refund Policy</span>
