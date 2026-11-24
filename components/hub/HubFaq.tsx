@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Reveal from "@/components/ui/Reveal";
 import type { Faq } from "@/lib/hub";
 import { cn } from "@/lib/cn";
+import { site } from "@/lib/site";
 
 /** FAQ accordion at the end of Positivity Hub and Platinum. */
 export default function HubFaq({ items, title = "Questions parents ask" }: { items: Faq[]; title?: string }) {
@@ -61,6 +62,12 @@ export default function HubFaq({ items, title = "Questions parents ask" }: { ite
               );
             })}
           </ul>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a href={site.urls.booking} target="_blank" rel="noreferrer" className="btn-primary">
+              Book a Clarity Call →
+            </a>
+            <span className="text-sm text-ink-faint">Still have a question? We&apos;re happy to help.</span>
+          </div>
         </Reveal>
       </div>
     </section>

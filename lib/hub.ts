@@ -245,60 +245,44 @@ export const everyChild = {
 
 export const formatINR = (n: number) => `₹${n.toLocaleString("en-IN")}`;
 
-/* ───────────────────────── FAQs (DRAFT — for approval) ───────────────────────── */
+/* ───────────────────────── FAQs (Positivity Hub + Platinum) ───────────────────────── */
 
 export type Faq = { q: string; a: string };
 
 export const hubFaqs: Faq[] = [
   {
-    q: "What exactly does my child receive?",
-    a: "Three handholding one-to-one sessions (40 minutes each) with a certified Psychologist & Transformation Coach, plus five bonuses: Positive Mind Mastery, Accelerated Learning Methodology and I Love Exams, the 101 Secrets of Positive Parenting audio lessons, and Power Up Live Sessions.",
+    q: "Why is the age of 11 to 17 so important?",
+    a: "These are the years when a child's identity, habits, confidence and thinking patterns take shape. The right guidance now affects how they handle studies, relationships, exam pressure and decisions for the rest of their life.",
   },
   {
-    q: "Is this an academic course or tuition?",
-    a: "No. Its primary focus is emotional well-being, confidence, mindset and life skills. The bonus courses also make studying and exams easier, but the program is not tuition.",
+    q: "My child is a teenager now. Isn't it too late to make a real difference?",
+    a: "Not at all. Teenagers can understand themselves, reflect and make conscious changes in ways younger children can't. With the right approach, many teens show visible changes in focus, confidence and behaviour within a few weeks.",
   },
   {
-    q: "Who attends the one-to-one sessions?",
-    a: "Two sessions are for you and your child together, and one is exclusively for your child, so they can open up freely. For the Clarity Call we recommend that both parents and the child attend.",
+    q: "How will this program help my child?",
+    a: "Every child is different, so we start by understanding your child's specific concerns. It may be lack of focus, low confidence, too much screen time, exam stress or communication gaps at home. The structured programme is then designed around those needs.",
   },
   {
-    q: "How do I book the Clarity Call?",
-    a: "Use the Book a call button. Slots are offered based on availability; once you confirm your preferred time, we check and send the session details on WhatsApp.",
+    q: "Why do both parents need to attend the Clarity Call?",
+    a: "Real change happens when the child and both parents are on the same page. When everyone hears the same guidance together, the child gets consistent support at home, and progress comes faster.",
   },
   {
-    q: "Is this a psychological diagnosis or therapy?",
-    a: "No. The program is for well-being awareness and personal development. It does not diagnose or treat any condition. If you are worried about your child's safety, please contact a doctor or counsellor.",
+    q: "How is this different from tuition or coaching classes?",
+    a: "Tuition teaches subjects. We work on the child's thinking, focus, confidence, emotional balance, and life skills. These sit underneath academic performance and help it improve on its own.",
   },
   {
-    q: "Is this suitable for a child who is already doing well?",
-    a: "Yes. The program also supports children who want to strengthen their existing abilities and personal growth.",
+    q: "How soon will we see results?",
+    a: "Every child moves at their own pace, but most parents start seeing changes in attitude, communication and focus within the first few weeks of consistent participation.",
+  },
+  {
+    q: "Is the program online or offline?",
+    a: "The program is fully online. Your child can join every session from home, with no travel and no disruption to school or other activities. All they need is a stable internet connection and a quiet space.",
+  },
+  {
+    q: "My question is not answered here. What do I do?",
+    a: "Message us on WhatsApp or book a Clarity Call. Our team will be happy to answer any question you have.",
   },
 ];
 
-export const platinumFaqs: Faq[] = [
-  {
-    q: "How is Platinum different from the Positivity Hub?",
-    a: "The Positivity Hub includes three handholding sessions. Platinum is the complete 24-session one-to-one journey across four pillars, with the same five bonuses and daily LevelUp habits that keep the change going between sessions.",
-  },
-  {
-    q: "Do parents take part?",
-    a: "Yes. Session 1 is a joint orientation, Session 5 is an exclusive parent session on your child's EmotionAI Growth Map, and Session 13 brings parent and teen together as a team. Parents also keep one daily habit — the Parent's Affirmation.",
-  },
-  {
-    q: "What are the LevelUp habits?",
-    a: "Four small daily challenges introduced across the journey: Parent's Affirmation, One Victory Today, Flip the Switch and Goal in Sight. Streaks reward consistency, not perfection, and there is no public ranking between children.",
-  },
-  {
-    q: "How is progress measured?",
-    a: "Your child takes the EmotionAI Positivity Tracker assessment early in the journey, and you receive a growth map with strengths, developmental areas and recommendations for home. Progress is reviewed again at the full review and at graduation.",
-  },
-  {
-    q: "Is this therapy?",
-    a: "No. Platinum is coaching for mindset, confidence and life skills. It does not diagnose or treat any condition. If you are worried about your child's safety, please contact a doctor or counsellor.",
-  },
-  {
-    q: "How do we get started?",
-    a: "Book a call. We start with a Clarity Call with Mr. Vidyashankar to understand your child and walk you through the recommended plan.",
-  },
-];
+/** Platinum uses the same FAQs as the Positivity Hub. */
+export const platinumFaqs: Faq[] = hubFaqs;
