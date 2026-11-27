@@ -15,7 +15,8 @@ export default function EveryChild({
   platinum = false,
 }: {
   plan: string;
-  price: number;
+  /** Omit to show no price (Platinum). */
+  price?: number;
   was?: number;
   /** First line of the "what's included" list. */
   core: string;
@@ -60,6 +61,7 @@ export default function EveryChild({
               <p className={cn("text-xs font-semibold uppercase tracking-[0.2em]", platinum ? "platinum-text" : "text-gold")}>
                 {plan}
               </p>
+              {price !== undefined && (
               <div className="mt-5 flex flex-wrap items-end gap-x-4 gap-y-1">
                 {was && (
                   <span className="font-display text-2xl text-ink-faint line-through decoration-red-400/80 decoration-2 md:text-3xl">
@@ -70,13 +72,14 @@ export default function EveryChild({
                   {formatINR(price)}/-
                 </span>
               </div>
-              {was && (
+              )}
+              {was && price !== undefined && (
                 <p className="mt-3 inline-flex rounded-full bg-gold/[0.12] px-3 py-1 text-xs font-medium text-gold">
                   You save {formatINR(was - price)}
                 </p>
               )}
 
-              <ul className="mt-7 space-y-2.5 border-t border-line pt-6">
+              <ul className={cn("space-y-2.5", price !== undefined ? "mt-7 border-t border-line pt-6" : "mt-5")}>
                 {included.map((line, i) => (
                   <li key={line} className="flex gap-3 text-sm leading-snug">
                     <span className={cn("mt-0.5 shrink-0", i === 0 ? "text-gold" : "text-ink-muted")} aria-hidden>

@@ -3,6 +3,7 @@ import Reveal from "@/components/ui/Reveal";
 import YzHero from "@/components/yellowzone/YzHero";
 import VideoPlayer from "@/components/yellowzone/VideoPlayer";
 import TallyEmbed from "@/components/yellowzone/TallyEmbed";
+import Technology from "@/components/yellowzone/Technology";
 import { about, criteria, explainer, gap, gates, methodology, yz } from "@/lib/yellowzone";
 
 export const metadata: Metadata = {
@@ -111,7 +112,10 @@ export default function YellowZoneSchoolsPage() {
         </div>
       </section>
 
-      {/* 6. Criteria — from the Lead Capture page */}
+      {/* 6. Technology — how EPPT turns signals into insight (presentation slide) */}
+      <Technology />
+
+      {/* 7. Criteria — from the Lead Capture page */}
       <section id="criteria" className="section border-t border-line">
         <div className="container-x">
           <Reveal>
@@ -137,7 +141,7 @@ export default function YellowZoneSchoolsPage() {
         </div>
       </section>
 
-      {/* 7. Find out where your campus actually stands */}
+      {/* 8. Find out where your campus actually stands */}
       <section className="section border-t border-line">
         <div className="container-x">
           <Reveal className="relative mx-auto max-w-3xl overflow-hidden rounded-3xl border border-gold/30 bg-gradient-to-br from-gold/[0.10] via-bg-card to-bg-card px-8 py-14 text-center md:px-14">
@@ -161,7 +165,7 @@ export default function YellowZoneSchoolsPage() {
         </div>
       </section>
 
-      {/* 8. YellowZone briefing video */}
+      {/* 9. YellowZone briefing video */}
       <section id="briefing" className="section scroll-mt-20 border-t border-line">
         <div className="container-x">
           <Reveal className="mx-auto max-w-3xl text-center">
@@ -176,7 +180,7 @@ export default function YellowZoneSchoolsPage() {
         </div>
       </section>
 
-      {/* 9. Application */}
+      {/* 10. Application */}
       <section id="apply" className="section scroll-mt-20 border-t border-line">
         <div className="container-x">
           <Reveal className="mx-auto max-w-3xl text-center">
@@ -205,7 +209,7 @@ export default function YellowZoneSchoolsPage() {
         </div>
       </section>
 
-      {/* 10. Before you apply */}
+      {/* 11. Before you apply */}
       <section className="pb-24 md:pb-32">
         <div className="container-x">
           <Reveal stagger className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-3">

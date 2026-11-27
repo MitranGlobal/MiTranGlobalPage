@@ -1,3 +1,5 @@
+import { FACTORS } from "@/lib/emotech";
+
 /**
  * YellowZone Schools page content.
  * Hero, criteria, CTA, video and application come from the YellowZone Lead
@@ -47,18 +49,7 @@ export const methodology = {
     "Structured measurement is what makes a wellbeing standard possible rather than aspirational. EPPT is MiTran Global’s Emotion-AI-based assessment instrument, measuring ten wellbeing factors in a 15-minute online assessment.",
   ],
   emphasis: "It sits inside the standard as an instrument for measurement. It is not the certification.",
-  factors: [
-    "Emotional regulation",
-    "Sense of purpose",
-    "Self-awareness",
-    "Healthy lifestyle",
-    "Adaptability",
-    "Leadership",
-    "Self-management",
-    "Resilience",
-    "Interpersonal skills",
-    "Decision-making",
-  ],
+  factors: FACTORS,
 };
 
 /** What a certified school has in place (codes are the report identifiers). */

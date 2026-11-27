@@ -57,7 +57,6 @@ export default function PlatinumPage() {
       <EveryChild
         platinum
         plan="Positivity Hub Platinum"
-        price={49990}
         core="24 one-to-one sessions across four pillars, with daily LevelUp habits"
       />
 
