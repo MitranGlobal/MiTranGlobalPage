@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
 import MeetTheCoach from "@/components/about/MeetTheCoach";
@@ -20,53 +21,24 @@ const MAPS = `https://www.google.com/maps/search/?api=1&query=${encodeURICompone
   "Spaces Shantiniketan, Crescent Tower 4, Prestige Shantiniketan, Krishnarajapuram, Bangalore 560066"
 )}`;
 
-const whatWeDo = [
-  {
-    icon: "👨‍👩‍👧",
-    eyebrow: "For parents",
-    title: "One-to-one programs for teens",
-    body: "The Positivity Hub and the 24-session Platinum journey: personal coaching for your child, guidance for you, and daily habits that make the change last.",
-    links: [
-      { label: "Positivity Hub", href: "/positivity-hub" },
-      { label: "Platinum", href: "/platinum" },
-    ],
-  },
-  {
-    icon: "🎓",
-    eyebrow: "For students",
-    title: "Self-paced online courses",
-    body: "Positive Mind Mastery, Accelerated Learning Methodology and I Love Exams — mindset, study skills and exam confidence, on any device.",
-    links: [
-      { label: "Positive Mind Mastery", href: "/positive-mind-mastery" },
-      { label: "Accelerated Learning", href: "/accelerated-learning" },
-      { label: "I Love Exams", href: "/i-love-exams" },
-    ],
-  },
-  {
-    icon: "🏫",
-    eyebrow: "For schools",
-    title: "YellowZone certification",
-    body: "Whole-campus emotional wellbeing, measured with Emotion AI, scored against a defined standard and independently certified.",
-    links: [{ label: "YellowZone Schools", href: site.urls.yellowZoneSchools }],
-  },
-  {
-    icon: "💬",
-    eyebrow: "For everyone",
-    title: "Free community & resources",
-    body: "A free WhatsApp community for parents, our podcast and a weekly newsletter.",
-    links: [
-      { label: "WhatsApp Community", href: site.urls.whatsapp, external: true },
-      { label: "Podcast", href: site.urls.spotify, external: true },
-      { label: "Newsletter", href: site.urls.newsletter, external: true },
-    ],
-  },
-];
-
 const socials = [
   { name: "instagram", label: "Instagram", href: site.urls.instagram },
   { name: "youtube", label: "YouTube", href: site.urls.youtube },
   { name: "linkedin", label: "LinkedIn", href: site.urls.linkedin },
 ];
+
+function A({ href, external, children }: { href: string; external?: boolean; children: ReactNode }) {
+  const cls = "text-ink underline decoration-gold/50 underline-offset-4 transition-colors hover:text-gold";
+  return external ? (
+    <a href={href} target="_blank" rel="noreferrer" className={cls}>
+      {children}
+    </a>
+  ) : (
+    <Link href={href} className={cls}>
+      {children}
+    </Link>
+  );
+}
 
 export default function AboutPage() {
   return (
@@ -116,49 +88,71 @@ export default function AboutPage() {
 
       {/* What we do */}
       <section className="section border-t border-line">
-        <div className="container-x">
-          <Reveal className="mx-auto max-w-3xl text-center">
+        <div className="container-x grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
+          <Reveal>
             <p className="eyebrow">What we do</p>
             <h2 className="mt-5 text-display-2 font-display">
-              Support for every part of a <span className="gold-text italic">teen&apos;s world</span>
+              We walk alongside <span className="gold-text italic">teens</span>
             </h2>
           </Reveal>
-          <Reveal className="mt-14 grid gap-6 md:grid-cols-2" stagger>
-            {whatWeDo.map((w) => (
-              <article key={w.title} data-reveal-item className="card flex flex-col">
-                <div className="flex items-center gap-3">
-                  <span className="text-3xl" aria-hidden>
-                    {w.icon}
-                  </span>
-                  <p className="text-xs uppercase tracking-[0.18em] text-gold">{w.eyebrow}</p>
-                </div>
-                <h3 className="mt-5 font-display text-2xl">{w.title}</h3>
-                <p className="mt-3 flex-1 leading-relaxed text-ink-muted">{w.body}</p>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {w.links.map((l) =>
-                    "external" in l && l.external ? (
-                      <a
-                        key={l.label}
-                        href={l.href}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="rounded-full border border-line bg-white/[0.03] px-3.5 py-1.5 text-sm text-ink-muted transition-colors hover:border-gold/40 hover:text-ink"
-                      >
-                        {l.label} ↗
-                      </a>
-                    ) : (
-                      <Link
-                        key={l.label}
-                        href={l.href}
-                        className="rounded-full border border-line bg-white/[0.03] px-3.5 py-1.5 text-sm text-ink-muted transition-colors hover:border-gold/40 hover:text-ink"
-                      >
-                        {l.label} →
-                      </Link>
-                    )
-                  )}
-                </div>
-              </article>
-            ))}
+          <Reveal delay={0.1} className="space-y-5 leading-relaxed text-ink-muted md:text-lg">
+            <p>
+              We work with teenagers aged 11–17, and with the parents and
+              schools around them.
+            </p>
+            <p>
+              For parents, we run the <A href="/positivity-hub">Positivity Hub</A>{" "}
+              and <A href="/platinum">Platinum</A>: one-to-one programs where a
+              coach works with your child, guides you as a parent, and builds
+              the daily habits that make the change last.
+            </p>
+            <p>
+              For students, we have self-paced online courses:{" "}
+              <A href="/positive-mind-mastery">Positive Mind Mastery</A>,{" "}
+              <A href="/accelerated-learning">Accelerated Learning</A> and{" "}
+              <A href="/i-love-exams">I Love Exams</A>. They cover mindset,
+              study skills and exam confidence.
+            </p>
+            <p>
+              For schools, we run <A href={site.urls.yellowZoneSchools}>YellowZone</A>,
+              which helps a whole campus look after its students&apos; emotional
+              wellbeing.
+            </p>
+            <p>
+              And for everyone, there&apos;s our free{" "}
+              <A href={site.urls.whatsapp} external>WhatsApp community</A>,
+              our <A href={site.urls.spotify} external>podcast</A> and our{" "}
+              <A href={site.urls.newsletter} external>newsletter</A>.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Why we do it */}
+      <section className="section border-t border-line">
+        <div className="container-x grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
+          <Reveal>
+            <p className="eyebrow">Why we do it</p>
+            <h2 className="mt-5 text-display-2 font-display">
+              Because <span className="gold-text italic">marks</span> aren&apos;t the whole story
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1} className="space-y-5 leading-relaxed text-ink-muted md:text-lg">
+            <p>
+              Most teenagers aren&apos;t struggling with what they know.
+              They&apos;re struggling with how they feel: pressure, comparison,
+              self-doubt, and the things they don&apos;t say at home.
+            </p>
+            <p>
+              School teaches subjects. Very few places teach a child how to
+              handle a bad day or believe in themselves. Parents feel it too.
+              They can see something is off, but they don&apos;t always know
+              how to help.
+            </p>
+            <p>
+              That&apos;s the gap we fill, so no child has to work it out alone
+              and no parent has to guess.
+            </p>
           </Reveal>
         </div>
       </section>
