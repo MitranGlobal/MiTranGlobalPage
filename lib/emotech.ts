@@ -25,7 +25,7 @@ export const systemFlow = {
   eyebrow: "System flow",
   title: "One Platform, From Signal to Support.",
   steps: [
-    { n: "01", icon: "family" as FlowIcon, t: "Enter", d: "Schools & families sign up", tag: { label: "B2B", text: "₹499 per child" } },
+    { n: "01", icon: "family" as FlowIcon, t: "Enter", d: "Schools & families sign up" },
     { n: "02", icon: "checklist" as FlowIcon, t: "Assess", d: "Quick quiz + AI facial assessment" },
     { n: "03", icon: "gauge" as FlowIcon, t: "Score", d: "One score across 10 WHO factors" },
     { n: "04", icon: "report" as FlowIcon, t: "Report", d: "Clear reports for parents & schools" },

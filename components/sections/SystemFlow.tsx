@@ -42,18 +42,6 @@ export default function SystemFlow() {
                 <span className="text-sm font-semibold uppercase tracking-[0.14em]">{s.t}</span>
               </p>
               <p className="mt-2 max-w-[14rem] text-sm leading-relaxed text-ink-muted">{s.d}</p>
-              {s.tag && (
-                <span
-                  className={cn(
-                    "mt-4 inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-xs",
-                    s.highlight
-                      ? "bg-gold-gradient font-semibold text-black"
-                      : "border border-gold/60 text-ink"
-                  )}
-                >
-                  <strong className={s.highlight ? "" : "text-gold"}>{s.tag.label}</strong> {s.tag.text}
-                </span>
-              )}
             </div>
           ))}
         </Reveal>
