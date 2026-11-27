@@ -1,4 +1,5 @@
 import Reveal from "@/components/ui/Reveal";
+import EnrollCta from "./EnrollCta";
 import {
   bonuses,
   clarityCall,
@@ -6,7 +7,6 @@ import {
   handholding,
   handholdingSessions,
 } from "@/lib/hub";
-import { site } from "@/lib/site";
 
 /**
  * Positivity Hub program: the "Dear Parents" letter, an at-a-glance list of
@@ -162,14 +162,7 @@ export default function ProgramDetails() {
                   <div className="mt-6 border-t border-line pt-6">
                     <p className="text-xs uppercase tracking-[0.16em] text-ink-faint">How to book the call</p>
                     <p className="mt-2 text-sm leading-relaxed text-ink-muted">{clarityCall.book}</p>
-                    <a
-                      href={site.urls.booking}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="btn-primary mt-5"
-                    >
-                      Book your Clarity Call →
-                    </a>
+                    <EnrollCta className="mt-5" />
                   </div>
                 </div>
               </div>

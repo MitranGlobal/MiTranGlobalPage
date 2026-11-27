@@ -3,8 +3,6 @@ import PressMarquee from "@/components/sections/PressMarquee";
 import Challenge from "@/components/sections/Challenge";
 import SuccessFramework from "@/components/sections/SuccessFramework";
 import Framework from "@/components/sections/Framework";
-import Platform from "@/components/sections/Platform";
-import SystemFlow from "@/components/sections/SystemFlow";
 import Solution from "@/components/sections/Solution";
 
 export default function HomePage() {
@@ -15,9 +13,7 @@ export default function HomePage() {
       <Challenge />
       <SuccessFramework />
       <Framework />
-      <SystemFlow />
       <Solution />
-      <Platform />
     </>
   );
 }

@@ -8,7 +8,9 @@ export const site = {
     positivityScore: "http://positivity.mitranglobal.com/",
     // Single booking link used by every "book a call / appointment" CTA
     booking: "https://calendar.mitranglobal.com/v3/1-1-session/consultation",
-    whatsapp: "https://chat.whatsapp.com/JxY3FynELhu0oE8C2nHcP1",
+    // Positivity Hub "Enroll your child" buttons (update when the ₹4,999 checkout link is ready)
+    hubCheckout: "https://hub.mitranglobal.com/web/checkout/6ace0ed5f506917ea09e28b5",
+    whatsapp: "https://chat.whatsapp.com/FhSY2Kr2mdI3UxZNPqzVjz",
     spotify: "https://open.spotify.com/show/58xhAnoYMVgPTQK0Ea2jmD",
     ebook:
       "https://drive.google.com/file/d/1RfUt1xS02z4r0y1InDi0jUbspDTEYd0X/view",
@@ -222,39 +224,6 @@ export const stats = [
   { value: "10K+", label: "Learners on the Hub" },
   { value: "1000+", label: "Video lessons" },
   { value: "98+", label: "Emotions measured" },
-];
-
-export const platformFeatures = [
-  {
-    icon: "📺",
-    title: "Self-paced Courses",
-    body: "Learn at your own pace with all our online courses covering essential academic and personal growth skills — any time, any device.",
-  },
-  {
-    icon: "🎥",
-    title: "Interactive Live Sessions",
-    body: "Expert-led interactive live sessions aligned with course modules, featuring transformational coaching for lasting learning.",
-  },
-  {
-    icon: "📊",
-    title: "Scientific Assessments",
-    body: "Structured assessments and emotional evaluations to track progress, identify gaps, and celebrate growth.",
-  },
-  {
-    icon: "🏅",
-    title: "Verified Certificates",
-    body: "Official certifications upon course completion, validating learning and achievements for portfolio and applications.",
-  },
-  {
-    icon: "🎮",
-    title: "Gamification & Leaderboard",
-    body: "A dynamic leaderboard fosters healthy competition. Daily prompts and structured tasks build lasting habits.",
-  },
-  {
-    icon: "🤝",
-    title: "Community & Peer Learning",
-    body: "Peer discussions, community challenges, and parent connections — because positivity grows in community.",
-  },
 ];
 
 export type PressLogo = { name: string; src: string };

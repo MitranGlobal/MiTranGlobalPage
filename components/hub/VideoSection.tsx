@@ -3,6 +3,7 @@
 import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Reveal from "@/components/ui/Reveal";
+import EnrollCta from "./EnrollCta";
 import { vsl, vslSection } from "@/lib/hub";
 import { validateLead, type LeadErrors, type LeadField } from "@/lib/lead";
 import { hasSignedUp, rememberSignUp } from "@/lib/leadStorage";
@@ -44,6 +45,7 @@ export default function VideoSection() {
 
         <Reveal>
           <p className="mt-14 max-w-prose text-lg font-medium leading-relaxed">{vslSection.closing}</p>
+          <EnrollCta className="mt-8" />
         </Reveal>
       </div>
     </section>

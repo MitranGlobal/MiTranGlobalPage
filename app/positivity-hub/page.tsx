@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function PositivityHubPage() {
   return (
     <>
-      <HubHero nextHref="#missing-skill" nextLabel="Does this sound like your child?" />
+      <HubHero nextHref="#missing-skill" nextLabel="Does this sound like your child?" showCall={false} />
       <MissingSkill />
       <ProgramDetails />
       <BonusesFinal />
@@ -27,8 +27,9 @@ export default function PositivityHubPage() {
         was={38950}
         price={4999}
         core="3 handholding one-to-one sessions (40 minutes each)"
+        enroll
       />
-      <HubFaq items={hubFaqs} />
+      <HubFaq items={hubFaqs} enroll />
     </>
   );
 }

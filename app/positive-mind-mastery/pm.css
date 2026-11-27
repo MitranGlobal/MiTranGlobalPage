@@ -76,9 +76,9 @@
 .pm-head-left { margin-left: 0; text-align: left; }
 .pm-center { display: flex; justify-content: center; margin-top: 44px; }
 
-.pm-sec { position: relative; padding: 96px 0; border-top: 1px solid var(--pm-line); }
+.pm-sec { position: relative; padding: 64px 0; border-top: 1px solid var(--pm-line); }
 @media (max-width: 700px) {
-  .pm-sec { padding: 64px 0; }
+  .pm-sec { padding: 48px 0; }
   .pm-head { margin-bottom: 36px; }
 }
 
@@ -493,11 +493,11 @@
 .pm-cert {
   position: relative;
   overflow: hidden;
-  padding: 100px 0;
+  padding: 64px 0;
   border-top: 1px solid var(--pm-line);
   background: linear-gradient(180deg, #110e1d 0%, #0b0a12 100%);
 }
-@media (max-width: 700px) { .pm-cert { padding: 64px 0; } }
+@media (max-width: 700px) { .pm-cert { padding: 48px 0; } }
 .pm-cert-glow { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(640px 360px at 50% 100%, rgba(181, 140, 250, 0.18), transparent 70%); }
 .pm-cert-inner { position: relative; }
 .pm-steps {
@@ -894,8 +894,8 @@
 /* =====================================================================
    13. COACH
    ===================================================================== */
-.pm-coach { padding: 96px 0; border-top: 1px solid var(--pm-line); background: linear-gradient(180deg, #0e0c17 0%, #08090c 100%); }
-@media (max-width: 700px) { .pm-coach { padding: 64px 0; } }
+.pm-coach { padding: 64px 0; border-top: 1px solid var(--pm-line); background: linear-gradient(180deg, #0e0c17 0%, #08090c 100%); }
+@media (max-width: 700px) { .pm-coach { padding: 48px 0; } }
 .pm-coach-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px; align-items: center; }
 @media (max-width: 960px) { .pm-coach-grid { grid-template-columns: 1fr; gap: 44px; } }
 .pm-coach-photo-wrap { max-width: 460px; width: 100%; margin: 0 auto; }
@@ -958,12 +958,12 @@
 .pm-band {
   position: relative;
   overflow: hidden;
-  padding: 96px 0;
+  padding: 64px 0;
   background: linear-gradient(135deg, #f5d17a 0%, #e9c46a 45%, #c99b3a 100%);
   color: #141a33;
   text-align: center;
 }
-@media (max-width: 700px) { .pm-band { padding: 64px 0; } }
+@media (max-width: 700px) { .pm-band { padding: 48px 0; } }
 .pm-band-word {
   position: absolute;
   top: 50%;

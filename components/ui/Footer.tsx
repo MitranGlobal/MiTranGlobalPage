@@ -19,7 +19,6 @@ const cols = [
   {
     title: "Resources",
     links: [
-      { label: "Free Ebook", href: site.urls.ebook, external: true },
       { label: "Podcast", href: site.urls.spotify, external: true },
       { label: "Newsletter", href: site.urls.newsletter, external: true },
       { label: "WhatsApp Community", href: site.urls.whatsapp, external: true },

@@ -19,7 +19,7 @@ export default function PageShell({
 }: Props) {
   return (
     <>
-      <section className="relative overflow-hidden pt-36 pb-20 md:pt-48">
+      <section className="relative overflow-hidden pt-32 pb-14 md:pt-40">
         <div className="pointer-events-none absolute inset-0 -z-10 bg-grid-fade" />
         <div className="container-x">
           <Reveal className="mx-auto max-w-4xl text-center">

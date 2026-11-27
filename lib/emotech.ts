@@ -1,6 +1,6 @@
 /**
  * MiTran Global EmoTech — content from the MiTran Global presentation.
- * Slide 1 "System Flow" and slide 2 "The Solution" are on the home page;
+ * Slide 2 "The Solution" is on the home page;
  * slide 3 "Technology" is on the YellowZone Schools page.
  */
 
@@ -17,21 +17,6 @@ export const FACTORS = [
   "Interpersonal skills",
   "Decision-making",
 ];
-
-export type FlowIcon = "family" | "checklist" | "gauge" | "report" | "handshake";
-
-/* ───────── Slide 1 · System Flow ───────── */
-export const systemFlow = {
-  eyebrow: "System flow",
-  title: "One Platform, From Signal to Support.",
-  steps: [
-    { n: "01", icon: "family" as FlowIcon, t: "Enter", d: "Schools & families sign up" },
-    { n: "02", icon: "checklist" as FlowIcon, t: "Assess", d: "Quick quiz + AI facial assessment" },
-    { n: "03", icon: "gauge" as FlowIcon, t: "Score", d: "One score across 10 WHO factors" },
-    { n: "04", icon: "report" as FlowIcon, t: "Report", d: "Clear reports for parents & schools" },
-    { n: "05", icon: "handshake" as FlowIcon, t: "Act", d: "Content, psychologist & coaching", highlight: true },
-  ],
-};
 
 /* ───────── Slide 2 · The Solution ───────── */
 export const solution = {

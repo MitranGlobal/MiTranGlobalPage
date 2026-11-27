@@ -99,11 +99,11 @@
 
 .al-sec {
   position: relative;
-  padding: 96px 0;
+  padding: 64px 0;
   border-top: 1px solid var(--al-line);
 }
 @media (max-width: 700px) {
-  .al-sec { padding: 64px 0; }
+  .al-sec { padding: 48px 0; }
   .al-head { margin-bottom: 36px; }
 }
 
@@ -516,12 +516,12 @@
    ===================================================================== */
 .al-cert {
   position: relative;
-  padding: 100px 0;
+  padding: 64px 0;
   overflow: hidden;
   border-top: 1px solid var(--al-line);
   background: linear-gradient(180deg, #0b1424 0%, #0a1220 100%);
 }
-@media (max-width: 700px) { .al-cert { padding: 64px 0; } }
+@media (max-width: 700px) { .al-cert { padding: 48px 0; } }
 .al-cert-glow {
   position: absolute;
   inset: 0;
@@ -717,11 +717,11 @@
    ===================================================================== */
 .al-outcomes {
   position: relative;
-  padding: 96px 0;
+  padding: 64px 0;
   border-top: 1px solid var(--al-line);
   background: linear-gradient(180deg, #0a1220 0%, #08090c 100%);
 }
-@media (max-width: 700px) { .al-outcomes { padding: 64px 0; } }
+@media (max-width: 700px) { .al-outcomes { padding: 48px 0; } }
 .al-stairs {
   display: flex;
   align-items: flex-end;
@@ -1044,11 +1044,11 @@
    12. COACH
    ===================================================================== */
 .al-coach {
-  padding: 96px 0;
+  padding: 64px 0;
   border-top: 1px solid var(--al-line);
   background: linear-gradient(180deg, #0b1220 0%, #0a1220 100%);
 }
-@media (max-width: 700px) { .al-coach { padding: 64px 0; } }
+@media (max-width: 700px) { .al-coach { padding: 48px 0; } }
 .al-coach-grid {
   display: grid;
   grid-template-columns: 1.12fr 0.88fr;
@@ -1133,12 +1133,12 @@
 .al-band {
   position: relative;
   overflow: hidden;
-  padding: 96px 0;
+  padding: 64px 0;
   background: linear-gradient(135deg, #f5d17a 0%, #e9c46a 45%, #c99b3a 100%);
   color: #141a33;
   text-align: center;
 }
-@media (max-width: 700px) { .al-band { padding: 64px 0; } }
+@media (max-width: 700px) { .al-band { padding: 48px 0; } }
 .al-band-word {
   position: absolute;
   top: 50%;

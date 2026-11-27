@@ -67,7 +67,7 @@
   }
 
   .section {
-    @apply relative py-24 md:py-32;
+    @apply relative py-14 md:py-20;
   }
 
   .divider {

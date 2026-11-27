@@ -19,8 +19,11 @@ export default function HubHero({
   platinum = false,
   nextHref,
   nextLabel,
+  showCall = true,
 }: {
   platinum?: boolean;
+  /** Show the secondary "Book a call" button (off on the Positivity Hub page). */
+  showCall?: boolean;
   /** On-page anchor for the primary button, e.g. "#missing-skill". */
   nextHref: string;
   nextLabel: string;
@@ -117,19 +120,21 @@ export default function HubHero({
 
             <motion.div
               {...rise(5)}
-              className="mt-9 flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
+              className="mt-9 flex w-full flex-col items-center justify-center gap-3 sm:flex-row"
             >
               <a href={nextHref} className="btn-primary px-8 py-4 text-base">
                 {nextLabel} <span aria-hidden>↓</span>
               </a>
-              <a
-                href={site.urls.booking}
-                target="_blank"
-                rel="noreferrer"
-                className="btn-ghost px-8 py-4 text-base"
-              >
-                Book a call
-              </a>
+              {showCall && (
+                <a
+                  href={site.urls.booking}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-ghost px-8 py-4 text-base"
+                >
+                  Book a call
+                </a>
+              )}
             </motion.div>
           </div>
         </div>

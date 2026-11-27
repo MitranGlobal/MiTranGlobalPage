@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function QuizPage() {
   return (
-    <section className="relative overflow-hidden pb-24 pt-32 md:pb-32 md:pt-44">
+    <section className="relative overflow-hidden pb-16 pt-28 md:pb-20 md:pt-36">
       <div className="pointer-events-none absolute inset-0 -z-10 bg-grid-fade" aria-hidden />
       <div className="container-x">
         <QuizFlow />

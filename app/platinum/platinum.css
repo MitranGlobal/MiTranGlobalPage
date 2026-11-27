@@ -30,10 +30,10 @@
 
 .pl-section {
   position: relative;
-  padding: 96px 0;
+  padding: 64px 0;
   border-top: 1px solid var(--pl-line);
 }
-@media (max-width: 700px){ .pl-section { padding: 64px 0; } }
+@media (max-width: 700px){ .pl-section { padding: 48px 0; } }
 
 .pl-head { max-width: 780px; margin: 0 auto 56px; text-align: center; }
 .pl-eyebrow {
@@ -159,12 +159,12 @@
 ================================================================ */
 .pl-compass-sec {
   position: relative;
-  padding: 96px 0;
+  padding: 64px 0;
   background: linear-gradient(180deg, #0a1220 0%, #0b1424 100%);
   border-top: 1px solid var(--pl-line);
   overflow: hidden;
 }
-@media (max-width: 700px){ .pl-compass-sec { padding: 64px 0; } }
+@media (max-width: 700px){ .pl-compass-sec { padding: 48px 0; } }
 .pl-compass-bg {
   position: absolute; inset: 0;
   pointer-events: none;

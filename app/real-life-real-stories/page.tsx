@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const meta = [
   { n: "10,000+", l: "Learners on the Hub" },
-  { n: "100%", l: "Real students, real words" },
+  { n: "1000+", l: "Video lessons" },
   { n: "11–17", l: "The age that shapes a life" },
 ];
 
@@ -20,7 +20,7 @@ export default function RealLifeRealStoriesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden pb-14 pt-36 md:pb-20 md:pt-48">
+      <section className="relative overflow-hidden pb-10 pt-32 md:pb-14 md:pt-40">
         <div className="pointer-events-none absolute inset-0 -z-10 bg-grid-fade" aria-hidden />
         <div className="container-x">
           <Reveal className="mx-auto max-w-4xl text-center">
@@ -45,7 +45,7 @@ export default function RealLifeRealStoriesPage() {
       </section>
 
       {/* Stories */}
-      <section className="pb-24 md:pb-32">
+      <section className="pb-16 md:pb-20">
         <div className="container-x">
           <div className="columns-1 gap-6 md:columns-2 lg:columns-3">
             {stories.map((s) => (

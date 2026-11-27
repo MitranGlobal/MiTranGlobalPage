@@ -3,12 +3,12 @@ import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
 import MeetTheCoach from "@/components/about/MeetTheCoach";
 import SocialIcon from "@/components/ui/SocialIcon";
-import { pillars, site } from "@/lib/site";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About Us — MiTran Global",
   description:
-    "MiTran Global builds confident, resilient and future-ready teenagers through the science-backed Positivity Framework™ — for parents, students and schools.",
+    "MiTran Global helps teenagers aged 11–17 grow into confident, resilient and positive young people — working with parents, students and schools.",
 };
 
 const ADDRESS = [
@@ -53,7 +53,7 @@ const whatWeDo = [
     icon: "💬",
     eyebrow: "For everyone",
     title: "Free community & resources",
-    body: "A free WhatsApp community for parents, our podcast, a weekly newsletter and a free ebook by Vidyashankar Guru.",
+    body: "A free WhatsApp community for parents, our podcast and a weekly newsletter.",
     links: [
       { label: "WhatsApp Community", href: site.urls.whatsapp, external: true },
       { label: "Podcast", href: site.urls.spotify, external: true },
@@ -72,7 +72,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden pb-16 pt-36 md:pb-24 md:pt-48">
+      <section className="relative overflow-hidden pb-12 pt-32 md:pb-16 md:pt-40">
         <div className="pointer-events-none absolute inset-0 -z-10 bg-grid-fade" aria-hidden />
         <div className="container-x">
           <Reveal className="mx-auto max-w-4xl text-center">
@@ -89,38 +89,27 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Who we are */}
+      {/* What MiTran Global is */}
       <section className="section border-t border-line">
-        <div className="container-x grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
+        <div className="container-x grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
           <Reveal>
             <p className="eyebrow">Who we are</p>
             <h2 className="mt-5 text-display-2 font-display">
-              The most important skill of this generation is{" "}
-              <span className="gold-text italic">positivity</span>
+              What is <span className="gold-text italic">MiTran Global?</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="leading-relaxed text-ink-muted md:text-lg">
-              Children today face mobile addiction, peer pressure, academic
-              stress and constant negativity. Even the most talented child can
-              stall under self-doubt — while a child with average skills, who
-              stays positive and motivated, can achieve remarkable things.
+              MiTran Global is a Bangalore-based education company that helps
+              teenagers aged 11–17 grow into confident, resilient and
+              positive young people.
             </p>
             <p className="mt-5 leading-relaxed text-ink-muted md:text-lg">
-              MiTran Global was built to teach that positivity systematically.
-              Our Positivity Framework™ combines Neuro-Linguistic Programming,
-              human psychology and Emotion-AI assessment with coaching, courses
-              and community — reinforced consistently until it becomes a
-              mindset.
+              Marks show what a child knows. We focus on what helps them use
+              it: handling pressure, staying focused, believing in themselves
+              and talking openly at home. We work alongside parents, students
+              and schools, so a child gets the same support wherever they are.
             </p>
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
-              {pillars.map((p) => (
-                <div key={p.n} className="rounded-2xl border border-line bg-white/[0.02] p-4">
-                  <span className="font-display text-xl gold-text">{p.n}</span>
-                  <p className="mt-1 font-display text-lg">{p.title}</p>
-                </div>
-              ))}
-            </div>
           </Reveal>
         </div>
       </section>
@@ -170,6 +159,27 @@ export default function AboutPage() {
                 </div>
               </article>
             ))}
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Our vision */}
+      <section className="section border-t border-line">
+        <div className="container-x">
+          <Reveal className="relative mx-auto max-w-4xl overflow-hidden rounded-3xl border border-gold/30 bg-gradient-to-br from-gold/[0.10] via-bg-card to-bg-card px-8 py-12 text-center md:px-16 md:py-16">
+            <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gold/10 blur-3xl" aria-hidden />
+            <p className="eyebrow relative">Our vision</p>
+            <h2 className="relative mt-6 text-display-2 font-display">
+              Every child has the right to feel{" "}
+              <span className="gold-text italic">#positive</span>
+            </h2>
+            <p className="relative mx-auto mt-6 max-w-2xl leading-relaxed text-ink-muted md:text-lg">
+              We want every child to grow up emotionally strong — able to face
+              pressure, bounce back from setbacks and believe in what they can
+              do. That means positivity taught as deliberately as any school
+              subject: at home, with parents who know how to support, and at
+              school, with a clear standard for emotional wellbeing.
+            </p>
           </Reveal>
         </div>
       </section>

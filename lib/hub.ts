@@ -289,5 +289,46 @@ export const hubFaqs: Faq[] = [
   },
 ];
 
-/** Platinum uses the same FAQs as the Positivity Hub. */
-export const platinumFaqs: Faq[] = hubFaqs;
+/** Positivity Hub Platinum FAQs — Platinum-specific questions plus shared ones. */
+export const platinumFaqs: Faq[] = [
+  {
+    q: "Why does my child need one-to-one mentoring? Isn't a course or tuition enough?",
+    a: "Courses and tuition work on what your child knows. Most of the struggles parents bring to us — freezing in exams, losing focus, giving up quickly, going quiet at home — come from what is happening inside: beliefs, emotions and habits. In Platinum, one coach works live and one-to-one with your child, knows their whole story, and builds every session around them. That is something no recording or classroom can do.",
+  },
+  {
+    q: "Why 24 sessions? Isn't that a lot?",
+    a: "Real change needs time to stick. A few sessions can lift your child's mood for a week; 24 sessions rebuild how they think, feel and act. The journey moves through four stages of six sessions each — mindset, self-leadership, performance and guided implementation — and a new daily habit is added at each stage, so every change is practised until it becomes who your child is.",
+  },
+  {
+    q: "How long does Platinum take, and how are sessions held?",
+    a: "Platinum is 24 live one-to-one sessions, usually completed over about 90 days. Every session is online, so your child joins from home with no travel and no disruption to school. All they need is a stable internet connection and a quiet space.",
+  },
+  {
+    q: "Is Platinum really worth the investment for our family?",
+    a: "Think of what your child carries for life: how they handle pressure, setbacks, relationships and decisions. Platinum works on exactly that — not on one subject or one exam. It also includes everything in the Positivity Hub: all three flagship courses, the parenting audio lessons and Power Up live sessions. Parents tell us the biggest return is a calmer, more confident child and a home that talks again.",
+  },
+  {
+    q: "Who is Platinum best suited for?",
+    a: "Children aged 11–17 who were once bright and motivated but have gone quiet; children whose ability is not in question but whose confidence, focus or emotions hold them back; and children facing big transitions such as board exams, Grade 11, hostel life or college entrance. It is equally right for a child who is doing well and wants to go further.",
+  },
+  {
+    q: "How will we know our child is actually changing?",
+    a: "Early in the journey your child takes the EmotionAI Positivity Tracker assessment, and in an exclusive parent session we walk you through their growth map — strengths, areas to develop and what to do at home. Progress is reviewed again at the full review and at graduation, and the daily LevelUp habits let you see small wins week by week.",
+  },
+  {
+    q: "What is our role as parents?",
+    a: "You are part of the journey. Session 1 is a joint orientation, Session 5 is an exclusive parent session, and Session 13 brings parent and child together as a team. You also keep one simple daily habit — the Parent's Affirmation — which turns home into a place that supports the change.",
+  },
+  {
+    q: "Why is the age of 11 to 17 so important?",
+    a: "These are the years when a child's identity, habits, confidence and thinking patterns take shape. The right guidance now affects how they handle studies, relationships, exam pressure and decisions for the rest of their life.",
+  },
+  {
+    q: "How soon will we see results?",
+    a: "Every child moves at their own pace, but most parents start seeing changes in attitude, communication and focus within the first few weeks of consistent participation.",
+  },
+  {
+    q: "My question is not answered here. What do I do?",
+    a: "Message us on WhatsApp or book a call. Our team will be happy to answer any question you have.",
+  },
+];

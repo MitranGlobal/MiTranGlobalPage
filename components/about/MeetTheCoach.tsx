@@ -36,7 +36,7 @@ export default function MeetTheCoach() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <p className="pm-eyebrow">Meet the coach</p>
+            <p className="pm-eyebrow">Meet the Co-founder &amp; Chief Vision Officer</p>
             <h2 className="pm-h2">
               22+ years of transforming <em className="pm-em">young minds</em>
             </h2>

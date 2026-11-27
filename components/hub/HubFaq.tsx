@@ -6,9 +6,19 @@ import Reveal from "@/components/ui/Reveal";
 import type { Faq } from "@/lib/hub";
 import { cn } from "@/lib/cn";
 import { site } from "@/lib/site";
+import EnrollCta from "./EnrollCta";
 
 /** FAQ accordion at the end of Positivity Hub and Platinum. */
-export default function HubFaq({ items, title = "Questions parents ask" }: { items: Faq[]; title?: string }) {
+export default function HubFaq({
+  items,
+  title = "Questions parents ask",
+  enroll = false,
+}: {
+  items: Faq[];
+  title?: string;
+  /** Positivity Hub: "Enroll your child" instead of "Book a Clarity Call". */
+  enroll?: boolean;
+}) {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
@@ -62,12 +72,16 @@ export default function HubFaq({ items, title = "Questions parents ask" }: { ite
               );
             })}
           </ul>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <a href={site.urls.booking} target="_blank" rel="noreferrer" className="btn-primary">
-              Book a Clarity Call →
-            </a>
-            <span className="text-sm text-ink-faint">Still have a question? We&apos;re happy to help.</span>
-          </div>
+          {enroll ? (
+            <EnrollCta className="mt-8" />
+          ) : (
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <a href={site.urls.booking} target="_blank" rel="noreferrer" className="btn-primary">
+                Book a Clarity Call →
+              </a>
+              <span className="text-sm text-ink-faint">Still have a question? We&apos;re happy to help.</span>
+            </div>
+          )}
         </Reveal>
       </div>
     </section>

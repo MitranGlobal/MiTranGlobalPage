@@ -944,10 +944,10 @@ const IL_CSS = `
 
 .il-sec {
   position: relative;
-  padding: 96px 0;
+  padding: 64px 0;
   border-top: 1px solid var(--il-line);
 }
-@media (max-width: 700px){ .il-sec { padding: 64px 0; } }
+@media (max-width: 700px){ .il-sec { padding: 48px 0; } }
 
 .il-head { max-width: 780px; margin: 0 auto 56px; text-align: center; }
 .il-head-tight { margin-bottom: 40px; }
@@ -1457,7 +1457,7 @@ const IL_CSS = `
 ================================================================ */
 .il-cert {
   position: relative;
-  padding: 100px 0;
+  padding: 64px 0;
   background: linear-gradient(180deg, #0d1524 0%, #0a1220 100%);
   border-top: 1px solid var(--il-line);
   overflow: hidden;
@@ -1624,7 +1624,7 @@ const IL_CSS = `
 ================================================================ */
 .il-outcomes {
   position: relative;
-  padding: 96px 0;
+  padding: 64px 0;
   background:
     linear-gradient(180deg, #0a1220 0%, #08090c 100%);
   border-top: 1px solid var(--il-line);
@@ -1639,7 +1639,7 @@ const IL_CSS = `
   background-size: 40px 40px;
   pointer-events: none;
 }
-@media (max-width: 700px){ .il-outcomes { padding: 64px 0; } }
+@media (max-width: 700px){ .il-outcomes { padding: 48px 0; } }
 .il-outcomes-grid {
   position: relative;
   display: grid;
@@ -1983,11 +1983,11 @@ const IL_CSS = `
 ================================================================ */
 .il-coach {
   position: relative;
-  padding: 96px 0;
+  padding: 64px 0;
   background: linear-gradient(180deg, #0b1220 0%, #0a1220 100%);
   border-top: 1px solid var(--il-line);
 }
-@media (max-width: 700px){ .il-coach { padding: 64px 0; } }
+@media (max-width: 700px){ .il-coach { padding: 48px 0; } }
 .il-coach-grid {
   display: grid; grid-template-columns: 1.15fr 1fr;
   gap: 60px; align-items: center;

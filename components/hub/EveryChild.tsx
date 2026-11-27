@@ -1,4 +1,5 @@
 import Reveal from "@/components/ui/Reveal";
+import EnrollCta from "./EnrollCta";
 import { bonuses, everyChild, formatINR } from "@/lib/hub";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/cn";
@@ -13,6 +14,7 @@ export default function EveryChild({
   was,
   core,
   platinum = false,
+  enroll = false,
 }: {
   plan: string;
   /** Omit to show no price (Platinum). */
@@ -21,6 +23,8 @@ export default function EveryChild({
   /** First line of the "what's included" list. */
   core: string;
   platinum?: boolean;
+  /** Positivity Hub: "Enroll your child" instead of "Book a call". */
+  enroll?: boolean;
 }) {
   const included = [core, ...bonuses.map((b) => `${b.label}: ${b.title.split(" — ")[0]}`)];
 
@@ -90,17 +94,23 @@ export default function EveryChild({
                 ))}
               </ul>
 
-              <a
-                href={site.urls.booking}
-                target="_blank"
-                rel="noreferrer"
-                className="btn-primary mt-8 w-full px-8 py-4 text-base"
-              >
-                Book a call to enroll →
-              </a>
-              <p className="mt-3 text-center text-xs text-ink-faint">
-                Start with a Clarity Call — no obligation.
-              </p>
+              {enroll ? (
+                <EnrollCta full className="mt-8" />
+              ) : (
+                <>
+                  <a
+                    href={site.urls.booking}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn-primary mt-8 w-full px-8 py-4 text-base"
+                  >
+                    Book a call to enroll →
+                  </a>
+                  <p className="mt-3 text-center text-xs text-ink-faint">
+                    Start with a Clarity Call — no obligation.
+                  </p>
+                </>
+              )}
             </div>
           </div>
         </Reveal>

@@ -19,7 +19,7 @@ export default function Challenge() {
       </Reveal>
       <ImageBand items={familiarBand} label="Situations parents tell us about" />
 
-      <div className="container-x grid gap-12 py-20 md:py-28 lg:grid-cols-[1fr_1.2fr] lg:items-center">
+      <div className="container-x grid gap-12 py-14 md:py-20 lg:grid-cols-[1fr_1.2fr] lg:items-center">
         <Reveal>
           <p className="eyebrow">The Challenge</p>
           <h2 className="mt-5 text-display-2 font-display">

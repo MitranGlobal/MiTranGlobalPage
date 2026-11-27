@@ -210,7 +210,7 @@ export default function YellowZoneSchoolsPage() {
       </section>
 
       {/* 11. Before you apply */}
-      <section className="pb-24 md:pb-32">
+      <section className="pb-16 md:pb-20">
         <div className="container-x">
           <Reveal stagger className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-3">
             {gates.map((g) => (
