@@ -72,7 +72,7 @@ export default function AboutPage() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="leading-relaxed text-ink-muted md:text-lg">
-              MiTran Global is a Bangalore-based education company that helps
+              MiTran Global is an educational company that helps
               teenagers aged 11–17 grow into confident, resilient and
               positive young people.
             </p>
