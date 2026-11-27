@@ -22,7 +22,7 @@ const cols = [
       { label: "Podcast", href: site.urls.spotify, external: true },
       { label: "Newsletter", href: site.urls.newsletter, external: true },
       { label: "WhatsApp Community", href: site.urls.whatsapp, external: true },
-      { label: "Take the Quiz", href: "/quiz" },
+      ...(site.features.quiz ? [{ label: "Take the Quiz", href: "/quiz" }] : []),
     ],
   },
   {

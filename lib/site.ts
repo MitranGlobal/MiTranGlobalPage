@@ -1,6 +1,10 @@
 export const site = {
   name: "MiTran Global",
   tagline: "Positivity Framework™ for Teens 11–17",
+  /** Switch features on/off site-wide. The quiz code stays; set quiz: true to bring it back. */
+  features: {
+    quiz: false,
+  },
   urls: {
     enroll: "https://hub.mitranglobal.com/web/login",
     checkout:

@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "@/components/ui/Nav";
 import Footer from "@/components/ui/Footer";
 import QuizModal from "@/components/quiz/QuizModal";
+import { site } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -41,7 +42,7 @@ export default function RootLayout({
         <Nav />
         <main className="relative">{children}</main>
         <Footer />
-        <QuizModal />
+        {site.features.quiz && <QuizModal />}
       </body>
     </html>
   );

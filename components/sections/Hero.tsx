@@ -65,20 +65,22 @@ export default function Hero() {
               variants={item}
               className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center"
             >
-              <button
-                type="button"
-                onClick={showQuiz}
-                className="btn-primary px-8 py-4 text-base"
-              >
-                Take a Quiz →
-              </button>
+              {site.features.quiz && (
+                <button
+                  type="button"
+                  onClick={showQuiz}
+                  className="btn-primary px-8 py-4 text-base"
+                >
+                  Take a Quiz →
+                </button>
+              )}
               <a
                 href={site.urls.booking}
                 target="_blank"
                 rel="noreferrer"
-                className="btn-ghost px-8 py-4 text-base"
+                className={`${site.features.quiz ? "btn-ghost" : "btn-primary"} px-8 py-4 text-base`}
               >
-                Book a call
+                {site.features.quiz ? "Book a call" : "Book a call →"}
               </a>
             </motion.div>
           </motion.div>

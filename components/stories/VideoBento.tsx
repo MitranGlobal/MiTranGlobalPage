@@ -87,7 +87,7 @@ function QuoteTile({ s }: { s: Story }) {
         &ldquo;
       </span>
       <p className="font-display text-lg leading-snug md:text-xl">&ldquo;{s.pull}&rdquo;</p>
-      <p className="mt-3 line-clamp-4 text-sm leading-relaxed text-ink-muted md:line-clamp-7">{s.quote}</p>
+      <p className="mt-3 line-clamp-4 text-sm leading-relaxed text-ink-muted md:line-clamp-6">{s.quote}</p>
       <div className="mt-auto flex items-center gap-3 pt-4">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={s.photo} alt={s.name} className="h-10 w-10 shrink-0 rounded-full object-cover ring-2 ring-gold/70" />
