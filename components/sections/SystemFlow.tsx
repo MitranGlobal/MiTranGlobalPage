@@ -1,3 +1,4 @@
+import { ChevronRight } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import EmoIcon from "@/components/emotech/EmoIcon";
 import { systemFlow } from "@/lib/emotech";
@@ -22,9 +23,9 @@ export default function SystemFlow() {
               {i < systemFlow.steps.length - 1 && (
                 <span
                   aria-hidden
-                  className="absolute left-[calc(50%+3.75rem)] right-[calc(-50%+3.75rem)] top-12 hidden items-center justify-center text-2xl text-gold lg:flex"
+                  className="absolute left-[calc(50%+3.5rem)] right-[calc(-50%+3.5rem)] top-0 hidden h-24 items-center justify-center text-gold lg:flex"
                 >
-                  ›
+                  <ChevronRight className="h-6 w-6" strokeWidth={2.25} />
                 </span>
               )}
               <span

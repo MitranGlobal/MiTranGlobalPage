@@ -1,3 +1,4 @@
+import { ChevronRight } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import EmoIcon from "@/components/emotech/EmoIcon";
 import { technology } from "@/lib/emotech";
@@ -11,8 +12,8 @@ function Num({ n }: { n: string }) {
 /** Arrow between flow stages: right on desktop, down on mobile. */
 function Arrow() {
   return (
-    <span aria-hidden className="grid place-items-center text-2xl text-gold">
-      <span className="rotate-90 lg:rotate-0">›</span>
+    <span aria-hidden className="grid place-items-center text-gold">
+      <ChevronRight className="h-6 w-6 rotate-90 lg:rotate-0" strokeWidth={2.25} />
     </span>
   );
 }
